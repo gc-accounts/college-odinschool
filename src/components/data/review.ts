@@ -1,0 +1,110 @@
+const reviews = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      avatar: "/placeholder.svg",
+      course: "Advanced JavaScript",
+      date: "March 15, 2025",
+      rating: 5,
+      source: "google",
+      comment: "The Advanced JavaScript course was exactly what I needed to level up my frontend skills. The instructor's explanations were clear and the projects were challenging but achievable. I've already implemented several concepts from the course in my work projects.",
+      helpful: 24,
+      responses: 2
+    },
+    {
+      id: 2,
+      name: "Michael Rodriguez",
+      avatar: "/placeholder.svg",
+      course: "Python for Data Science",
+      date: "February 28, 2025",
+      rating: 4,
+      source: "facebook",
+      comment: "Great introduction to data science with Python. The course content was well-structured and I appreciated the focus on real-world applications. Would have given five stars if there were more advanced exercises at the end of each module.",
+      helpful: 19,
+      responses: 1
+    },
+    {
+      id: 3,
+      name: "Jennifer Wu",
+      avatar: "/placeholder.svg",
+      course: "Full Stack Development",
+      date: "April 2, 2025",
+      rating: 5,
+      source: "trustpilot",
+      comment: "I took the Full Stack Development bootcamp after years of trying to learn on my own. The structured curriculum and mentor support made all the difference. Within three months of completing the course, I landed my first developer job!",
+      helpful: 42,
+      responses: 3
+    },
+    {
+      id: 4,
+      name: "David Thompson",
+      avatar: "/placeholder.svg",
+      course: "React Native Fundamentals",
+      date: "January 10, 2025",
+      rating: 3,
+      source: "coursereport",
+      comment: "The React Native course had good content, but I felt it moved too quickly through some important concepts. The instructor was knowledgeable but sometimes assumed prior experience that wasn't listed in the prerequisites.",
+      helpful: 8,
+      responses: 4
+    },
+    {
+      id: 5,
+      name: "Emily Chen",
+      avatar: "/placeholder.svg",
+      course: "UI/UX Design for Developers",
+      date: "March 22, 2025",
+      rating: 5,
+      source: "google",
+      comment: "As a backend developer trying to improve my frontend skills, this course was perfect. It bridged the gap between technical implementation and good design principles. The instructor's feedback on our projects was incredibly valuable.",
+      helpful: 31,
+      responses: 0
+    },
+    {
+      id: 6,
+      name: "Robert Garcia",
+      avatar: "/placeholder.svg",
+      course: "DevOps and CI/CD",
+      date: "February 5, 2025",
+      rating: 5,
+      source: "facebook",
+      comment: "Excellent course on modern DevOps practices. The hands-on labs using actual cloud services were especially valuable. I was able to implement a CI/CD pipeline at work using the exact techniques taught in this course.",
+      helpful: 27,
+      responses: 1
+    },
+    {
+      id: 7,
+      name: "Priya Patel",
+      avatar: "/placeholder.svg",
+      course: "Machine Learning Fundamentals",
+      date: "April 8, 2025",
+      rating: 4,
+      source: "trustpilot",
+      comment: "The course provided a solid foundation in ML concepts. The math-heavy sections had good visual explanations which helped a lot. Would recommend for anyone looking to get started in the field.",
+      helpful: 15,
+      responses: 2
+    },
+    {
+      id: 8,
+      name: "Thomas Wilson",
+      avatar: "/placeholder.svg",
+      course: "Blockchain Development",
+      date: "March 30, 2025",
+      rating: 4,
+      source: "coursereport",
+      comment: "A comprehensive introduction to blockchain development. The course was well-structured with a good balance of theory and practical exercises. The final project gave me confidence to start building my own dApps.",
+      helpful: 12,
+      responses: 1
+    },
+    {
+      id: 9,
+      name: "Lisa Nguyen",
+      avatar: "/placeholder.svg",
+      course: "Cloud Architecture",
+      date: "January 25, 2025",
+      rating: 5,
+      source: "google",
+      comment: "This course exceeded my expectations. The instructor's real-world experience in cloud architecture was evident in every lesson. The course has already paid for itself through the optimizations I've made at work.",
+      helpful: 35,
+      responses: 2
+    }
+  ];
