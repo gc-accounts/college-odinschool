@@ -4,7 +4,7 @@ export const DsCareerPathData =
       id: 1,
       title: "Data Analyst",
       description:
-        "Collect, clean, and interpret data to answer specific questions. Often uses tools like Excel, SQL, and visualization platforms like Power BI.",
+        "Collect, clean,& interpret data to answer specific questions. Often uses tools like Excel, SQL, and visualization platforms like Power BI.",
     },
     {
       id: 2,
