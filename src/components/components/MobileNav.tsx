@@ -93,26 +93,19 @@ const MobileNav = () => {
                 <AccordionContent>
                   <div className="flex flex-col space-y-2 pl-7">
                     <Link
-                      href="/data-science-course"
+                      href="/data-analyst-course"
                       className="py-2 text-sm"
                       onClick={closeSheet}
                     >
-                      Data Science Course
+                      Data Analyst College Program
                     </Link>
 
                     <Link
-                      href="/generative-ai-course-iitg"
+                      href="/ai-analyst-course"
                       className="py-2 text-sm"
                       onClick={closeSheet}
                     >
-                      Certification Program in Applied Generative AI - E&ICT Academy, IITG
-                    </Link>
-                    <Link
-                      href="/generative-ai-bootcamp"
-                      className="py-2 text-sm"
-                      onClick={closeSheet}
-                    >
-                      Generative AI Course
+                      AI Analyst College Program
                     </Link>
 
                   </div>
@@ -121,7 +114,7 @@ const MobileNav = () => {
 
 <div className="">
   <Link
-    href="/success-stories"
+    href="https://www.odinschool.com/success-stories"
     className="flex items-center gap-2 py-4 text-base font-medium text-left w-full hover:underline"
     onClick={closeSheet}
   >
@@ -132,7 +125,7 @@ const MobileNav = () => {
 
 <div className="">
   <Link
-    href="/about"
+    href="https://www.odinschool.com/about"
     className="flex items-center gap-2 py-4 text-base font-medium text-left w-full hover:underline"
     onClick={closeSheet}
   >

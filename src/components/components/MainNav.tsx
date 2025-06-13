@@ -66,14 +66,14 @@ const MainNav = () => {
 
 
           <NavigationMenuItem>
-  <StyledNavigationMenuLink href="/success-stories" className="h-9 px-4">
+  <StyledNavigationMenuLink href="https://www.odinschool.com/success-stories" className="h-9 px-4">
     <Library className="mr-2 h-4 w-4" />
     Success Stories
   </StyledNavigationMenuLink>
 </NavigationMenuItem>
 
 <NavigationMenuItem>
-  <StyledNavigationMenuLink href="/about" className="h-9 px-4">
+  <StyledNavigationMenuLink href="https://www.odinschool.com/about" className="h-9 px-4">
     <Building2 className="mr-2 h-4 w-4" />
     About Us
   </StyledNavigationMenuLink>
@@ -196,28 +196,15 @@ ListItem.displayName = "ListItem";
 
 const learningLinks = [
   {
-    title: "Data Science Course",
-    href: "/data-science-course",
-    description: "Master cutting-edge Data Science skills in this industry-aligned Bootcamp.",
+    title: "Data Analyst College Program",
+    href: "/data-analyst-course",
+    description: "Master Data Analytics and get job-ready before you graduate!",
   },
   {
-    title: "Certification Program in Applied Generative AI - E&ICT Academy, IITG",
-    href: "/generative-ai-course-iitg",
-    description: "Join live and on-demand educational webinars.",
+    title: "AI Analyst College Program",
+    href: "/ai-analyst-course",
+    description: "Become an AI-Powered Analyst & Stay Ahead in the Age of Automation! ",
   },
-
-  {
-    title: "Generative AI Course",
-    href: "generative-ai-bootcamp",
-    description: "Master cutting-edge skills in this industry-aligned Course.",
-  },
-
-
-  // {
-  //   title: "Courses in Cities",
-  //   href: "/courses-in-cities",
-  //   description: "Find in-person courses in your location.",
-  // },
 
 ];
 

@@ -4,21 +4,21 @@ import Image from 'next/image'
 const cardData = [
   {
     id: 1,
-    icon: 'https://strapi.odinschool.com/uploads/Limited_seats_1_bb95799679.webp',
+    icon: 'https://strapi.odinschool.com/uploads/Vector_20images_bccd5cec3d.webp',
     title: 'Limited Seats only',
-    description: 'Enjoy the advantages of a limited edition premium batch - get more “me - time” with your mentors!'
+    description: 'Start your Data Analytics journey right from college'
   },
   {
     id: 2,
-    icon: 'https://strapi.odinschool.com/uploads/Hiring_sprints_766efcebb4.webp',
+    icon: 'https://strapi.odinschool.com/uploads/job_ready_2d1b5e5fff.webp',
     title: '10+ Hiring Sprints',
-    description: 'Participate in 10+ recruitment drives and increase your chances of getting placed 10 fold.'
+    description: 'Be job-ready with an Internship even before your graduation'
   },
   {
     id: 3,
-    icon: 'https://strapi.odinschool.com/uploads/Mentorship_78225f90b8.webp',
+    icon: 'https://strapi.odinschool.com/uploads/branch_df0e06c60c.webp',
     title: 'Mentorship by Alumni Network',
-    description: 'Gain actionable insights from professionals who have been there and done that through mentorship and dedicated sessions.'
+    description: 'Open for college students of all degrees and branches'
   }
 ]
 
@@ -29,7 +29,7 @@ interface CardsProps {
 
   const CardsFF = ({ sectionClass }: CardsProps) => {
   return (
-    <section className={`${sectionClass ? sectionClass : 'px-[20px] py-[50px] md:px-[30px] md:py-[70px] bg-primary-50'} relative`}>
+    <section className={`${sectionClass ? sectionClass : ''} relative translate-y-[-50%]`}>
       <div className="container mx-auto">
         {/* <div className="text-center max-w-4xl mx-auto mb-10 opacity-0">
           <h2 className="text-3xl font-bold mb-2">
@@ -43,17 +43,17 @@ interface CardsProps {
       {
         cardData.map((data, index)=>{
           return(
-            <div key={index} className='bg-primary-50 border border-primary-600 p-4 rounded-md'>
+            <div key={index} className='bg-white border shadow-lg px-4 py-10 rounded-md'>
               <Image
                             src={data.icon}
                             alt={data.title}
-                            className="w-18 h-auto block mx-auto"
+                            className="w-18 h-auto block mx-auto mb-4"
               
                             loading="lazy"
                             width={50}
                             height={50}
                           />
-              <h2 className='font-semibold text-lg mb-2 mt-4'>{data.title}</h2>
+              {/* <h2 className='font-semibold text-lg mb-2 mt-4'>{data.title}</h2> */}
               <p className='text-sm'>{data.description}</p>
             </div>
           )

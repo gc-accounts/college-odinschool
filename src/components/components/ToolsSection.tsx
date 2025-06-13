@@ -49,9 +49,9 @@ const ToolsSection = ({ sectionClass, fontFamily }: ToolsSectionProps) => {
           <h2 className={`text-3xl mb-4 text-gray-900 ${fontFamily?'md:text-5xl font-display leading-tight':'font-bold md:text-4xl'} ${fontFamily}`}>
             Tools You Will <span className="text-primary-600">Master</span>
           </h2>
-          <p className="text-md text-gray-600 max-w-3xl mx-auto">
+          {/* <p className="text-md text-gray-600 max-w-3xl mx-auto">
             Our comprehensive curriculum teaches you the most in-demand tools used by data professionals worldwide
-          </p>
+          </p> */}
         </div>
 
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">

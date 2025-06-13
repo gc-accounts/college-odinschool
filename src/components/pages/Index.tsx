@@ -87,30 +87,13 @@ const Index = ({
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">
-          <HeroSection />
-          <OrganizationLogos organisations={organisations} />
-          <DsEliteFold sectionClass={'bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
-          <FeaturedCourses courses={featuredCourses} />
-          <Testimonials testimonials={testimonials} />
+          <HeroSection sectionClass={'bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
+          <OrganizationLogos sectionClass={'bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} organisations={organisations} />
           <InstructorProfileHome data={DsMentorsData} />
-          <JobsSection sectionClass={'px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
-          <OdinTalks odinTalks={odinTalks} sectionClass={'bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
+          <OdinTalks odinTalks={odinTalks} sectionClass={'bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
         </main>
         <ExtrasSection1 />
         <NewsSection />
-        <section className="px-[20px] py-[50px] md:px-[30px] md:py-[70px] bg-gray-50">
-          <div className="container">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-gray-900">
-                Ready to <span className="text-primary-600">Get Started?</span>
-              </h2>
-              <p className="text-md text-gray-600 max-w-2xl mx-auto">
-                Request a callback from our team and begin your upskilling journey today.
-              </p>
-            </div>
-            <CallbackForm />
-          </div>
-        </section>
         <Footer />
       </div>
     </>
