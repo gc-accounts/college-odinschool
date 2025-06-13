@@ -44,7 +44,8 @@ const MainNav = () => {
       <NavigationMenu>
         <NavigationMenuList>
           {/* Learning Section */}
-          <NavigationMenuItem>
+
+          {/* <NavigationMenuItem>
             <NavigationMenuTrigger className="h-9 px-4">
               <GraduationCap className="mr-2 h-4 w-4" />
               Courses
@@ -62,7 +63,7 @@ const MainNav = () => {
                 ))}
               </ul>
             </NavigationMenuContent>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
 
 
           <NavigationMenuItem>

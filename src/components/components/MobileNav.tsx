@@ -81,7 +81,8 @@ const MobileNav = () => {
 
             <Accordion type="single" collapsible className="w-full">
               {/* Learning Section */}
-              <AccordionItem value="learning">
+
+              {/* <AccordionItem value="learning">
                 <AccordionTrigger className="flex justify-between items-center text-base font-medium">
                   <span className="flex items-center gap-2">
                     <GraduationCap className="h-5 w-5" />
@@ -110,7 +111,7 @@ const MobileNav = () => {
 
                   </div>
                 </AccordionContent>
-              </AccordionItem>
+              </AccordionItem> */}
 
 <div className="">
   <Link

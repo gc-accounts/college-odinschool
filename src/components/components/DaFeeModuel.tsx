@@ -22,7 +22,7 @@ const DaFeeModule = ({ sectionClass }: Props) => {
 
   return (
      <section className={`${sectionClass ? sectionClass : ''} relative`}>
-
+      <div className='container'>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-5xl font-display leading-tight mb-4">
             Program <span className="text-primary-600">Fee</span>
@@ -78,6 +78,7 @@ const DaFeeModule = ({ sectionClass }: Props) => {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

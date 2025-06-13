@@ -29,7 +29,7 @@ interface CardsProps {
 
   const CardsFF = ({ sectionClass }: CardsProps) => {
   return (
-    <section className={`${sectionClass ? sectionClass : ''} relative translate-y-[-50%]`}>
+    <section className={`${sectionClass ? sectionClass : ''} relative md:translate-y-[-50%]`}>
       <div className="container mx-auto">
         {/* <div className="text-center max-w-4xl mx-auto mb-10 opacity-0">
           <h2 className="text-3xl font-bold mb-2">

@@ -32,9 +32,9 @@ const JobServicesData = [
 
 const JobServices = () => {
   return (
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-8">
         {JobServicesData.map((item, index) => (
-          <div key={index} className="flex items-center gap-4">
+          <div key={index} className="flex items-center md:flex-row flex-col gap-4">
             <div className="h-[4.5rem] w-[4.5rem] bg-[#021331] rounded-full flex items-center justify-center flex-shrink-0">
               <Image
                 src={item.icon}
@@ -44,7 +44,7 @@ const JobServices = () => {
                 className=""
               />
             </div>
-            <p className="text-base">{item.text}</p>
+            <p className="md:text-base text-xs md:text-start text-center">{item.text}</p>
           </div>
         ))}
       </div>

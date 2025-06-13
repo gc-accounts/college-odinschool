@@ -59,15 +59,15 @@ const DaAnalystFF = ({ sectionClass }: dsEliteProps) => {
         {/* Right Form Section */}
         <div className='col-span-5'>
 
-            {/* <div className="cohort-holder text-white rounded-3 rounded-b-0 flex justify-center items-center">
-        <Image src="https://college.odinschool.com/hubfs/Header%20Form%20Image.png" width={20} height={20} alt="student image" loading="eager" fetchPriority="high" className="student-image" />
-        <div className="p-md-4 p-3">
-            <h4 className="font-semibold border-b border-white md:pb-3  pb-3 mb-3 none">A Proven Program to make you a Software Developer</h4>
-            <p className="fs-12px mb-1">Upcoming Cohort</p>
-            <h4 className="mb-0 fw-semibold">28 Jun 2025</h4>
+            <div className="pt-2 text-white flex justify-center items-center bg-primary-900 md:max-w-sm max-w-xs mx-auto rounded-b-none rounded-t-md">
+        <Image src="https://strapi.odinschool.com/uploads/Header_20_Form_20_Image_2a646cbc7f.png" width={100} height={20} alt="student image" className="student-image" />
+        <div className="md:p-4 p-3">
+            {/* <h4 className="font-semibold border-b border-white md:pb-3  pb-3 mb-3 none">A Proven Program to make you a Software Developer</h4> */}
+            <p className="text-xs mb-1">Upcoming Cohort</p>
+            <h4 className="mb-0 font-semibold">28 Jun 2025</h4>
         </div>
 
-    </div> */}
+    </div>
 
             <PrimaryForm slug={'data-analyst-course'} isModal={false} buttonText={'Request a Callback'} sourceDomain='Course form' />
         </div>
