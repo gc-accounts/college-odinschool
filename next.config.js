@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const redirects = require('./src/config/redirects');
 const nextConfig = {
   // eslint: {
   //   dirs: ['src'],
@@ -8,7 +9,10 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-
+  async redirects() {
+    return redirects;
+  },
+  
   // Uncoment to add domain whitelist
   images: {
     //  ⬇️ common mobile/desktop breakpoints

@@ -7,15 +7,15 @@ import { getStories } from '@/components/utils/api/story';
 import { getWebinars } from '@/components/utils/api/webinars';
 
 export const metadata: Metadata = {
-  title: 'OdinSchool - Boost Your Career with Industry-Aligned Courses',
-  description: 'Upskill with career-aligned courses: Data Science | Power BI | Applied Generative AI | DevOps & Cloud Computing',
+  title: 'Data & AI Analyst Courses for College Students | Get Job-Ready Today',
+  description: 'Get job-ready with OdinSchool’s Data & AI Analyst courses! Learn Python, SQL, AI & ML with hands-on projects, expert training & placement support.',
   openGraph: {
-    title: 'OdinSchool - Boost Your Career with Industry-Aligned Courses',
-    description: 'Upskill with career-aligned courses: Data Science | Power BI | Applied Generative AI | DevOps & Cloud Computing',
+    title: 'Data & AI Analyst Courses for College Students | Get Job-Ready Today',
+    description: 'Get job-ready with OdinSchool’s Data & AI Analyst courses! Learn Python, SQL, AI & ML with hands-on projects, expert training & placement support.',
   },
   twitter: {
-    title: 'OdinSchool - Boost Your Career with Industry-Aligned Courses',
-    description: 'Upskill with career-aligned courses: Data Science | Power BI | Applied Generative AI | DevOps & Cloud Computing',
+    title: 'Data & AI Analyst Courses for College Students | Get Job-Ready Today',
+    description: 'Get job-ready with OdinSchool’s Data & AI Analyst courses! Learn Python, SQL, AI & ML with hands-on projects, expert training & placement support.',
   },
 };
 

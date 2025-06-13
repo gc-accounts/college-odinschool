@@ -18,20 +18,25 @@ const StudentsTicker = ({ sectionClass }: CardsProps) => {
 
   return (
     <div className={`${show ? 'block' : 'hidden'}`}>
-      <section
-        id="student-ticker"
-        className={`${sectionClass
-          ? sectionClass
-          : 'px-[20px] py-[50px] md:px-[30px] md:py-[70px] bg-primary-50'
-          } w-full overflow-x-hidden relative`}
+      <section id="student-ticker" className={`${sectionClass ? sectionClass : '' } w-full overflow-x-hidden relative`}
       >
+
+        <div className="text-center mb-12 animate-on-scroll ">
+          <h2 className="text-3xl md:text-5xl  font-display leading-tight mb-4">
+            Success Stories <span className="text-primary-600">Placed Freshers</span>
+          </h2>
+          {/* <p className="text-md text-gray-600 max-w-3xl mx-auto">
+            Our comprehensive curriculum teaches you the most in-demand tools used by data professionals worldwide
+          </p> */}
+        </div>
+
         <div className="slider-cover">
           <div className="slider">
             <div className="slide-track">
               {duplicatedStudents.map((student, index) => (
                 <div
                   key={`${student.name}-${index}`}
-                  className="slide p-3 mx-2 rounded-3 placeCard text-center bg-primary-600"
+                  className="slide p-3 mx-2 rounded-2 placeCard text-center bg-primary-600"
                 >
                   <div>
                     <Image

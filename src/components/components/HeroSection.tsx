@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData';
 import SecondaryForm from '@/components/components/course-details/SecondaryForm';
 import Image from 'next/image';
+import { CiCircleCheck } from 'react-icons/ci';
 const formFields: FieldConfig[] = [
   {
     name: 'firstName',
@@ -70,8 +71,11 @@ const formFields: FieldConfig[] = [
   { name: 'ga_client_id', type: 'hidden' },
 ];
 
+interface dsEliteProps {
+  sectionClass?: String
+}
+const HeroSection = ({ sectionClass }: dsEliteProps) => {
 
-const HeroSection = () => {
   const [formOpen, setFormOpen] = useState(false);
   const [utmData, setUtmData] = useState<Record<string, string>>({});
 
@@ -185,7 +189,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="px-[20px] py-[50px] md:px-[30px] md:py-[70px] overflow-hidden">
+    <section className={`${sectionClass ? sectionClass : ''}`}>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
           <div className="space-y-8">
@@ -194,14 +198,20 @@ const HeroSection = () => {
                 <span className="text-xs font-medium">Master In-Demand Tech Skills. Get Job-Ready.</span>
               </div>
               <h1 className="heading-xl text-balance">
-                <span className='text-nowrap'>Upskill Now!</span><br />
-                <span className="text-primary-600">Accelerate Your Career</span>
+                <span className='text-nowrap text-white'>Get Future-Ready with </span><br />
+                <span className="text-primary-600">Data & AI!</span>
               </h1>
             </div>
 
-            <p ref={addToRefs} className="text-gray-600 opacity-0 delay-100 max-w-xl">
-              Learn job-ready tech skills through expert-led online bootcamps. OdinSchool empowers you to upskill, build projects, and unlock top career opportunities.
+            <p ref={addToRefs} className="text-gray-300 delay-100 max-w-xl">
+              Exclusive Career-Boosting Courses for College Students
             </p>
+
+            <ul className='text-gray-300 delay-100'>
+              <li className='flex gap-1'><span className='mr-2'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Live online classes</span></li>
+              <li className='flex gap-1'><span className='mr-2'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Project-based learning</span></li>
+              <li className='flex gap-1'><span className='mr-2'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Job Prep Support</span></li>
+            </ul>
 
             <div ref={addToRefs} className="flex flex-col sm:flex-row gap-4 opacity-0 delay-200">
               <Button
@@ -218,31 +228,6 @@ const HeroSection = () => {
 
             </Modal>
 
-            <div ref={addToRefs} className="grid grid-cols-3 gap-4 pt-4 opacity-0 delay-300">
-              {[
-                {
-                  icon: <LaptopMinimalCheck size={20} className="text-primary-600" />,
-                  label: 'In-Demand Bootcamps',
-                  description: 'Curated programs built for tech careers'
-                },
-                {
-                  icon: <BookOpenText size={20} className="text-primary-600" />,
-                  label: 'Elite Programs',
-                  description: 'Industry backed programs for high career ROI'
-                },
-                {
-                  icon: <BriefcaseBusiness size={20} className="text-primary-600" />,
-                  label: 'Job-Ready Curriculum',
-                  description: 'Learn what the industry actually needs'
-                },
-              ].map((item, index) => (
-                <div key={index} className="text-center p-3">
-                  <div className="flex justify-center mb-2">{item.icon}</div>
-                  <h3 className="text-sm font-semibold">{item.label}</h3>
-                  <p className="text-xs text-gray-500 md:block hidden">{item.description}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div ref={addToRefs} className="wrap opacity-0 delay-200">
