@@ -25,6 +25,9 @@ const WhatsAppChat: React.FC = () => {
     lastName: '',
     email: '',
     phone: '',
+    StudentId: '',
+    collegeName:'',
+    city:'',
     year: '',
     program: '',
   });
@@ -72,7 +75,12 @@ const WhatsAppChat: React.FC = () => {
       zohoFormData.append('Last Name', formData.lastName);
       zohoFormData.append('Email', formData.email);
       zohoFormData.append('Phone', formData.phone);
-      zohoFormData.append('Program', formData.program === 'data-science-course' ? 'Data Science Course' : formData.program === 'data-science-elite-course' ? 'Data Science Elite Course' : formData.program === 'generative-ai-bootcamp' ? 'Generative AI Course' : formData.program === 'generative-ai-course-iitg' ? 'Certification Program in Applied Generative AI' : formData.program);
+      zohoFormData.append('StudentId', formData.StudentId)
+      zohoFormData.append('College Name', formData.collegeName)
+      zohoFormData.append('Other City', formData.city)
+      zohoFormData.append('College Year Of Graduation', formData.year);
+      zohoFormData.append('Program', 'Data Analyst');
+      zohoFormData.append('College Programs', 'Data Analyst');
       zohoFormData.append('Year of Graduation', formData.year);
       zohoFormData.append('Ga_client_id', '');
       zohoFormData.append('Business Unit', 'Odinschool');
@@ -102,6 +110,9 @@ const WhatsAppChat: React.FC = () => {
         lastName: '',
         email: '',
         phone: '',
+        StudentId: '',
+        collegeName:'',
+        city:'',
         year: '',
         program: '',
       });
@@ -171,30 +182,29 @@ const WhatsAppChat: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className='grid grid-cols-2 gap-2'>
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
                     <Input
                       id="firstName"
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
+                      placeholder='First Name*'
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
                     <Input
                       id="lastName"
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
+                      placeholder='Last Name*'
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     name="email"
@@ -202,11 +212,11 @@ const WhatsAppChat: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    placeholder='Email*'
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
                   <Input
                     id="phone"
                     name="phone"
@@ -215,34 +225,46 @@ const WhatsAppChat: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     pattern="[0-9]{10}"
-                    placeholder="Enter 10 digit phone number"
+                    placeholder="Enter 10 digit phone number*"
                   />
                 </div>
 
-                {!program ? (
-                  <div className="space-y-2">
-                    <Label htmlFor="program">Program</Label>
-                    <select
-                      id="program"
-                      name="program"
-                      value={formData.program}
-                      onChange={(e) => setFormData(prev => ({ ...prev, program: e.target.value }))}
-                      required
-                      className="w-full rounded-md border border-input bg-background px-3 py-2"
-                    >
-                      <option value="">Select Program</option>
-                      <option value="Data Science Course">Data Science Course</option>
-                      <option value="Data Science Elite Course">Data Science Elite Course</option>
-                      <option value="Certification Program in Applied Generative AI">Certification Program in Applied Generative AI</option>
-                      <option value="Generative AI Course">Generative AI Course</option>
-                    </select>
-                  </div>
+                <div className="space-y-2">
+                  <Input
+                    id="StudentId"
+                    name="StudentId"
+                    value={formData.StudentId}
+                    onChange={handleInputChange}
+                    required
+                    placeholder='Roll number / Student ID*'
+                  />
+                </div>
 
-                ) : ''
-                }
+                <div className="space-y-2">
+                  <Input
+                    id="collegeName"
+                    name="collegeName"
+                    value={formData.collegeName}
+                    onChange={handleInputChange}
+                    required
+                    placeholder='College Name*'
+                  />
+                </div>
+
+
+                <div className="space-y-2">
+                  <Input
+                    id="city"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleInputChange}
+                    required
+                    placeholder='City / District*'
+                  />
+                </div>
 
                 < div className="space-y-2">
-                  <Label htmlFor="year">Year of Graduation</Label>
+                  <Label htmlFor="year">Year of Graduation*</Label>
                   <select
                     id="year"
                     name="year"
@@ -252,14 +274,6 @@ const WhatsAppChat: React.FC = () => {
                     className="w-full rounded-md border border-input bg-background px-3 py-2"
                   >
                     <option value="">Select Year</option>
-                    <option value="Before 2018">Before 2018</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
                     <option value="2025">2025</option>
                     <option value="After 2025">After 2025</option>
                   </select>

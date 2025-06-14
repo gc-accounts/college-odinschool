@@ -4,21 +4,21 @@ import { FieldConfig } from '@/components/components/form/DynamicForm';
 const CoursePrimaryFormFields: FieldConfig[] = [
   {
     name: 'firstName',
-    label: 'First Name',
+    label: 'First Name*',
     type: 'text',
     required: true,
     rules: { required: 'First Name is required' },
   },
   {
     name: 'lastName',
-    label: 'Last Name',
+    label: 'Last Name*',
     type: 'text',
     required: true,
     rules: { required: 'Last Name is required' },
   },
   {
     name: 'email',
-    label: 'Email',
+    label: 'Email*',
     type: 'text',
     required: true,
     rules: {
@@ -31,7 +31,7 @@ const CoursePrimaryFormFields: FieldConfig[] = [
   },
   {
     name: 'phone',
-    label: 'Phone',
+    label: 'Phone*',
     type: 'text',
     required: true,
     rules: {
@@ -43,19 +43,32 @@ const CoursePrimaryFormFields: FieldConfig[] = [
     },
   },
   {
-    name: 'year',
-    label: 'Year of Graduation',
-    type: 'select',
-    options: ['Before 2018', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', 'After 2025'],
-    rules: { required: 'Please select your graduation year' },
+    name: 'StudentId',
+    label: 'Roll no / Student ID*',
+    type: 'text',
+    required: true,
+    rules: { required: 'Roll no is required' },
   },
-
   {
-    name: 'experience',
-    label: 'Work Experience Level',
+    name: 'collegeName',
+    label: 'College Name*',
+    type: 'text',
+    required: true,
+    rules: { required: 'College Name is required' },
+  },
+  {
+    name: 'city',
+    label: 'City / District*',
+    type: 'text',
+    required: true,
+    rules: { required: 'City is required' },
+  },
+  {
+    name: 'year',
+    label: 'Year of Graduation*',
     type: 'select',
-    options: ['No Experience', '0-1 Years', '1-3 Years', '3+ Years'],
-    rules: { required: 'Please select your experience level' },
+    options: ['2025', 'After 2025'],
+    rules: { required: 'Please select your graduation year' },
   },
 
   // Hidden fields

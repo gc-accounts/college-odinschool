@@ -41,13 +41,36 @@ const brochureFormField: FieldConfig[] = [
       },
     },
   },
+ {
+    name: 'StudentId',
+    label: 'Roll no / Student ID*',
+    type: 'text',
+    required: true,
+    rules: { required: 'Roll no is required' },
+  },
+  {
+    name: 'collegeName',
+    label: 'College Name*',
+    type: 'text',
+    required: true,
+    rules: { required: 'College Name is required' },
+  },
+  {
+    name: 'city',
+    label: 'City / District*',
+    type: 'text',
+    required: true,
+    rules: { required: 'City is required' },
+  },
   {
     name: 'year',
-    label: 'Year of Graduation',
+    label: 'Year of Graduation*',
     type: 'select',
-    options: ['Before 2018', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', 'After 2025'],
+    options: ['2025', 'After 2025'],
     rules: { required: 'Please select your graduation year' },
   },
+
+ 
   { name: 'program', type: 'hidden' },
   { name: 'ga_client_id', type: 'hidden' },
   { name: 'business_unit', type: 'hidden' },
