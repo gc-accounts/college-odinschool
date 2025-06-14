@@ -1,6 +1,6 @@
 'use client';
-import ThankYouForm from '@/components/pages/ThankYou2';
+import ThankYou from '@/components/pages/ThankYou';
 
 export default function ThankYouPage() {
-  return <ThankYouForm />;
+  return <ThankYou />;
 } 
