@@ -20,7 +20,7 @@ export default function HelloBar({ isPrimaryForm, slug }: HellobarProps) {
           background: `linear-gradient(90deg, rgba(215, 11, 130, 0.7) 0%, rgba(152, 104, 239, 1) 50%, rgba(215, 11, 130, 0.7) 100%), url('/your-image.jpg')`
         }}
         className="w-full text-white text-center py-2 px-4 flex items-center justify-center z-50 gap-8">
-        <span className='md:text-base text-xs'>🎉 Early Bird Offer! Save up to ₹12,000 for a Limited Time. Enroll Now & Elevate Your Career! 🚀</span>
+        <span className='md:text-base text-xs'>🎉 Early Bird Offer! Save up to ₹5,000 for a Limited Time. Enroll Now & Elevate Your Career! 🚀</span>
         <button
           onClick={() => setFormOpen(true)}
           className="bg-yellow-400 text-black font-semibold px-4 py-1 rounded-sm hover:bg-yellow-500 transition  md:text-base text-xs whitespace-nowrap"
