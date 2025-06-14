@@ -48,7 +48,7 @@ const YouCanSection = ({ sectionClass }: Props) => {
           <Modal header_text="Enquire Now" open={formOpen} onOpenChange={setFormOpen}>
             <PrimaryForm
               buttonText="Request a Callback"
-              slug="data-science-elite-course"
+              slug="data-analyst-course"
               isModal={true}
               sourceDomain="Course form"
             />

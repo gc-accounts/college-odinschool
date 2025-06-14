@@ -1,13 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import Button from './Button';
+import { ArrowRight } from 'lucide-react';
+import Modal from './component-template/Modal';
+import PrimaryForm from './course-details/PrimaryForm';
 
     interface Props {
   sectionClass?: String,
 }
 const DaFeeModule = ({ sectionClass }: Props) => {
-
+ const [formOpen, setFormOpen] = useState(false);
 
   const data = {
     cohorts: ['28 Jun 2025', '26 Jul 2025'],
@@ -16,7 +20,7 @@ const DaFeeModule = ({ sectionClass }: Props) => {
       { id: 1, name: 'Feemonk', logo: 'https://strapi.odinschool.com/uploads/Fee_Monk_High_Res_Logo_100_X_40_b460d38c45.webp' },
       { id: 2, name: 'Bajaj Finserv', logo: 'https://strapi.odinschool.com/uploads/Bajaj_Finance_100_X40_a2a4d984d3.webp' },
       { id: 3, name: 'Avanse', logo: 'https://strapi.odinschool.com/uploads/Avanse_20100_X40_1_25e232dc78.svg' },
-      { id: 4, name: 'Liquiloans', logo: 'https://strapi.odinschool.com/uploads/Liquiloans_20_INDIVIDUAL_20100_20_X40_bb1ef5dcdd.webp' },
+      // { id: 4, name: 'Liquiloans', logo: 'https://strapi.odinschool.com/uploads/Liquiloans_20_INDIVIDUAL_20100_20_X40_bb1ef5dcdd.webp' },
     ],
   };
 
@@ -59,6 +63,30 @@ const DaFeeModule = ({ sectionClass }: Props) => {
               Scholarships available
             </p>
             <p className="text-gray-700 text-sm">Limited seats!! Apply now to secure your spot!</p>
+
+             {/* CTA */}
+          <div className="flex flex-col justify-center sm:flex-row gap-4 mt-10">
+            <Button
+              size="md"
+              variant="yellow"
+              icon={<ArrowRight className="ml-1" size={18} />}
+              iconPosition="right"
+              className="font-semibold"
+              onClick={() => setFormOpen(true)}
+            >
+              Request a Callback
+            </Button>
+          </div>
+
+           {/* Modal Form */}
+          <Modal header_text="Enquire Now" open={formOpen} onOpenChange={setFormOpen}>
+            <PrimaryForm
+              buttonText="Request a Callback"
+              slug="data-analyst-course"
+              isModal={true}
+              sourceDomain="Course form"
+            />
+          </Modal>
           </div>
         </div>
 
