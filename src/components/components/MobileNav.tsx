@@ -126,7 +126,7 @@ const MobileNav = () => {
 
 <div className="">
   <Link
-    href="https://www.odinschool.com/about"
+    href="https://www.odinschool.com/about-us"
     className="flex items-center gap-2 py-4 text-base font-medium text-left w-full hover:underline"
     onClick={closeSheet}
   >

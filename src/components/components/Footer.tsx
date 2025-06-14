@@ -60,10 +60,10 @@ const Footer = () => {
     {
       title: 'Company',
       links: [
-        { name: 'About Us', href: 'https://www.odinschool.com/about' },
+        { name: 'About Us', href: 'https://www.odinschool.com/about-us' },
         { name: 'News Room', href: 'https://www.odinschool.com/news' },
         { name: 'Careers', href: 'https://www.odinschool.com/careers' },
-        { name: 'Contact', href: 'https://www.odinschool.com/contact' },
+        { name: 'Contact', href: 'https://www.odinschool.com/contact-us' },
         { name: 'FAQ', href: 'https://www.odinschool.com/faq' },
       ],
     },
