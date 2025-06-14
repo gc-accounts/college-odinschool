@@ -35,7 +35,7 @@ const ThankYou = () => {
                 </p>
                 <div className="flex justify-center">
                   <Button variant="outline" asChild>
-                    <Link href="/Resources">
+                    <Link href="https://www.odinschool.com/resources">
                       Free Resources
                     </Link>
                   </Button>
@@ -49,7 +49,7 @@ const ThankYou = () => {
                 </p>
                 <div className="flex justify-center">
                   <Button variant="outline" asChild>
-                    <Link href="/courses">
+                    <Link href="https://www.odinschool.com/courses">
                       Browse Courses
                     </Link>
                   </Button>
@@ -65,7 +65,7 @@ const ThankYou = () => {
                 </Link>
               </Button>
               <Button variant="outline" className="flex items-center" asChild>
-                <Link href="/webinars">
+                <Link href="https://www.odinschool.com/webinars">
                   <BookOpen className="mr-2 h-4 w-4" />
                   Upcoming Webinars
                 </Link>
