@@ -29,21 +29,15 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('Last Name', data.lastName)
       brochureFormData.append('Email', data.email)
       brochureFormData.append('Phone', data.phone)
-      brochureFormData.append(
-        'Program',
-        slug === 'data-science-course'
-          ? 'Data Science Course'
-          : slug === 'data-science-elite-course'
-            ? 'Data Science Elite Course'
-            : slug === 'generative-ai-bootcamp'
-              ? 'Generative AI Course'
-              : slug === 'generative-ai-course-iitg'
-                ? 'Certification Program in Applied Generative AI'
-                : slug
-      )
-      brochureFormData.append('Year of Graduation', data.year)
-      brochureFormData.append('ga_client_id', '')
-      brochureFormData.append('Business Unit', 'Odinschool')
+      brochureFormData.append('StudentId', data.StudentId)
+      brochureFormData.append('College Name', data.collegeName)
+      brochureFormData.append('Other City', data.city)
+      brochureFormData.append('College Year Of Graduation', data.year);
+      brochureFormData.append('Program', 'Data Analyst');
+      brochureFormData.append('College Programs', 'Data Analyst');
+      brochureFormData.append('Ga_client_id', '');
+      brochureFormData.append('Business Unit', 'Odinschool');
+
       brochureFormData.append('Source_Domain', 'Brochure Form')
 
       const response = await fetch('/api/zoho/brochure', {

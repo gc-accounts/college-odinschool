@@ -14,8 +14,6 @@ interface PrimaryFormProps {
   buttonText?: string
   isCoupon?: Boolean;
   sourceDomain?: string;
-
-
 }
 
 
@@ -24,20 +22,6 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
   const [utm, setUtm] = React.useState<Record<string, string>>({});
   const router = useRouter();
 
-  const getSlug = (slug: string) => {
-    switch (slug) {
-      case 'data-science-course':
-        return 'Data Science Course';
-      case 'data-science-elite-course':
-        return 'Data Science Elite Course';
-      case 'generative-ai-bootcamp':
-        return 'Generative AI Course';
-      case 'generative-ai-course-iitg':
-        return 'Certification Program in Applied Generative AI';
-      default:
-        return '';
-    }
-  };
 
   const getAccessToken = async () => {
     const res = await fetch('/api/auth/course-form-token', {
@@ -64,14 +48,18 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
       formData.append('Last Name', data.lastName);
       formData.append('Email', data.email);
       formData.append('Phone', data.phone);
-      formData.append('Program', getSlug(slug));
-      formData.append('Year of Graduation', data.year);
+      formData.append('StudentId', data.StudentId)
+      formData.append('College Name', data.collegeName)
+      formData.append('Other City', data.city)
+      formData.append('College Year Of Graduation', data.year);
+      formData.append('Program', 'Data Analyst');
+      formData.append('College Programs', 'Data Analyst');
       formData.append('Ga_client_id', '');
       formData.append('Business Unit', 'Odinschool');
       formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course form');
-
       isCoupon && formData.append('Coupon Code', 'EBO2025');
 
+      // UTM Tracking
       formData.append('First Page Seen', utm['First Page Seen'] || '');
       formData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
       formData.append(
@@ -115,7 +103,7 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
         fields={CoursePrimaryFormFields as FieldConfig[]}
         buttonText={buttonText ? buttonText : 'Submit'}
         initialValues={{
-          program: getSlug(slug),
+          program: 'Data Analyst',
           ga_client_id: '',
           business_unit: 'Odinschool',
         }}

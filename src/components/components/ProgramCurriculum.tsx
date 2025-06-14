@@ -52,7 +52,7 @@ const ProgramCurriculum = ({ sectionClass, slug, data }: ProgramCurriculumProps)
 
         <p className='font-medium text-xl text-center  mt-10 mb-5'>The curriculum includes both Mini Capstone and Capstone projects, providing students with practical application of their learning.</p>
 
-        <BrochureButton slug={'data-science-elite-course'} />
+        <BrochureButton slug={'data-analyst-course'} />
 
 
       </div>
