@@ -6,15 +6,20 @@ import Button from './Button';
 import { ArrowRight } from 'lucide-react';
 import Modal from './component-template/Modal';
 import PrimaryForm from './course-details/PrimaryForm';
+import { formatDateToReadable } from '../utils/formatDateToReadable';
 
     interface Props {
-  sectionClass?: String,
+  sectionClass?: String;
+  cohortDates?: { 
+    cohort1?: string;
+    cohort2?: string;
+  };
 }
-const DaFeeModule = ({ sectionClass }: Props) => {
+const DaFeeModule = ({ sectionClass, cohortDates }: Props) => {
  const [formOpen, setFormOpen] = useState(false);
 
   const data = {
-    cohorts: ['28 Jun 2025', '26 Jul 2025'],
+    cohorts: [formatDateToReadable(cohortDates?.cohort1), formatDateToReadable(cohortDates?.cohort2)],
     fee: '₹ 35,000',
     partners: [
       { id: 1, name: 'Feemonk', logo: 'https://strapi.odinschool.com/uploads/Fee_Monk_High_Res_Logo_100_X_40_b460d38c45.webp' },

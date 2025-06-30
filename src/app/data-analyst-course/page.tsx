@@ -3,6 +3,10 @@ import React from 'react'
 import DataAnalystCollegeProgram from '@/components/pages/DataAnalystCollegeProgram'
 import { Metadata } from 'next'
 
+import { getCourse } from '@/components/utils/api'; // Your API utility
+import { Course } from '@/components/hooks/useCourseDetails'; // Import the Course interface
+
+
 export const metadata: Metadata = {
   title: 'Data Analyst College Program | Live-Online training | OdinSchool',
   description:
@@ -39,11 +43,39 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://college.odinschool.com'),
 };
 
-const page = () => {
+const Page = async () => {
+  const courseSlug = 'data-science-course'; // The specific slug for this page
+
+  const response = await getCourse("", courseSlug);
+  const course: Course | null = response && response[0] ? response[0] : null;
+
+  if (!course) {
+    // Handle case where course data is not found
+    return (
+      <div className="flex flex-col min-h-screen items-center justify-center text-center py-16">
+        <h1 className="text-4xl font-bold text-red-600">Course Not Found</h1>
+        <p className="text-lg mt-4">We could not find the details for the Data Science course. Please try again later or contact support.</p>
+      </div>
+    );
+  }
+
   return (
-    <DataAnalystCollegeProgram organisations={[]}
-    />
+    <>
+      <style>
+        {`
+          .primaryFormCustom {
+            border: 3px solid #1a6cf7;
+          }
+          .downloadBtn{
+            color: #000;
+            border-color: #000;
+          }
+        `}
+      </style>
+      <DataAnalystCollegeProgram
+        initialCourse={course}
+      />
+    </>
   );
 };
-
-export default page;
+export default Page;

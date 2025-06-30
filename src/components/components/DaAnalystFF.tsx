@@ -7,12 +7,17 @@ import Link from 'next/link';
 import { CiCircleCheck } from 'react-icons/ci';
 import PrimaryForm from './course-details/PrimaryForm';
 import Image from 'next/image';
+import { formatDateToReadable } from '../utils/formatDateToReadable';
 
 
 interface dsEliteProps {
-  sectionClass?: String
+  sectionClass?: String;
+  cohortDates?: { 
+    cohort1?: string;
+    cohort2?: string;
+  };
 }
-const DaAnalystFF = ({ sectionClass }: dsEliteProps) => {
+const DaAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
 
 
   return (
@@ -64,7 +69,11 @@ const DaAnalystFF = ({ sectionClass }: dsEliteProps) => {
         <div className="md:p-4 p-3">
             {/* <h4 className="font-semibold border-b border-white md:pb-3  pb-3 mb-3 none">A Proven Program to make you a Software Developer</h4> */}
             <p className="text-xs mb-1">Upcoming Cohort</p>
-            <h4 className="mb-0 font-semibold">28 Jun 2025</h4>
+
+            {
+                           cohortDates?.cohort1 &&
+                           <h4 className="mb-0 font-semibold">{formatDateToReadable(cohortDates?.cohort1)}</h4>
+                             }
         </div>
 
     </div>

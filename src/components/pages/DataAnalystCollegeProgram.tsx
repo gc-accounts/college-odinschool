@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import { DM_Serif_Display } from 'next/font/google';
 import dynamic from 'next/dynamic';
 
+// Import the Course interface (just for type checking the prop)
+import { Course } from '@/components/hooks/useCourseDetails';
+
 
 
 const HelloBar = dynamic(() => import('@/components/components/HelloBar'), {
@@ -80,26 +83,31 @@ import { DsEliteCurriculumData } from '@/components/data/course-section/curricul
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
 
 
-
 const dmSerifDisplay = DM_Serif_Display({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--font-dm-serif',
 });
 
+interface Props{
+  initialCourse: Course; // Now required: the course data is passed from the server
+}
 
-const DataAnalystCollegeProgram = ({ organisations }) => {
+const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const course = initialCourse;
+
   return (
     <>
+
       <HelloBar isPrimaryForm={true} slug='data-analyst-course' />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className={`flex-grow ${dmSerifDisplay.variable}`}>
-          <DaAnalystFF sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:pt-[70px] md:pb-[160px]" />
+          <DaAnalystFF cohortDates={course.cohortDates} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:pt-[70px] md:pb-[160px]" />
           <CardsFF sectionClass="px-[20px] pt-[50px] pb-[50px] md:px-[30px] md:pb-[0px] md:pt-[70px]" />
           <section className="">
             <ImageResponsive
@@ -126,10 +134,10 @@ const DataAnalystCollegeProgram = ({ organisations }) => {
           <YouCanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
           <Roles sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
           <DualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <OrganizationLogos sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" organisations={organisations} />    
+          <OrganizationLogos sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  />    
           <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DsMentorsData} />
           <StudentsTicker sectionClass="bg-primary-50 px-0 py-[50px] md:px-0 md:py-[70px]" />
-          <DaFeeModule sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <DaFeeModule cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DaCollegeProgramFaqsData} />
         </main>
         <Footer />
