@@ -5,7 +5,12 @@ import React from 'react';
 import { Button } from "@/components/components/ui/button";
 import Link from 'next/link';
 import { CiCircleCheck } from 'react-icons/ci';
-import PrimaryForm from './course-details/PrimaryForm';
+import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react'; // Import useEffec
+const PrimaryForm = dynamic(() => import('./course-details/PrimaryForm'), { 
+  ssr: false // Ensure it's client-side rendered if it relies on browser APIs
+});
+
 import Image from 'next/image';
 import { formatDateToReadable } from '../utils/formatDateToReadable';
 
@@ -18,6 +23,52 @@ interface dsEliteProps {
   };
 }
 const DaAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
+  const [formLoaded, setFormLoaded] = useState(false); // State to track if the form component is loaded and ready
+
+  useEffect(() => {
+    setFormLoaded(true); 
+  }, []);
+
+  // Define the skeleton component directly within DsFF for easier placement
+  const FormSkeleton = () => (
+     <div className="bg-white p-6 rounded-md shadow-md border-2 border-primary-600 flex flex-col items-center justify-center min-h-[400px] w-full">
+      {/* First Name / Last Name Row */}
+      <div className="w-full mb-3 grid grid-cols-2 gap-4">
+        <div>
+          <div className="h-4 bg-gray-200 rounded w-2/3 mb-2 animate-pulse"></div> {/* Label */}
+          <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+        </div>
+        <div>
+          <div className="h-4 bg-gray-200 rounded w-2/3 mb-2 animate-pulse"></div> {/* Label */}
+          <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+        </div>
+      </div>
+
+      {/* Email */}
+      <div className="w-full mb-3">
+        <div className="h-4 bg-gray-200 rounded w-1/4 mb-2 animate-pulse"></div> {/* Label */}
+        <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+      </div>
+
+      {/* Phone */}
+      <div className="w-full mb-3">
+        <div className="h-4 bg-gray-200 rounded w-1/4 mb-2 animate-pulse"></div> {/* Label */}
+        <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+      </div>
+
+      {/* Select Work Experience Level Dropdown */}
+      <div className="w-full mb-3">
+        <div className="h-4 bg-gray-200 rounded w-1/3 mb-2 animate-pulse"></div> {/* Label */}
+        <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Dropdown */}
+      </div>
+
+      {/* Privacy Policy Text */}
+      <div className="h-2 bg-gray-200 rounded w-2/3 mb-6 animate-pulse"></div>
+
+      {/* Request a Callback Button */}
+      <div className="h-10 w-full bg-yellow-500 rounded animate-pulse"></div> {/* Changed to yellow-500 for better visual match */}
+    </div>
+  );
 
 
   return (
@@ -78,7 +129,15 @@ const DaAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
 
     </div>
 
-            <PrimaryForm slug={'data-analyst-course'} isModal={false} buttonText={'Request a Callback'} sourceDomain='Course form' />
+       {/* Conditional rendering of either the skeleton or the actual form */}
+              {formLoaded ? (
+                <PrimaryForm slug={'data-analyst-course'} isModal={false} buttonText={'Request a Callback'} sourceDomain='Course form' />
+              ) : (
+                <FormSkeleton />
+              )}
+
+
+            
         </div>
       </div>
     </section>
