@@ -21,6 +21,8 @@ export async function POST(request: Request) {
         Application_ID: formData.get('StudentId'),
         College_Name: formData.get('College Name'),
         Other_City: formData.get('Other City'),
+        Other_Country:formData.get('Country'),
+
         College_Year_Of_Graduation: formData.get('College Year Of Graduation'),
         Program: formData.get('Program'),
         College_Programs: formData.get('College Programs'),

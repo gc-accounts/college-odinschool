@@ -24,6 +24,8 @@ export async function POST(request: Request) {
         Application_ID: getField('StudentId'),
         College_Name: getField('College Name'),
         Other_City: getField('Other City'),
+        Other_Country:getField('Country'),
+
         College_Year_Of_Graduation: getField('College Year Of Graduation'),
         Program: getField('Program'),
         College_Programs: getField('College Programs'),
