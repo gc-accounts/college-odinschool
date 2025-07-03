@@ -33,13 +33,14 @@ export async function POST(request: Request) {
         Coupon_Code: formData.get('Coupon Code'),
 
 
-        // Using likely API field names - verify in your Zoho CRM
-        First_Page_Seen: getField('First Page Seen'),
-        Original_Traffic_Source: getField('Original Traffic Source'),
-        Original_Traffic_Source_Drill_Down_1: getField('Original Traffic Source Drill-Down 1'),
-        Original_Traffic_Source_Drill_Down_2: getField('Original Traffic Source Drill-Down 2'),
+       // utm tracking details
+        Latest_Page_Seen: getField('First Page Seen'),
+        Latest_Traffic_Source: getField('Original Traffic Source'),
+        Latest_Traffic_Source_Drill_Down_1: getField('Original Traffic Source Drill-Down 1'),
+        Latest_Traffic_Source_Drill_Down_2: getField('Original Traffic Source Drill-Down 2'),
         UTM_Term_First_Page_Seen: getField('UTM Term-First Page Seen'),
         UTM_Content_First_Page_Seen: getField('UTM Content-First Page Seen'),
+        ads_gclid:formData.get('ads_gclid'),
 
         duplicate_check_fields: ['Email']
       }],
