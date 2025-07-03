@@ -24,14 +24,19 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       const { access_token } = await accessTokenRes.json()
 
       const brochureFormData = new FormData()
-      brochureFormData.append('accessToken', access_token)
-      brochureFormData.append('First Name', data.firstName)
-      brochureFormData.append('Last Name', data.lastName)
-      brochureFormData.append('Email', data.email)
-      brochureFormData.append('Phone', data.phone)
-      brochureFormData.append('StudentId', data.StudentId)
-      brochureFormData.append('College Name', data.collegeName)
-      brochureFormData.append('Other City', data.city)
+      brochureFormData.append('accessToken', access_token);
+      brochureFormData.append('First Name', data.firstName);
+      brochureFormData.append('Last Name', data.lastName);
+      brochureFormData.append('Email', data.email);
+       // Extract country code (e.g., '+91 (India)' -> '+91')
+      const countryCode = data.countryCodeValue.split(' ')[0];
+      const fullPhoneNumber = countryCode + data.phone; // Concatenate country code and phone number
+      brochureFormData.append('Phone', fullPhoneNumber);
+      brochureFormData.append('StudentId', data.StudentId);
+      brochureFormData.append('College Name', data.collegeName);
+      brochureFormData.append('Other City', data.city);
+      brochureFormData.append('Country', data.countryCode);
+
       brochureFormData.append('College Year Of Graduation', data.year);
       brochureFormData.append('Program', 'Data Analyst');
       brochureFormData.append('College Programs', 'Data Analyst');

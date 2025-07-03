@@ -36,7 +36,6 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
   useEffect(() => {
     const data = getUTMTrackingData();
     setUtm(data);
-    sessionStorage.setItem('utmTracking', JSON.stringify(data));
   }, []);
 
   const handleFormSubmit = async (data: any, reset: () => void) => {
@@ -47,10 +46,16 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
       formData.append('First Name', data.firstName);
       formData.append('Last Name', data.lastName);
       formData.append('Email', data.email);
-      formData.append('Phone', data.phone);
-      formData.append('StudentId', data.StudentId)
-      formData.append('College Name', data.collegeName)
-      formData.append('Other City', data.city)
+            // Extract country code (e.g., '+91 (India)' -> '+91')
+      const countryCode = data.countryCodeValue.split(' ')[0];
+      const fullPhoneNumber = countryCode + data.phone; // Concatenate country code and phone number
+
+      formData.append('Phone', fullPhoneNumber);
+      formData.append('StudentId', data.StudentId);
+      formData.append('College Name', data.collegeName);
+      formData.append('Other City', data.city);
+      formData.append('Country', data.countryCode);
+      formData.append('Country', data.countryCode);
       formData.append('College Year Of Graduation', data.year);
       formData.append('Program', 'Data Analyst');
       formData.append('College Programs', 'Data Analyst');
@@ -59,7 +64,8 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
       formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course form');
       isCoupon && formData.append('Coupon Code', 'EBO2025');
 
-      // UTM Tracking
+      
+      // Use the UTM data from state
       formData.append('First Page Seen', utm['First Page Seen'] || '');
       formData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
       formData.append(
@@ -72,6 +78,8 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
       );
       formData.append('UTM Term-First Page Seen', utm['UTM Term-First Page Seen'] || '');
       formData.append('UTM Content-First Page Seen', utm['UTM Content-First Page Seen'] || '');
+      formData.append('ads_gclid', utm['ads_gclid'])
+
 
       const res = await fetch('/api/zoho/course-form', {
         method: 'POST',

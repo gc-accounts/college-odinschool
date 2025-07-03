@@ -28,6 +28,19 @@ const brochureFormField: FieldConfig[] = [
       },
     },
   },
+ {
+    name: 'countryCode',
+    label: 'Country',
+    type: 'text',
+    required: true,
+    defaultValue: 'India',
+    rules: { required: 'Country is required' },
+  },
+  {
+    name: 'countryCodeValue',
+    type: 'hidden',
+    defaultValue: '+91'
+  },
   {
     name: 'phone',
     label: 'Phone*',
@@ -36,8 +49,16 @@ const brochureFormField: FieldConfig[] = [
     rules: {
       required: 'Phone number is required',
       pattern: {
-        value: /^[0-9]{10,12}$/,
-        message: 'Phone number must be between 10 and 12 digits (numbers only)',
+        value: /^[0-9]+$/,
+        message: 'Phone number must contain only digits',
+      },
+      minLength: {
+        value: 8,
+        message: 'Phone number must be at least 8 digits',
+      },
+      maxLength: {
+        value: 15,
+        message: 'Phone number cannot exceed 15 digits',
       },
     },
   },
