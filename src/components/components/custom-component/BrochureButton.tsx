@@ -1,10 +1,11 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '@/components/components/Button'
 import Modal from '@/components/components/component-template/Modal'
 import PrimaryForm from '@/components/components/course-details/PrimaryForm'
 import DynamicForm from '@/components/components/form/DynamicForm'
 import brochureFormField from '@/components/data/brochureFormField'
+import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData'
 import { useToast } from '@/components/hooks/use-toast';
 
 interface BrochureButtonProps {
@@ -14,7 +15,14 @@ interface BrochureButtonProps {
 const BrochureButton = ({ slug }: BrochureButtonProps) => {
   const [formOpen, setFormOpen] = useState(false)
   const [brochureFormOpen, setBrochureFormOpen] = useState(false)
+    const [utm, setUtm] = React.useState<Record<string, string>>({});
+  
   const { toast } = useToast()
+
+   useEffect(() => {
+      const data = getUTMTrackingData();
+      setUtm(data);
+    }, []);
 
   // ✅ Handle Brochure Form Submission
   const handleBrochureFormSubmit = async (data: any, reset: () => void) => {
@@ -44,6 +52,25 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('Business Unit', 'Odinschool');
 
       brochureFormData.append('Source_Domain', 'Brochure Form')
+
+
+
+
+       // Use the UTM data from state
+      brochureFormData.append('First Page Seen', utm['First Page Seen'] || '');
+      brochureFormData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
+      brochureFormData.append(
+        'Original Traffic Source Drill-Down 1',
+        utm['Original Traffic Source Drill-Down 1'] || ''
+      );
+      brochureFormData.append(
+        'Original Traffic Source Drill-Down 2',
+        utm['Original Traffic Source Drill-Down 2'] || ''
+      );
+      brochureFormData.append('UTM Term-First Page Seen', utm['UTM Term-First Page Seen'] || '');
+      brochureFormData.append('UTM Content-First Page Seen', utm['UTM Content-First Page Seen'] || '');
+      brochureFormData.append('ads_gclid', utm['ads_gclid'])
+
 
       const response = await fetch('/api/zoho/brochure', {
         method: 'POST',
