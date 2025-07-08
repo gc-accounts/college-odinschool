@@ -29,7 +29,19 @@ export async function POST(request: Request) {
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: 'Odinschool Whatsapp Form',
         Incoming_Medium: 'Whatsapp',
+
+        // utm tracking details
+        Latest_Page_Seen: formData.get('First Page Seen'),
+        Latest_Traffic_Source: formData.get('Original Traffic Source'),
+        Latest_Traffic_Source_Drill_Down_1: formData.get('Original Traffic Source Drill-Down 1'),
+        Latest_Traffic_Source_Drill_Down_2: formData.get('Original Traffic Source Drill-Down 2'),
+        UTM_Term_First_Page_Seen: formData.get('UTM Term-First Page Seen'),
+        UTM_Content_First_Page_Seen: formData.get('UTM Content-First Page Seen'),
+        ads_gclid:formData.get('ads_gclid'),
+
         duplicate_check_fields: ['Email']  // ✅ critical fix
+
+
       }],
       trigger: ['workflow']
     };

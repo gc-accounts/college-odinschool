@@ -7,7 +7,7 @@ import DynamicForm from '@/components/components/form/DynamicForm'
 import brochureFormField from '@/components/data/brochureFormField'
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData'
 import { useToast } from '@/components/hooks/use-toast';
-
+import { pushToDataLayer } from '@/lib/gtm'
 interface BrochureButtonProps {
   slug: string
 }
@@ -86,6 +86,16 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
         title: 'Brochure requested successfully!',
         description: 'Check your email shortly for the brochure.'
       })
+
+
+      // --- START: Add GTM Data Layer Push Here ---
+      pushToDataLayer('brochure_download_success', {
+        eventName: 'brochure_download_modal',
+        program_name: 'Data Analyst',
+        user_email: data.email,
+      });
+      // --- END: Add GTM Data Layer Push Here ---
+
 
       reset() // ✅ Clear form fields
       setBrochureFormOpen(false)
