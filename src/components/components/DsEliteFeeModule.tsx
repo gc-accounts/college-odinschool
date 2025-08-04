@@ -17,7 +17,7 @@ const Fee = ({ sectionClass }: feeProps) => {
   const data = [
     {
       id: '1',
-      cohortDate: '28 Jun 2025',
+      cohortDate: '30 August 2025',
       totalPrice: '₹1,00,000',
       price: '₹90,000',
       offer: "Limited Seats! Book Yours Before They're Gone.",
@@ -39,7 +39,7 @@ const Fee = ({ sectionClass }: feeProps) => {
     },
     {
       id: '2',
-      cohortDate: '26 July 2025',
+      cohortDate: '27 September 2025',
       totalPrice: '₹1,00,000',
       price: '₹90,000',
       offer: "Limited Seats! Book Yours Before They're Gone.",
