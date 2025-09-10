@@ -24,15 +24,15 @@ const ProgramCurriculum = ({ sectionClass, slug, data, title, subText }: Program
     <section className={`${sectionClass ? sectionClass : 'py-16 md:py-24 bg-white'}`}>
       <div className="container">
         <div className='section-header text-center'>
-          <h2 className="section-title text-white">
-            {title}
+           <h2 className="mb-4 text-3xl md:text-5xl font-display leading-tight">
+            Program <span className="text-primary-600">Curriculum</span>
           </h2>
-          <p className='text-md text-center text-white'>{subText}</p>
+          <p className='text-md text-center text-balck'>{subText}</p>
         </div>
 
         {data.map((moduleData, moduleIndex) => (
           <div key={moduleIndex}>
-            <h3 className="text-2xl md:text:lg font-semibold text-white text-center mt-10 mb-6">{moduleData.module}</h3>
+            <h3 className="text-2xl md:text:lg font-semibold text-balck text-center mt-10 mb-6">{moduleData.module}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-5 gap-4">
               {moduleData.subModules.map((item, index) => (
                 <div key={index} className="bg-white p-5 rounded-lg shadow h-full flex flex-col justify-between">
@@ -67,7 +67,7 @@ const ProgramCurriculum = ({ sectionClass, slug, data, title, subText }: Program
           </div>
         ))}
 
-        <p className='text-white font-medium md:text-xl text-base text-center mt-10 mb-5'>
+        <p className='text-black font-medium md:text-xl text-base text-center mt-10 mb-5'>
           The curriculum includes both Mini Capstone and Capstone projects, providing students with practical application of their learning.
         </p>
 
