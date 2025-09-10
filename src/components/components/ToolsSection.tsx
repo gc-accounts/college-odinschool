@@ -22,7 +22,7 @@ const ToolCard = ({ name, description, icon, bgColor, delay }: ToolCardProps) =>
       <div className={`md:w-16 md:h-16 w-10 h-10 rounded-full flex items-center justify-center mb-4 ${bgColor}`}>
         <Image src={icon} alt={name} loading="lazy" width={500} height={500} />
       </div>
-      {/* <h3 className="md:text-lg text-xs font-semibold mb-2">{name}</h3> */}
+      <h3 className="md:text-lg text-xs font-semibold mb-2">{name}</h3>
       
       <p className="text-gray-600 text-sm">{description}</p>
     </CardContent>
