@@ -397,7 +397,7 @@ export const courseToolsData = [
                 description: "",
             },
             {
-                path: ' https://strapi.odinschool.com/uploads/Power_BI_eaa71186a4.webp',
+                path: 'https://strapi.odinschool.com/uploads/Power_BI_eaa71186a4.webp',
                 name: 'Power BI',
                 description: "",
             },
