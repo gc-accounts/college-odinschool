@@ -19,8 +19,8 @@ export const DsEliteCurriculumData = [
 "Storytelling with Data & Case Study",
     ],
     logo: [
-          'https://strapi.odinschool.com/uploads/Scikit_150_X60_78e109b38a.webp',
-      'https://strapi.odinschool.com/uploads/matplotlib_d282ba51f5.webp'
+      //     'https://strapi.odinschool.com/uploads/Scikit_150_X60_78e109b38a.webp',
+      // 'https://strapi.odinschool.com/uploads/matplotlib_d282ba51f5.webp'
     ]
   },
   {
@@ -37,8 +37,8 @@ export const DsEliteCurriculumData = [
  "Data Modelling Made Easy: Design star and snowflake schemas, define relationships, cardinality, and cross-filtering.",
     ],
     logo: [
-      'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
-      'https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp'
+      // 'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
+      // 'https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp'
     ]
   },
   {
@@ -55,8 +55,8 @@ export const DsEliteCurriculumData = [
 "Combining SQL and Power BI for efficient data prep",
     ],
     logo: [
-      'https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp',
-        'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
+      // 'https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp',
+      //   'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
     ]
   },
   {
@@ -66,7 +66,7 @@ export const DsEliteCurriculumData = [
 "Advanced Features and Reporting in Power BI: Enhance reports with Performance Analyzer, What-If parameters, Currency Conversion, and Paginated Reports."
     ],
     logo: [
-             'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
+            //  'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
               
       
     ]
@@ -89,10 +89,10 @@ export const DsEliteCurriculumData = [
 " Hands-on: Build a workflow that pulls data, processes it, and notifies a user",
     ],
     logo: [
-      "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
-      "https://strapi.odinschool.com/uploads/Google_Colab_150_X60_2a6cb5dedc.webp",
-       "https://strapi.odinschool.com/uploads/N8n_20100_X40_cd14c12c7a.webp",
-      "https://strapi.odinschool.com/uploads/Hugging_20_Face_20100_X40_20efc02ae2.svg",
+      // "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
+      // "https://strapi.odinschool.com/uploads/Google_Colab_150_X60_2a6cb5dedc.webp",
+      //  "https://strapi.odinschool.com/uploads/N8n_20100_X40_cd14c12c7a.webp",
+      // "https://strapi.odinschool.com/uploads/Hugging_20_Face_20100_X40_20efc02ae2.svg",
   
     ]
   },
@@ -102,10 +102,10 @@ export const DsEliteCurriculumData = [
       "Apply all the skills you've acquired throughout the curriculum in a comprehensive capstone project that ties together data from Google Sheets, Statistics, EDA, Power BI, and SQL.",
     ],
     logo: [
-      "https://strapi.odinschool.com/uploads/N8n_20100_X40_cd14c12c7a.webp",
-      "https://strapi.odinschool.com/uploads/Hugging_20_Face_20100_X40_20efc02ae2.svg",
-         "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
-         'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
+      // "https://strapi.odinschool.com/uploads/N8n_20100_X40_cd14c12c7a.webp",
+      // "https://strapi.odinschool.com/uploads/Hugging_20_Face_20100_X40_20efc02ae2.svg",
+      //    "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
+      //    'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
 
     ]
   },
@@ -126,7 +126,7 @@ export const DsEliteCurriculumData = [
       "Data analysis using Excel"
     ],
     logo: [
-      "https://strapi.odinschool.com/uploads/Excel_74543af3ba.webp"
+      // "https://strapi.odinschool.com/uploads/Excel_74543af3ba.webp"
     ]
   },
   {
@@ -154,10 +154,10 @@ export const DsEliteCurriculumData = [
 "GRU",
     ],
     logo: [
-           "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
-      "https://strapi.odinschool.com/uploads/Google_Colab_150_X60_2a6cb5dedc.webp",
-      "https://strapi.odinschool.com/uploads/Num_Py_150_X60_7660f9de30.webp",
-      "https://strapi.odinschool.com/uploads/Pandas_150_X60_2211de70b9.webp",
+      //      "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
+      // "https://strapi.odinschool.com/uploads/Google_Colab_150_X60_2a6cb5dedc.webp",
+      // "https://strapi.odinschool.com/uploads/Num_Py_150_X60_7660f9de30.webp",
+      // "https://strapi.odinschool.com/uploads/Pandas_150_X60_2211de70b9.webp",
     ]
   },
   {
@@ -169,8 +169,8 @@ export const DsEliteCurriculumData = [
       "Integration with Delta Lake and Azure Synapse Analytics"
     ],
     logo: [
-      "https://strapi.odinschool.com/uploads/Azure_bc82e74007.webp",
-      "https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp"
+      // "https://strapi.odinschool.com/uploads/Azure_bc82e74007.webp",
+      // "https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp"
     ]
   }
     ]

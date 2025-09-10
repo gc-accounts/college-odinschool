@@ -364,7 +364,7 @@ export const courseToolsData = [
         id: 4,
         title: 'Data Analyst College Program',
         path: '/data-analyst-course',
-        tools: [
+   tools: [
             {
                 path: 'https://strapi.odinschool.com/uploads/python_1_ad82826a61.webp',
                 name: 'Python',
@@ -391,7 +391,16 @@ export const courseToolsData = [
                 name: 'Matplotlib',
                 description: "",
             },
-
+  {
+                path: 'https://strapi.odinschool.com/uploads/n8n_5a2ea5ac44.webp',
+                name: 'n8n',
+                description: "",
+            },
+            {
+                path: ' https://strapi.odinschool.com/uploads/Power_BI_eaa71186a4.webp',
+                name: 'Power BI',
+                description: "",
+            },
             {
                 path: 'https://strapi.odinschool.com/uploads/Seaborn_1_410f9fc189.webp',
                 name: 'Seaborn',
