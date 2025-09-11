@@ -81,6 +81,7 @@ import { highlightData, centerImage } from '@/components/data/course-section/pro
 import { DsMentorsData } from '../data/course-section/mentors/DsMentorsData';
 import { DsEliteCurriculumData } from '@/components/data/course-section/curriculum/DsEliteCurriculumData';
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
+import InternsJoruney from '../components/InternsJoruney';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -123,6 +124,7 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
             />
           </section>
           <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={highlightData} centerImage={centerImage} />
+          <InternsJoruney  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
           <ProgramCurriculum
             data={DsEliteCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
