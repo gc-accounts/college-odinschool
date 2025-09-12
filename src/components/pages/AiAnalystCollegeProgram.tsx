@@ -15,7 +15,7 @@ const Navbar = dynamic(() => import('@/components/components/Navbar'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 
-const DaAnalystFF = dynamic(() => import('@/components/components/DaAnalystFF'), {
+const AiAnalystFF = dynamic(() => import('@/components/components/ai-analyst-coomponents/AiAnalystFF'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 const CardsFF = dynamic(() => import('@/components/components/CardsFF'), {
@@ -77,13 +77,13 @@ const ImageResponsive = dynamic(() => import('@/components/components/ImageRespo
 
 
 
-import { highlightData, centerImage } from '@/components/data/course-section/program-highlights/DaCollegeProgramData';
 import { DsMentorsData } from '../data/course-section/mentors/DsMentorsData';
 import { DsEliteCurriculumData } from '@/components/data/course-section/curriculum/DsEliteCurriculumData';
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
 import InternsJoruney from '../components/InternsJoruney';
-import { DataAnalystCardData } from '../data/course-section/card-data/DataAnalystCardData';
-import { DataAnalystInternshipData } from '../data/course-section/Intership-section/DataAnalystInternshipData';
+import { AiAnalystCardData } from '../data/course-section/card-data/AiAnalystCardData';
+import { AiHighlightData, centerImage } from '../data/course-section/program-highlights/AiHighlightData';
+import { AiAnalystInternshipData } from '../data/course-section/Intership-section/AiAnalystInternshipData';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -96,7 +96,7 @@ interface Props{
   initialCourse: Course; // Now required: the course data is passed from the server
 }
 
-const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
+const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -110,8 +110,8 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className={`flex-grow ${dmSerifDisplay.variable}`}>
-          <DaAnalystFF cohortDates={course.cohortDates} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:pt-[70px] md:pb-[160px]" />
-          <CardsFF cardData={DataAnalystCardData} sectionClass="px-[20px] pt-[50px] pb-[50px] md:px-[30px] md:pb-[0px] md:pt-[70px]" />
+          <AiAnalystFF cohortDates={course.cohortDates} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:pt-[70px] md:pb-[160px]" />
+          <CardsFF cardData={AiAnalystCardData} sectionClass="px-[20px] pt-[50px] pb-[50px] md:px-[30px] md:pb-[0px] md:pt-[70px]" />
           <section className="">
             <ImageResponsive
               desktopSrc="https://strapi.odinschool.com/uploads/info_bg_3_a7fa49bc4b.webp"
@@ -125,8 +125,8 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
               fetchPriority="low"
             />
           </section>
-          <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={highlightData} centerImage={centerImage} />
-          <InternsJoruney  internshipData={DataAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
+          <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiHighlightData} centerImage={centerImage} />
+          <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
           <ProgramCurriculum
             data={DsEliteCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
@@ -150,4 +150,4 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
   );
 };
 
-export default DataAnalystCollegeProgram;
+export default AiAnalystCollegeProgram;

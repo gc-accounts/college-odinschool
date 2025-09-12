@@ -1,33 +1,25 @@
 import React from 'react'
 import Image from 'next/image'
 
-const cardData = [
-  {
-    id: 1,
-    icon: 'https://strapi.odinschool.com/uploads/Vector_20images_bccd5cec3d.webp',
-    title: 'Limited Seats only',
-    description: 'Start your Data Analytics journey right from college'
-  },
-  {
-    id: 2,
-    icon: 'https://strapi.odinschool.com/uploads/job_ready_2d1b5e5fff.webp',
-    title: '10+ Hiring Sprints',
-    description: 'Be job-ready with an Internship even before your graduation'
-  },
-  {
-    id: 3,
-    icon: 'https://strapi.odinschool.com/uploads/branch_df0e06c60c.webp',
-    title: 'Mentorship by Alumni Network',
-    description: 'Open for college students of all degrees and branches'
-  }
-]
+
+
+// Define the type for a single card
+interface CardItem {
+  id: number;
+  icon: string;
+  title: string;
+  description: string;
+}
+
 
 
 interface CardsProps {
-  sectionClass?: String,
+  sectionClass?: String,  
+  cardData?: CardItem[];
+
 }
 
-  const CardsFF = ({ sectionClass }: CardsProps) => {
+  const CardsFF = ({ sectionClass , cardData }: CardsProps) => {
   return (
     <section className={`${sectionClass ? sectionClass : ''} relative md:translate-y-[-50%]`}>
       <div className="container mx-auto">
@@ -41,14 +33,13 @@ interface CardsProps {
         </div> */}
     <div className='grid grid-cols-1 md:grid-cols-3 gap-5 text-center'>
       {
-        cardData.map((data, index)=>{
+        cardData?.map((data, index)=>{
           return(
             <div key={index} className='bg-white border shadow-lg px-4 py-10 rounded-md'>
               <Image
                             src={data.icon}
                             alt={data.title}
                             className="w-18 h-auto block mx-auto mb-4"
-              
                             loading="lazy"
                             width={50}
                             height={50}

@@ -1,0 +1,145 @@
+// components/DaAnalystFF.tsx
+'use client';
+
+import React from 'react';
+import { Button } from "@/components/components/ui/button";
+import Link from 'next/link';
+import { CiCircleCheck } from 'react-icons/ci';
+import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react'; // Import useEffec
+const PrimaryForm = dynamic(() => import('../course-details/PrimaryForm'), { 
+  ssr: false // Ensure it's client-side rendered if it relies on browser APIs
+});
+
+import Image from 'next/image';
+import { formatDateToReadable } from '@/components/utils/formatDateToReadable';
+interface dsEliteProps {
+  sectionClass?: String;
+  cohortDates?: { 
+    cohort1?: string;
+    cohort2?: string;
+  };
+}
+const AiAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
+  const [formLoaded, setFormLoaded] = useState(false); // State to track if the form component is loaded and ready
+
+  useEffect(() => {
+    setFormLoaded(true); 
+  }, []);
+
+  // Define the skeleton component directly within DsFF for easier placement
+  const FormSkeleton = () => (
+     <div className="bg-white p-6 rounded-md shadow-md border-2 border-primary-600 flex flex-col items-center justify-center min-h-[400px] w-full">
+      {/* First Name / Last Name Row */}
+      <div className="w-full mb-3 grid grid-cols-2 gap-4">
+        <div>
+          <div className="h-4 bg-gray-200 rounded w-2/3 mb-2 animate-pulse"></div> {/* Label */}
+          <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+        </div>
+        <div>
+          <div className="h-4 bg-gray-200 rounded w-2/3 mb-2 animate-pulse"></div> {/* Label */}
+          <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+        </div>
+      </div>
+
+      {/* Email */}
+      <div className="w-full mb-3">
+        <div className="h-4 bg-gray-200 rounded w-1/4 mb-2 animate-pulse"></div> {/* Label */}
+        <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+      </div>
+
+      {/* Phone */}
+      <div className="w-full mb-3">
+        <div className="h-4 bg-gray-200 rounded w-1/4 mb-2 animate-pulse"></div> {/* Label */}
+        <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Input field */}
+      </div>
+
+      {/* Select Work Experience Level Dropdown */}
+      <div className="w-full mb-3">
+        <div className="h-4 bg-gray-200 rounded w-1/3 mb-2 animate-pulse"></div> {/* Label */}
+        <div className="h-10 bg-gray-200 rounded w-full animate-pulse"></div> {/* Dropdown */}
+      </div>
+
+      {/* Privacy Policy Text */}
+      <div className="h-2 bg-gray-200 rounded w-2/3 mb-6 animate-pulse"></div>
+
+      {/* Request a Callback Button */}
+      <div className="h-10 w-full bg-yellow-500 rounded animate-pulse"></div> {/* Changed to yellow-500 for better visual match */}
+    </div>
+  );
+
+
+  return (
+    <section className={`${sectionClass ? sectionClass : ''} overflow-hidden relative`}>
+      <div className="container grid md:grid-cols-12 gap-10 items-center justify-between">
+        {/* Left Section */}
+        <div className='col-span-5'>
+          <div className="mb-4 flex items-center gap-2 bg-primary-100 px-3 py-1 rounded-full inline-block w-fit">
+            <div className='flex items-center justify-start'>
+            <Image src="https://strapi.odinschool.com/uploads/google_icon_1c781f0daa.svg" alt="Google Reviews" width={20} height={20} className="w-4 h-4 mr-1" />
+            <Image src="https://strapi.odinschool.com/uploads/4_7_Rating_21deb84380.svg" alt="Google Reviews" width={20} height={20} className="w-auto h-4" />
+            </div>
+            <Link href='https://www.google.com/search?q=odinschool+reviews&ei=nraqY-bdDYePseMPs7KXyAE&oq=odinschool&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgoIABBHENYEELADMgoIABBHENYEELADMgoIABBHENYEELADMgoIABBHENYEELADMgoIABBHENYEELADMgoIABBHENYEELADMgoIABBHENYEELADMgoIABBHENYEELADMgcIABCwAxBDMgcIABCwAxBDMgcIABCwAxBDMgcIABCwAxBDMg0IABDkAhDWBBCwAxgBMg0IABDkAhDWBBCwAxgBMg0IABDkAhDWBBCwAxgBMhIILhDHARCvARDIAxCwAxBDGAIyEgguEMcBENEDEMgDELADEEMYAjISCC4QxwEQrwEQyAMQsAMQQxgCMgwILhDIAxCwAxBDGAJKBAhBGABKBAhGGAFQAFgAYPoPaAFwAXgAgAEAiAEAkgEAmAEAyAETwAEB2gEGCAEQARgJ2gEGCAIQARgI&sclient=gws-wiz-serp#lrd=0x3bcb9397ba0bf25b:0xc3f248706b488093,1' target='_blank'>
+            <span className="text-xs">4.6/5 | 1,539 Reviews</span>
+            </Link>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl text-white mb-3 font-display leading-normal">
+            AI Analyst <br /> College Program
+          </h2>
+          <p className="text-white text-md mb-10">
+            Master Data Analytics and get job-ready before you graduate!
+          </p>
+
+
+           <ul className='text-gray-300 delay-100 grid grid-cols-2 gap-4 mb-6'>
+                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Internship program </span></li>
+                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Job prep support </span></li>
+                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Live online classes</span></li>
+                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>20+ Projects </span></li>
+                      </ul>
+
+
+          <p className="text-yellow-400 font-medium">
+            Student ID is mandatory for the enrollment to the course.
+          </p>
+          <div className="mt-4 flex items-center justify-start gap-3">
+            <p className='text-xs text-white'>A Certified Member of</p>
+            <Image src="https://strapi.odinschool.com/uploads/hysea_rc_f9ae5c4e82.webp" alt="HYSEA" className="h-6" width={70} height={20} />
+            <Image src="https://strapi.odinschool.com/uploads/shrm_rc_7b33e51251.webp" alt="SHRM" className="h-6" width={70} height={20} />
+          </div>
+        </div>
+        <div className='col-span-2'></div>
+        {/* Right Form Section */}
+        <div className='col-span-5'>
+
+            <div className="pt-2 text-white flex justify-center items-center bg-primary-900 md:max-w-sm max-w-xs mx-auto rounded-b-none rounded-t-md">
+        <Image src="https://strapi.odinschool.com/uploads/Header_20_Form_20_Image_2a646cbc7f.png" width={100} height={20} alt="student image" className="student-image" />
+        <div className="md:p-4 p-3">
+            {/* <h4 className="font-semibold border-b border-white md:pb-3  pb-3 mb-3 none">A Proven Program to make you a Software Developer</h4> */}
+            <p className="text-xs mb-1">Upcoming Cohort</p>
+
+            {
+                           cohortDates?.cohort1 &&
+                           <h4 className="mb-0 font-semibold">{formatDateToReadable(cohortDates?.cohort1)}</h4>
+                             }
+        </div>
+
+    </div>
+
+       {/* Conditional rendering of either the skeleton or the actual form */}
+              {formLoaded ? (
+                <PrimaryForm slug={'ai-analyst-course'} isModal={false} buttonText={'Request a Callback'} sourceDomain='Course form' />
+              ) : (
+                <FormSkeleton />
+              )}
+
+
+            
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AiAnalystFF;
