@@ -1,7 +1,7 @@
 export const DsEliteCurriculumData = [
   {
     id: 1,
-    module: '',
+    module: 'Core Modules - Live Online Classes',
     subModules: [
       {
     program_title: "Statistics & Exploratory Data Analysis",
@@ -115,7 +115,7 @@ export const DsEliteCurriculumData = [
 
   {
     id: 2,
-    module: 'Bonus Modules',
+    module: 'Bonus modules for flexible learning',
     subModules: [
       {
     program_title: "Advanced Excel",
@@ -175,5 +175,48 @@ export const DsEliteCurriculumData = [
   }
     ]
   },
+
+  {
+    id: 3,
+    module: 'Career Acceleration Skills',
+    subModules: [
+      {
+    program_title: "Communication Skills",
+    points: [
+      "Effective communication is the bedrock of success in any profession. These sessions offer a comprehensive curriculum to sharpen your communication skills, ensuring you can convey your thoughts and ideas with confidence and clarity."
+    ],
+    logo: [
+      // "https://strapi.odinschool.com/uploads/Excel_74543af3ba.webp"
+    ]
+  },
+  {
+    program_title: "Learning How to Learn",
+    points: ["Under the much needed awareness of learning in today's world, we delve into the art of effective learning. Discover the science behind efficient study techniques, information retention, and continuous skill acquisition. Gain the edge in your career by mastering the skill of learning itself."],
+    logo: []
+  },
+  {
+    program_title: "Confidence Doubler",
+    points: ["Confidence is the cornerstone of success. Our confidence-building session explores practical strategies to boost self-assurance, enhance your communication skills, and project a strong, professional image in any situation."],
+    logo: []
+  },
+    {
+    program_title: "Emotional Intelligence Mastery",
+    points: ["Emotional intelligence is a key driver of effective leadership and teamwork. Explore the depths of self-awareness, empathy, and interpersonal skills in this session, enabling you to navigate professional relationships with finesse."],
+    logo: []
+  },
+    {
+    program_title: "Turn Clockwise - A Time Management Adventure",
+    points: ["Time is a precious resource, and mastering its management is vital. Our time management session equips you with strategies to prioritize tasks, set achievable goals, and maintain a healthy work-life balance."],
+    logo: []
+  },
+
+  {
+    program_title: "Problem Solving aka Design Thinking",
+    points: ["Innovation is at the heart of success. Develop problem-solving prowess and foster creativity through design thinking methodologies. Learn how to tackle challenges with a systematic and innovative approach."],
+    logo: []
+  }
+    ]
+  },
+
 
 ]

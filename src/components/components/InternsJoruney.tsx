@@ -1,4 +1,5 @@
 import React from "react";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 
 
@@ -14,19 +15,38 @@ interface InternsJourneyProps {
 }
 
 
+export const internshipData = [
+  {
+    name: "Burra Srinidhi",
+    from_pos: "B.Sc (Maths, Stats, Computer Science)",
+    to_pos: "Intern - Data Analysis",
+    intern_profile:
+      "https://strapi.odinschool.com/uploads/Srinidhi_0a6441c10c.webp",
+    certificate_img:
+      "https://strapi.odinschool.com/uploads/Burra_Srinidhi_1_page_0001_3c41feddbe.webp",
+  },
+  {
+    name: "Sunil Etamarpuram",
+    from_pos: "B.Sc (Maths, Stats, Computer Science)",
+    to_pos: "Intern - Data Analysis",
+    intern_profile:
+      "https://strapi.odinschool.com/uploads/Sunil_e5a5612c41.webp",
+    certificate_img:
+      "https://strapi.odinschool.com/uploads/4390463_Data_Analyst_Bootcamp_Sunil_Etamarpuram_page_0001_69a350fa46.webp",
+  },
+];
+
 
 const InternsJourney = ({ sectionClass , internshipData }: InternsJourneyProps) => {
   return (
     <section className={`${sectionClass ?? "px-6 py-12 bg-white"}`}>
       <div className="container mx-auto">
         {/* Heading */}
-        <div className="text-center mb-12 animate-on-scroll ">
+        <div className="text-center mb-12 animate-on-scroll">
           <h2 className="mb-4 text-3xl md:text-5xl font-display leading-tight text-black">
-            From Classroom to Corporate: <span className="text-primary-600">Successful Internship Journeys</span>
+            From Classroom to Corporate:{" "}
+            <span className="text-primary-600">Successful Internship Journeys</span>
           </h2>
-          {/* <p className="text-md text-gray-600 max-w-3xl mx-auto">
-            Our comprehensive curriculum teaches you the most in-demand tools used by data professionals worldwide
-          </p> */}
         </div>
 
         {/* Cards Row */}
@@ -38,7 +58,7 @@ const InternsJourney = ({ sectionClass , internshipData }: InternsJourneyProps) 
             >
               {/* Profile */}
               <div className="flex flex-col items-center text-center w-full sm:w-1/3">
-                <div className="w-32 h-32 overflow-hidden rounded-xl  shadow-md">
+                <div className="w-32 h-32 overflow-hidden rounded-xl shadow-md">
                   <img
                     src={intern.intern_profile}
                     alt={intern.name}
@@ -46,9 +66,17 @@ const InternsJourney = ({ sectionClass , internshipData }: InternsJourneyProps) 
                   />
                 </div>
                 <p className="mt-3 font-bold text-black">{intern.name}</p>
-                <p className="text-sm font-medium text-gray-700">
-                  {intern.designation}
-                </p>
+
+                {/* From → To */}
+      <div className="flex items-center gap-2 mt-2 text-sm text-gray-700 text-center">
+  <span className="font-medium break-words max-w-[200px] text-xs">
+    {intern.from_pos}
+  </span>
+  <MdKeyboardDoubleArrowRight className="text-primary-600 w-10 h-10" />
+  <span className="text-black break-words max-w-[200px] text-xs">
+    {intern.to_pos}
+  </span>
+</div>
               </div>
 
               {/* Certificate */}
