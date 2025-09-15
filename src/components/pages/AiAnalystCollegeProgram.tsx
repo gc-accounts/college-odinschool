@@ -114,7 +114,7 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
   return (
     <>
 
-      <HelloBar isPrimaryForm={true} slug='data-analyst-course' />
+      <HelloBar isPrimaryForm={true} slug='ai-analyst-course' />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className={`flex-grow ${dmSerifDisplay.variable}`}>
@@ -138,10 +138,10 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
           <ProgramCurriculum
             data={AiAnalystProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
-            slug="data-analyst-course"
+            slug="ai-analyst-course"
           />
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <DsEliteProjects projects={AiAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <DsEliteProjects slug='ai-analyst-course'  projects={AiAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <JobPrepSupport programJobData={AiCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <AiAnalystYoucanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
           <AiAnalystRoleSection sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 

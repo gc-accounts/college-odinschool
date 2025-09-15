@@ -6,19 +6,19 @@ import React from 'react';
 import BrochureButton from '../custom-component/BrochureButton';
 const rolesData = [
   {
-    title: 'Data Analyst',
+    title: 'AI Analyst',
     description:
-      'Analyze trends, interpret data, and drive business decisions. Work with tools like Excel, SQL, and Python to extract meaningful insights.',
+      'Uncover patterns in data, automate processes, and drive AI-powered insights to enhance decision-making.',
   },
   {
-    title: 'Business Analyst',
+    title: 'Machine Learning Associate',
     description:
-      'Bridge the gap between data insights and business strategy. Collaborate with stakeholders to optimize processes and improve efficiency.',
+      'Support the development and implementation of machine learning models to analyze trends and optimize workflows.',
   },
   {
-    title: 'Data Visualization Analyst',
+    title: 'Software Engineer - AI',
     description:
-      'Present complex data in clear, impactful visuals. Create compelling dashboards using tool like Power BI.',
+      'Develop AI-driven applications, build intelligent algorithms, and optimize AI models for real-world solutions.',
   },
 ];
 
@@ -33,7 +33,7 @@ const AiAnalystRoleSection = ({ sectionClass }: Props) => {
          <div className="container mx-auto">
         <div className="text-center mb-12 animate-on-scroll ">
           <h2 className="text-3xl md:text-5xl font-display leading-tight mb-4">
-            What Roles Can A <span className="text-primary-600">Data Analytics</span> Professional Pursue?
+            What Roles Can A <span className="text-primary-600">AI Analytics</span> Professional Pursue?
           </h2>
           {/* <p className="text-md text-gray-600 max-w-3xl mx-auto">
             Our comprehensive curriculum teaches you the most in-demand tools used by data professionals worldwide
@@ -55,10 +55,10 @@ const AiAnalystRoleSection = ({ sectionClass }: Props) => {
       </div>
 
       <div className="text-center mt-8 font-semibold text-lg mb-10">
-        Kickstart your career in <span className="text-primary-600">high-growth data roles!</span>
+        Step into a dynamic <span className="text-primary-600">AI-driven career and make an impact!</span>
       </div>
 
-      <BrochureButton slug={'data-analyst-course'} />
+      <BrochureButton slug={'ai-analyst-course'} />
     </section>
   );
 };

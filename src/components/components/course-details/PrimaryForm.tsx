@@ -38,77 +38,82 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
     setUtm(data);
   }, []);
 
-  const handleFormSubmit = async (data: any, reset: () => void) => {
-    try {
-      const token = await getAccessToken();
-      const formData = new FormData();
-      formData.append('accessToken', token);
-      formData.append('First Name', data.firstName);
-      formData.append('Last Name', data.lastName);
-      formData.append('Email', data.email);
-            // Extract country code (e.g., '+91 (India)' -> '+91')
-      const countryCode = data.countryCodeValue.split(' ')[0];
-      const fullPhoneNumber = countryCode + data.phone; // Concatenate country code and phone number
+const handleFormSubmit = async (data: any, reset: () => void) => {
+  try {
+    const token = await getAccessToken();
+    const formData = new FormData();
+    formData.append('accessToken', token);
+    formData.append('First Name', data.firstName);
+    formData.append('Last Name', data.lastName);
+    formData.append('Email', data.email);
 
-      formData.append('Phone', fullPhoneNumber);
-      formData.append('StudentId', data.StudentId);
-      formData.append('College Name', data.collegeName);
-      formData.append('Other City', data.city);
-      formData.append('Country', data.countryCode);
-      formData.append('Country', data.countryCode);
-      formData.append('College Year Of Graduation', data.year);
-      formData.append('Program', 'Data Analyst');
-      formData.append('College Programs', 'Data Analyst');
-      formData.append('Ga_client_id', '');
-      formData.append('Business Unit', 'Odinschool');
-      formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course form');
-      isCoupon && formData.append('Coupon Code', 'EBO2025');
+    // Extract country code (e.g., '+91 (India)' -> '+91')
+    const countryCode = data.countryCodeValue.split(' ')[0];
+    const fullPhoneNumber = countryCode + data.phone;
+    formData.append('Phone', fullPhoneNumber);
 
-      
-      // Use the UTM data from state
-      formData.append('First Page Seen', utm['First Page Seen'] || '');
-      formData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
-      formData.append(
-        'Original Traffic Source Drill-Down 1',
-        utm['Original Traffic Source Drill-Down 1'] || ''
-      );
-      formData.append(
-        'Original Traffic Source Drill-Down 2',
-        utm['Original Traffic Source Drill-Down 2'] || ''
-      );
-      formData.append('UTM Term-First Page Seen', utm['UTM Term-First Page Seen'] || '');
-      formData.append('UTM Content-First Page Seen', utm['UTM Content-First Page Seen'] || '');
-      formData.append('ads_gclid', utm['ads_gclid'])
+    formData.append('StudentId', data.StudentId);
+    formData.append('College Name', data.collegeName);
+    formData.append('Other City', data.city);
+    formData.append('Country', data.countryCode);
+    formData.append('College Year Of Graduation', data.year);
 
+    // ✅ Dynamic Program assignment
+    const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';
+    formData.append('Program', programName);
+    formData.append('College Programs', programName);
 
-      const res = await fetch('/api/zoho/course-form', {
-        method: 'POST',
-        body: formData,
-      });
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.error || 'Form submission failed');
-      }
+    formData.append('Ga_client_id', '');
+    formData.append('Business Unit', 'Odinschool');
+    formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course form');
+    isCoupon && formData.append('Coupon Code', 'EBO2025');
 
-      toast({
-        title: 'Success!',
-        description: "Your information has been submitted successfully. We'll contact you soon.",
-      });
-            // --- START: Add GTM Data Layer Push Here ---
-      pushToDataLayer('form_submission', {
-        eventName: 'form_submission',
-        program_name: 'Data Analyst',
-        user_email: data.email,
-      });
+    // Use the UTM data from state
+    formData.append('First Page Seen', utm['First Page Seen'] || '');
+    formData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
+    formData.append(
+      'Original Traffic Source Drill-Down 1',
+      utm['Original Traffic Source Drill-Down 1'] || ''
+    );
+    formData.append(
+      'Original Traffic Source Drill-Down 2',
+      utm['Original Traffic Source Drill-Down 2'] || ''
+    );
+    formData.append('UTM Term-First Page Seen', utm['UTM Term-First Page Seen'] || '');
+    formData.append('UTM Content-First Page Seen', utm['UTM Content-First Page Seen'] || '');
+    formData.append('ads_gclid', utm['ads_gclid']);
 
-      sessionStorage.setItem('submittedEmail', data.email);
-      reset();
-      setTimeout(() => router.push(`/thank-you?title=${slug}`), 1000);
-    } catch (error: any) {
-      console.error(error);
-      toast({ title: 'Error', description: error.message, variant: 'destructive' });
+    const res = await fetch('/api/zoho/course-form', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error || 'Form submission failed');
     }
-  };
+
+    toast({
+      title: 'Success!',
+      description: "Your information has been submitted successfully. We'll contact you soon.",
+    });
+
+    // --- START: Add GTM Data Layer Push Here ---
+    pushToDataLayer('form_submission', {
+      eventName: 'form_submission',
+      program_name: programName, // ✅ use dynamic value
+      user_email: data.email,
+    });
+
+    sessionStorage.setItem('submittedEmail', data.email);
+    reset();
+    setTimeout(() => router.push(`/thank-you?title=${slug}`), 1000);
+  } catch (error: any) {
+    console.error(error);
+    toast({ title: 'Error', description: error.message, variant: 'destructive' });
+  }
+};
+
 
   if (!Object.keys(utm).length) return null;
 

@@ -25,8 +25,8 @@ import Image from 'next/image';
         description: 'Grab the winning advantage in the job market with credible certificates',
       },
     ],
-    certificateLeft: 'https://strapi.odinschool.com/uploads/DAP_20_20_College_20cert_2e89b8c6bd.webp',
-    certificateRight: 'https://strapi.odinschool.com/uploads/DAP_20intern_20_Cert_dfd0616f41.webp',
+    certificateLeft: 'https://strapi.odinschool.com/uploads/AIAP_college_cert_9cc3d11617.webp',
+    certificateRight: 'https://strapi.odinschool.com/uploads/AIAP_intern_cert_c0331ca670.webp',
   };
 
 

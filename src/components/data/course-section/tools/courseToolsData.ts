@@ -90,74 +90,97 @@ export const courseToolsData = [
         id: 2,
         title: 'AI Analyst College Program',
         path: '/ai-analyst-course',
-        tools: [
+          tools: [
             {
-                path: 'https://strapi.odinschool.com/uploads/SQL_3_0867821e97.webp',
-                name: 'SQL',
-                description: "",
-            },
-
-            {
-                path: 'https://strapi.odinschool.com/uploads/SQL_2_2f6b2836e7.webp',
-                name: 'MySQL',
+                path: 'https://strapi.odinschool.com/uploads/chatgpt_994fe36c0c.webp',
+                name: 'ChatGPT',
                 description: "",
             },
             {
-                path: 'https://strapi.odinschool.com/uploads/python_1_ad82826a61.webp',
-                name: 'Python',
+                path: 'https://strapi.odinschool.com/uploads/Claude_AI_2845cec6a1.webp',
+                name: 'Claude.ai',
                 description: "",
             },
-
+            {
+                path: 'https://strapi.odinschool.com/uploads/Gemini_09f7089038.webp',
+                name: 'Gemini',
+                description: "",
+            },
+            {
+                path: 'https://strapi.odinschool.com/uploads/Copy_AI_0352783b7a.webp',
+                name: 'Copy.ai',
+                description: "",
+            },
+            {
+                path: 'https://strapi.odinschool.com/uploads/Midjourney_2d05b004c6.webp',
+                name: 'Midjourney',
+                description: "",
+            },
+            {
+                path: 'https://strapi.odinschool.com/uploads/Dall_E_44e35d7cce.webp',
+                name: 'Dall-E',
+                description: "",
+            },
+            {
+                path: 'https://strapi.odinschool.com/uploads/n8n_5a2ea5ac44.webp',
+                name: 'n8n',
+                description: "",
+            },
             {
                 path: 'https://strapi.odinschool.com/uploads/Jupyter_2400295607.webp',
                 name: 'Jupyter',
                 description: "",
             },
-            
+
             {
                 path: 'https://strapi.odinschool.com/uploads/Py_Charm_908bacb09d.webp',
                 name: 'PyCharm',
                 description: "",
             },
-            
+
             {
                 path: 'https://strapi.odinschool.com/uploads/Google_colab_33dc3db1c5.webp',
                 name: 'Google Colab',
                 description: "",
             },
-            
+
             {
-                path: 'https://strapi.odinschool.com/uploads/pandas_1_d97d15b8bf.webp',
+                path: 'https://strapi.odinschool.com/uploads/pandas_30f8e1a044.webp',
                 name: 'Pandas',
                 description: "",
             },
-            
+
             {
-                path: 'https://strapi.odinschool.com/uploads/numpy_1_0e46cdf12f.webp',
+                path: 'https://strapi.odinschool.com/uploads/numpy_47639634a4.webp',
                 name: 'NumPy',
                 description: "",
             },
-            
+
             {
-                path: 'https://strapi.odinschool.com/uploads/Scikit_20_Learn_1_0093e39c8f.webp',
+                path: 'https://strapi.odinschool.com/uploads/Scikit_Learn_cfe7c5c8a1.webp',
                 name: 'Scikit-learn',
                 description: "",
             },
 
-                 {
+            {
                 path: 'https://strapi.odinschool.com/uploads/Docker_0d12e2b0ac.webp',
                 name: 'Docker',
                 description: "",
             },
 
-
-                 {
+            {
                 path: 'https://strapi.odinschool.com/uploads/Git_6a7ae901df.webp',
                 name: 'Git',
                 description: "",
             },
 
-                {
+            {
+                path: 'https://strapi.odinschool.com/uploads/VS_Code_195dc71aa7.webp',
+                name: 'Visual Studio Code',
+                description: "",
+            },
+
+            {
                 path: 'https://strapi.odinschool.com/uploads/kubernetes_3417fd53ce.webp',
                 name: 'Kubernetes',
                 description: "",
@@ -180,23 +203,6 @@ export const courseToolsData = [
                 name: 'LlamaIndex',
                 description: "",
             },
-
-            {
-                path: 'https://strapi.odinschool.com/uploads/Chroma_DB_965d691977.webp',
-                name: 'ChromaDB',
-                description: "",
-            },
-            {
-                path: 'https://strapi.odinschool.com/uploads/Auto_GPT_092a0fa5e3.png',
-                name: 'AutoGPT',
-                description: "",
-            },
-            
-            {
-                path: 'https://strapi.odinschool.com/uploads/keras_6342acd2df.webp',
-                name: 'Keras',
-                description: "",
-            }
         ]
     },
 ]

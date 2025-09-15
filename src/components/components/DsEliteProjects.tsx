@@ -24,10 +24,11 @@ interface DsEliteProjectItem{
 
 interface DsEliteProjectsProps {
   sectionClass?: string;
+  slug?:string;
   projects:DsEliteProjectItem[]
 }
 
-const DsEliteProjects = ({ sectionClass , projects  }: DsEliteProjectsProps) => {
+const DsEliteProjects = ({ sectionClass , slug,  projects  }: DsEliteProjectsProps) => {
   const [playVideo, setPlayVideo] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
 
@@ -254,7 +255,7 @@ const DsEliteProjects = ({ sectionClass , projects  }: DsEliteProjectsProps) => 
             >
               <PrimaryForm
                 buttonText="Request a Callback"
-                slug="data-science-elite-course"
+                slug={slug}
                 isModal
                 sourceDomain="Course form"
               />

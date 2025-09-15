@@ -19,15 +19,19 @@ const AiAnalystYoucanSection = ({ sectionClass }: Props) => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         {/* Left Text Block */}
         <div className="text-white md:col-span-7">
-          <p className="text-sm mb-2">Thinking “Can I really do this?”</p>
+          <p className="text-sm mb-2">Wondering if AI Analytics is only for IT professionals?</p>
           <h2 className="mb-4 text-3xl md:text-5xl font-display leading-tight font-semibold">
-            Of course, you can!!
+            Think again!!
           </h2>
           <p className="mb-4 text-base">
-            No advanced math or coding experience? No problem! We start from the basics and guide you every step of the way.
+            AI Analytics is not limited to coders or tech experts—it's for anyone eager to solve problems using data and AI-driven insights.
+          </p>
+
+          <p className="mb-4 text-base">
+            Our step-by-step approach ensures you gain confidence from day one.
           </p>
           <p className="font-semibold mb-6 text-base">
-            All you need is curiosity and the drive to learn! 💡
+            Curious minds and problem solvers, this is your chance to explore AI Analytics!🚀
           </p>
 
           {/* CTA */}
@@ -48,7 +52,7 @@ const AiAnalystYoucanSection = ({ sectionClass }: Props) => {
           <Modal header_text="Enquire Now" open={formOpen} onOpenChange={setFormOpen}>
             <PrimaryForm
               buttonText="Request a Callback"
-              slug="data-analyst-course"
+              slug="ai-analyst-course"
               isModal={true}
               sourceDomain="Course form"
             />
@@ -59,7 +63,7 @@ const AiAnalystYoucanSection = ({ sectionClass }: Props) => {
         <div className="md:col-span-5">
           <div className="rounded-lg overflow-hidden">
             <Image
-              src="https://strapi.odinschool.com/uploads/Absolutely_yes_4edc38b76a.webp"
+              src="https://strapi.odinschool.com/uploads/Eligibility_section_AIACP_1_b85a94bbb2.webp"
               alt="Motivational Student"
               width={450}
               height={330}
