@@ -71,7 +71,7 @@ const ProgramCurriculum = ({ sectionClass, slug, data, title, subText }: Program
           The curriculum includes both Mini Capstone and Capstone projects, providing students with practical application of their learning.
         </p>
 
-         <BrochureButton slug={'data-analyst-course'} />
+         <BrochureButton slug={slug} />
       </div>
     </section>
   );

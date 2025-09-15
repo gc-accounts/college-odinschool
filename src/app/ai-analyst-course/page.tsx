@@ -8,33 +8,33 @@ import { Course } from '@/components/hooks/useCourseDetails'; // Import the Cour
 import AiAnalystCollegeProgram from '@/components/pages/AiAnalystCollegeProgram';
 
 export const metadata: Metadata = {
-  title: 'AI Analyst College Program | Live-Online training | OdinSchool',
+  title: 'AI Analyst College Program | Live-Online training',
   description:
-    'Join OdinSchool’s Data Analyst College Program for students. Gain hands-on skills, expert guidance, and career support. Enroll now with your student ID!',
+    'Join OdinSchool’s AI Analyst College Program for students. Gain hands-on skills, expert guidance, and career support. Enroll now with your student ID!',
   openGraph: {
-    title: 'Data Analyst College Program | Live-Online training | OdinSchool',
+    title: 'AI Analyst College Program | Live-Online training',
     description:
-      'Join OdinSchool’s Data Analyst College Program for students. Gain hands-on skills, expert guidance, and career support. Enroll now with your student ID!',
+      'Join OdinSchool’s AI Analyst College Program for students. Gain hands-on skills, expert guidance, and career support. Enroll now with your student ID!',
     type: 'website',
-    url: 'https://college.odinschool.com/data-analyst-course',
+    url: 'https://college.odinschool.com/ai-analyst-course',
     images: [
       {
         url: 'https://strapi.odinschool.com/uploads/ds_elite_og_image.webp',
         width: 1200,
         height: 630,
-        alt: 'Data Analyst College Program | Live-Online training',
+        alt: 'AI Analyst College Program | Live-Online training',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Data Analyst College Program | Live-Online training',
+    title: 'AI Analyst College Program | Live-Online training',
     description:
-      'Join OdinSchool’s Data Analyst College Program for students. Gain hands-on skills, expert guidance, and career support. Enroll now with your student ID!',
+      'Join OdinSchool’s AI Analyst College Program for students. Gain hands-on skills, expert guidance, and career support. Enroll now with your student ID!',
     images: ['https://strapi.odinschool.com/uploads/ds_elite_og_image.webp'],
   },
   keywords: [
-    'Data Analyst College Program',
+    'AI Analyst College Program',
     'online course',
     'real-world projects',
     'OdinSchool',

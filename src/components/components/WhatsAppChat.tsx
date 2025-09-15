@@ -14,6 +14,7 @@ import { pushToDataLayer } from '@/lib/gtm';
 import whatsappFormFields from '../data/form-fields/whatsappFormFields';
 import dynamic from 'next/dynamic';
 import Modal from '@/components/components/component-template/Modal';
+import { usePathname } from 'next/navigation';
 const DynamicForm = dynamic(() => import('@/components/components/form/DynamicForm'), {
   loading: () => <div>Loading...</div>,
   ssr: true
@@ -29,7 +30,8 @@ const WhatsAppChat: React.FC = () => {
     const data = getUTMTrackingData();
     setUtm(data);
   }, []);
-
+  const pathname= usePathname()
+  
   const getAccessToken = async () => {
     try {
       const response = await fetch('/api/auth/token-whatsapp', {
@@ -61,8 +63,13 @@ const WhatsAppChat: React.FC = () => {
       zohoFormData.append('Phone', fullPhoneNumber);
       // --- END: Add Country Code to Phone Number ---
 
-      zohoFormData.append('Program', 'Data Analyst');
-      zohoFormData.append('College Programs', 'Data Analyst');     
+
+      // program
+      const programName= pathname.includes('ai-analyst-course') ? 'AI Analyst' : 'Data Analyst'
+      zohoFormData.append('Program', programName);
+      zohoFormData.append('College Programs', programName); 
+      
+      
       zohoFormData.append('Country', data.countryCode)
       zohoFormData.append('Year of Graduation', data.year);
       zohoFormData.append('Ga_client_id', '');

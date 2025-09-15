@@ -10,12 +10,13 @@ import { formatDateToReadable } from '../utils/formatDateToReadable';
 
     interface Props {
   sectionClass?: String;
+  slug:string;
   cohortDates?: { 
     cohort1?: string;
     cohort2?: string;
   };
 }
-const DaFeeModule = ({ sectionClass, cohortDates }: Props) => {
+const DaFeeModule = ({ sectionClass, cohortDates, slug }: Props) => {
  const [formOpen, setFormOpen] = useState(false);
 
   const data = {
@@ -87,7 +88,7 @@ const DaFeeModule = ({ sectionClass, cohortDates }: Props) => {
           <Modal header_text="Enquire Now" open={formOpen} onOpenChange={setFormOpen}>
             <PrimaryForm
               buttonText="Request a Callback"
-              slug="data-analyst-course"
+              slug={slug}
               isModal={true}
               sourceDomain="Course form"
             />
