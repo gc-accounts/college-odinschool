@@ -1,7 +1,7 @@
 export const DsEliteCurriculumData = [
   {
     id: 1,
-    module: '',
+    module: 'Core Modules - Live Online Classes',
     subModules: [
       {
     program_title: "Statistics & Exploratory Data Analysis",
@@ -115,7 +115,7 @@ export const DsEliteCurriculumData = [
 
   {
     id: 2,
-    module: 'Bonus Modules',
+    module: 'Bonus modules for flexible learning',
     subModules: [
       {
     program_title: "Advanced Excel",

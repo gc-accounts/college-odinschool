@@ -22,7 +22,7 @@ export const highlightData = [
       },
       {
         icon: 'https://strapi.odinschool.com/uploads/Regular_e29bc144f6.webp',
-        label: 'Regular assignments & feedback',
+        label: '100+ Practice Material',
       },
     ],
   },
