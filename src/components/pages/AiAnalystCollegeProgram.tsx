@@ -39,14 +39,16 @@ const JobPrepSupport = dynamic(() => import('@/components/components/JobPrepSupp
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 
-const YouCanSection = dynamic(() => import('@/components/components/YouCanSection'), {
-  loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
-});
-const Roles = dynamic(() => import('@/components/components/Roles'), {
+
+const AiAnalystYoucanSection= dynamic(()=>import ('@/components/components/AiAnalystYoucanSection'))
+
+
+const AiAnalystRoleSection = dynamic(() => import('@/components/components/ai-analyst-coomponents/AiAnalystRoleSection'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 
-const DualCertification = dynamic(() => import('@/components/components/DualCertification'), {
+
+const AiAnalystDualCertification= dynamic(() => import('@/components/components/ai-analyst-coomponents/AiAnalystDualCertification'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 const InstructorProfileHome = dynamic(() => import('@/components/components/InstructorProfileHome'), {
@@ -84,6 +86,12 @@ import InternsJoruney from '../components/InternsJoruney';
 import { AiAnalystCardData } from '../data/course-section/card-data/AiAnalystCardData';
 import { AiHighlightData, centerImage } from '../data/course-section/program-highlights/AiHighlightData';
 import { AiAnalystInternshipData } from '../data/course-section/Intership-section/AiAnalystInternshipData';
+import { AiAnalystProgramCurriculumData } from '../data/course-section/curriculum/AiAnalystProgramCurriculumData';
+import { AiAnalystProjectData } from '../data/course-section/project-section/AiAnalystProjectData';
+import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCollegeProgramJobsData';
+import { AiCollegeProgramJobsData } from '../data/course-section/job-drives/AiCollegeProgramJobsData';
+import { AiAnalystMentorsData } from '../data/course-section/mentors/AiAnalystMentorsData';
+import { AiAnalystCollegeProgramFaqsData } from '../data/course-section/faqs/AiAnalystCollegeProgramFaqsData';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -128,21 +136,21 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
           <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiHighlightData} centerImage={centerImage} />
           <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
           <ProgramCurriculum
-            data={DsEliteCurriculumData}
+            data={AiAnalystProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
             slug="data-analyst-course"
           />
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <DsEliteProjects sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <JobPrepSupport sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <YouCanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
-          <Roles sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
-          <DualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <DsEliteProjects projects={AiAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <JobPrepSupport programJobData={AiCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <AiAnalystYoucanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
+          <AiAnalystRoleSection sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
+          <AiAnalystDualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <OrganizationLogos sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  />    
-          <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DsMentorsData} />
+          <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiAnalystMentorsData} />
           <StudentsTicker sectionClass="bg-primary-50 px-0 py-[50px] md:px-0 md:py-[70px]" />
           <DaFeeModule cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DaCollegeProgramFaqsData} />
+          <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiAnalystCollegeProgramFaqsData} />
         </main>
         <Footer />
       </div>

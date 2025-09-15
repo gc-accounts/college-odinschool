@@ -4,60 +4,23 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { Card, CardContent } from '@/components/components/ui/card';
 import { Badge } from '@/components/components/ui/badge';
 import { MapPin, Building, BriefcaseBusiness, ChevronLeft, ChevronRight } from 'lucide-react';
-import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCollegeProgramJobsData';
 import JobServices from './JobServices';
 
-const students = [
-  {
-    id: 1,
-    name: 'Janapureddi Radha',
-    designation: 'Product Analyst',
-    image: 'https://strapi.odinschool.com/uploads/Radha_1_1d88f39370.webp',
-    logo: 'https://strapi.odinschool.com/uploads/Group_204869_abf57ca26c.webp'
-  },
-  {
-    id: 2,
-    name: 'Shubham Nayak',
-    designation: 'Power BI Developer',
-    image: 'https://strapi.odinschool.com/uploads/19_5542c1a8a2.webp',
-    logo: 'https://strapi.odinschool.com/uploads/Reliance_General_Insurance_20100_X40_3ec92f5438.webp'
-  },
-  {
-    id: 3,
-    name: 'Tanuj Chauhan',
-    designation: 'Data Analyst',
-    image: 'https://strapi.odinschool.com/uploads/Tanuj_1_84bd563ca5.webp',
-    logo: 'https://strapi.odinschool.com/uploads/Axis_Max_Life_Insurance_100_X40_425fc9a4c3.webp'
-  },
-  {
-    id: 4,
-    name: 'Rohit Raut',
-    designation: 'WMS Operator - Analytics',
-    image: 'https://strapi.odinschool.com/uploads/Rohit_Raut_1_0c6a4110d1.webp',
-    logo: 'https://strapi.odinschool.com/uploads/Indicold_20100_X40_131fcbbf55.webp'
-  },
-  {
-    id: 5,
-    name: 'Akash Tiwary',
-    designation: 'Operations Analytics',
-    image: 'https://strapi.odinschool.com/uploads/Akash_Tiwari_1_941b59341e.webp',
-    logo: 'https://strapi.odinschool.com/uploads/Flipkart_20100x40_8a8b52e7a2.svg'
-  },
-  {
-    id: 6,
-    name: 'Ankita Bajpai',
-    designation: 'MIS Executive',
-    image: 'https://strapi.odinschool.com/uploads/18_626190768c.webp',
-    logo: 'https://strapi.odinschool.com/uploads/swiggy_20100_X40_20indv_e206ccf06f.webp'
-  },
-
-];
+interface ProgramJob{
+  id: number;
+  jobCompanyLogo:string;
+  jobDesignation:string;
+  jobExp:string;
+  jobSkills:any;
+  jobLocation:string
+}
 
 interface CardsProps {
   sectionClass?: string,
+  programJobData:ProgramJob[]
 }
 
-const JobPrepSupport = ({ sectionClass }: CardsProps) => {
+const JobPrepSupport = ({ sectionClass, programJobData }: CardsProps) => {
 
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start', containScroll: 'trimSnaps' });
@@ -117,7 +80,7 @@ const JobPrepSupport = ({ sectionClass }: CardsProps) => {
           {/* Carousel */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {DaCollegeProgramJobsData.map((item) => (
+              {programJobData?.map((item) => (
                 <div key={item.id} className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_50%] px-2">
                   <Card className="border border-primary-600 hover:shadow-lg transition-all h-full">
                     <CardContent className="p-6">

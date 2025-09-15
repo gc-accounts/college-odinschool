@@ -84,6 +84,8 @@ import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeP
 import InternsJoruney from '../components/InternsJoruney';
 import { DataAnalystCardData } from '../data/course-section/card-data/DataAnalystCardData';
 import { DataAnalystInternshipData } from '../data/course-section/Intership-section/DataAnalystInternshipData';
+import { DataAnalystProjectData } from '../data/course-section/project-section/DataAnalystProjectData';
+import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCollegeProgramJobsData';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -133,8 +135,8 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
             slug="data-analyst-course"
           />
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <DsEliteProjects sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <JobPrepSupport sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <DsEliteProjects projects={DataAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <JobPrepSupport  programJobData={DaCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <YouCanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
           <Roles sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
           <DualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
