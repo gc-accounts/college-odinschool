@@ -1,59 +1,71 @@
 export const AiAnalystProjectData=[
      {
       id: 1,
-      title: 'Amazon Sales Insights with SQL',
+      title: 'Study-Buddy: AI-Driven Personalized Learning Assistant',
       description:
-        'Analyze Amazon’s sales data to uncover trends in products, customers, and revenue across different branches.',
-      image: 'https://strapi.odinschool.com/uploads/Amazon_20sales_19ab24d32e.webp',
+        'Revolutionize the way students learn by building highly personalized educational content.',
+      image: 'https://strapi.odinschool.com/uploads/ai_learning_assistant_82cb8c6761.webp',
     },
     {
       id: 2,
-      title: 'OTP Verification System',
+      title: 'Legal Document Review and Contract Analysis Agent',
       description:
-        'A secure One-Time Password (OTP) verification system that generates, sends, and validates OTPs for user authentication.',
-      image: 'https://strapi.odinschool.com/uploads/OTP_20verification_dc55a28526.png',
+        'Create an AI agent that assists lawyers by analyzing legal documents and provides insights, such as identifying potential risks or clauses that need attention.',
+      image: 'https://strapi.odinschool.com/uploads/Document_verify_e1e7d3e31e.webp',
     },
     {
       id: 3,
-      title: 'COVID-19 Prediction',
-      description:
-        'Develop a predictive model that can accurately identify the likelihood of COVID-19 infection.',
-      image: 'https://strapi.odinschool.com/uploads/Covid_20prediction_a7d0f45362.webp',
+      title: 'Script-Master: Automated Script writer for Video Content',
+      description:'Build a tool to assist video creators for producing high-quality scripts tailored to their specific needs.',
+      image: 'https://strapi.odinschool.com/uploads/ai_script_writer_c493875814.webp',
     },
     {
       id: 4,
-      title: 'Laptop Price Prediction for SmartTech Co.',
+      title: 'AI-Powered Travel Itinerary Generator for Tourism and Hospitality',
       description:
-        'Predict laptop prices using machine learning by analyzing brand, specifications, and market trends.',
-      image: 'https://strapi.odinschool.com/uploads/laptop_948b5d2653.webp',
+        'Develop a travel assistant agent that generates personalized travel itineraries based on user preferences, historical travel data, and real-time information.',
+      image: 'https://strapi.odinschool.com/uploads/ai_tourism_planner_3841400481.webp',
     },
     {
       id: 5,
-      title: 'Health Insurance Prediction',
+      title: 'Chat with Website',
       description:
-        'Build a predictive ML model to increase the accuracy of health-insurance prediction.',
-      image: 'https://strapi.odinschool.com/uploads/Health_20insurance_f36adc2b17.webp',
+        'Create an interactive application that allows users to query a specific website and receive responses.',
+      image: 'https://strapi.odinschool.com/uploads/chatbot_037d3a1961.webp',
     },
     {
       id: 6,
-      title: 'Credit Card Approval',
+      title: 'Text to SQL Query and Output Generator',
       description:
-        'Help banks find potential customers to give out credit cards to by building an ML model.',
-      image: 'https://strapi.odinschool.com/uploads/credit_20card_20approval_53be4abea5.png',
+        'Allow users to input questions in plain English and receive corresponding SQL queries and results.',
+      image: 'https://strapi.odinschool.com/uploads/sql_query_solver_f476546f8d.webp',
     },
     /* ─────────────────── featured project (index 6) ─────────────────── */
     {
       id: 7,
-      title: 'Music Streaming Application Analysis',
-      description:
-        'Create a cutting-edge music-streaming platform. Focus on an extensive collection, personalised experiences & insights into user behaviour, and preferences for enhanced user experience.',
-      prerequisites: 'SQL',
-      tools: ['MySQL', 'Workbench'],
+      title: 'Crime Data Analysis',
+      description: "In this project, we'll be utilizing Python and the PyMySQL library to interface with a MySQL database and analyze crime data.",
+      prerequisites: 'Python, SQL, ML',
+      tools: ['Jupyter Notebook', 'MySQL'],
       ctaText: 'Request a callback',
       ctaLink: '#',
       videoThumb:
-        'https://strapi.odinschool.com/uploads/Music_Streaming_App_Analysis_7965b470f0.webp',
+        'https://strapi.odinschool.com/uploads/crime_date_analytics_ec5af213af.webp',
       videoUrl:
-        'https://strapi.odinschool.com/uploads/Music_20_Streaming_20_Application_20_Analysis_6788d41d8a.mp4',
+        'https://strapi.odinschool.com/uploads/Crime_Data_Analysis_3a9740edba.mp4',
+    },
+
+      {
+      id: 8,
+      title: 'Python Analysis on AirBnB',
+      description: "This project explores the data to correct any quality issues, visualizes the data and identifies key insights and recommendations.",
+      prerequisites: 'Python, Pandas, Matplotlit, Seaborn, Excel',
+      tools: ['Python', 'Jupyter Notebook', 'Excel'],
+      ctaText: 'Request a callback',
+      ctaLink: '#',
+      videoThumb:
+        'https://strapi.odinschool.com/uploads/python_analysis_on_Air_Bn_B_81ed15743b.webp',
+      videoUrl:
+        'https://strapi.odinschool.com/uploads/Python_Analysis_on_Air_Bn_B_fb656ace91.mp4',
     },
 ]

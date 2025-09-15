@@ -88,7 +88,7 @@ const AiAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
             AI Analyst <br /> College Program
           </h2>
           <p className="text-white text-md mb-10">
-            Master Data Analytics and get job-ready before you graduate!
+           Become an AI-Powered Analyst & Stay Ahead in the Age of Automation!
           </p>
 
 

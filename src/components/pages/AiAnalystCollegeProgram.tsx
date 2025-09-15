@@ -122,8 +122,8 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
           <CardsFF cardData={AiAnalystCardData} sectionClass="px-[20px] pt-[50px] pb-[50px] md:px-[30px] md:pb-[0px] md:pt-[70px]" />
           <section className="">
             <ImageResponsive
-              desktopSrc="https://strapi.odinschool.com/uploads/info_bg_3_a7fa49bc4b.webp"
-              mobileSrc="https://strapi.odinschool.com/uploads/Get_success_in_data_analytics_eed91c40c2.webp"
+              desktopSrc="https://strapi.odinschool.com/uploads/infographic_AIACP_26b476d282.webp"
+              mobileSrc="https://strapi.odinschool.com/uploads/infographic_AIACP_mobile_5b1f752cf5.webp"
               alt="Careers You’ll Be Ready For"
               width={1200}
               height={600}
@@ -134,7 +134,7 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
             />
           </section>
           <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiHighlightData} centerImage={centerImage} />
-          <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
+          {/* <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/> */}
           <ProgramCurriculum
             data={AiAnalystProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"

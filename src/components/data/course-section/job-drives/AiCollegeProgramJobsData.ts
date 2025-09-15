@@ -1,42 +1,26 @@
 export const AiCollegeProgramJobsData = [
   {
     id: 1,
-    jobCompanyLogo: "https://strapi.odinschool.com/uploads/Redbus_20100_X40_20indv_fdcfadaaf1.webp",
-    jobDesignation: "Pricing Analyst",
+    jobCompanyLogo: "https://strapi.odinschool.com/uploads/One_Lab_20100_X40_570b8a114c.webp",
+    jobDesignation: "AI/ML Engineer",
     jobExp: "0 - 1 years",
-    jobSkills: ["Power BI", "SQL", "Excel"],
+    jobSkills: ["Pytrhon", "NLP", "Pyspark", "Tensorflow"],
     jobLocation: "Not Mentioned"
   },
   {
     id: 2,
-    jobCompanyLogo: "https://strapi.odinschool.com/uploads/Loyalytics_20_Consulting_20100_X40_cced3bb404.webp",
-    jobDesignation: "Data Scientist",
-    jobExp: "0 - 2 years",
-    jobSkills: ["Python", "SQL", "Power BI", "ML"],
+    jobCompanyLogo: "https://strapi.odinschool.com/uploads/Cardekho_20100_X40_8b67c50fb9.webp",
+    jobDesignation: "Junior AI  Engineer",
+    jobExp: "2 - 4 years",
+    jobSkills: ["AI Expertise", "ML", "Data Analysis", "Python"],
     jobLocation: "Not Mentioned"
   },
   {
     id: 3,
-    jobCompanyLogo: "https://strapi.odinschool.com/uploads/Thinkitive_20100_X40_a0f988cadf.webp",
-    jobDesignation: "Business Analyst",
-    jobExp: "0 - 1 years",
-    jobSkills: ["SQL", "Excel"],
+    jobCompanyLogo: "https://strapi.odinschool.com/uploads/Examroom_ai_20100_X40_c6d2d8c045.webp",
+    jobDesignation: "AI/ML Engineer",
+    jobExp: "0 - 2 years",
+    jobSkills: ["ML", "Predictive Analytics", "NLP", "Pytorch"],
     jobLocation: "Not Mentioned"
   },
-  {
-    id: 4,
-    jobCompanyLogo: "https://strapi.odinschool.com/uploads/Prowiz_20100_X40_8ac2f7cecf.webp",
-    jobDesignation: "BI Developer",
-    jobExp: "0 - 1 years",
-    jobSkills: ["SQL", "ETL processes", "Python"],
-    jobLocation: "Not Mentioned"
-  },
-  {
-    id: 5,
-    jobCompanyLogo: "https://strapi.odinschool.com/uploads/Urban_20company_20100_X40_9140a94e8e.webp",
-    jobDesignation: "Data Analyst BDA",
-    jobExp: "0 - 1 years",
-    jobSkills: ["SQL"],
-    jobLocation: "Not Mentioned"
-  }
 ];
