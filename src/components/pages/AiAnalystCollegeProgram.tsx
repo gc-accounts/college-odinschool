@@ -15,7 +15,7 @@ const Navbar = dynamic(() => import('@/components/components/Navbar'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 
-const DaAnalystFF = dynamic(() => import('@/components/components/DaAnalystFF'), {
+const AiAnalystFF = dynamic(() => import('@/components/components/ai-analyst-coomponents/AiAnalystFF'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 const CardsFF = dynamic(() => import('@/components/components/CardsFF'), {
@@ -39,14 +39,16 @@ const JobPrepSupport = dynamic(() => import('@/components/components/JobPrepSupp
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 
-const YouCanSection = dynamic(() => import('@/components/components/YouCanSection'), {
-  loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
-});
-const Roles = dynamic(() => import('@/components/components/Roles'), {
+
+const AiAnalystYoucanSection= dynamic(()=>import ('@/components/components/AiAnalystYoucanSection'))
+
+
+const AiAnalystRoleSection = dynamic(() => import('@/components/components/ai-analyst-coomponents/AiAnalystRoleSection'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 
-const DualCertification = dynamic(() => import('@/components/components/DualCertification'), {
+
+const AiAnalystDualCertification= dynamic(() => import('@/components/components/ai-analyst-coomponents/AiAnalystDualCertification'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 const InstructorProfileHome = dynamic(() => import('@/components/components/InstructorProfileHome'), {
@@ -77,15 +79,19 @@ const ImageResponsive = dynamic(() => import('@/components/components/ImageRespo
 
 
 
-import { highlightData, centerImage } from '@/components/data/course-section/program-highlights/DaCollegeProgramData';
 import { DsMentorsData } from '../data/course-section/mentors/DsMentorsData';
 import { DsEliteCurriculumData } from '@/components/data/course-section/curriculum/DsEliteCurriculumData';
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
 import InternsJoruney from '../components/InternsJoruney';
-import { DataAnalystCardData } from '../data/course-section/card-data/DataAnalystCardData';
-import { DataAnalystInternshipData } from '../data/course-section/Intership-section/DataAnalystInternshipData';
-import { DataAnalystProjectData } from '../data/course-section/project-section/DataAnalystProjectData';
+import { AiAnalystCardData } from '../data/course-section/card-data/AiAnalystCardData';
+import { AiHighlightData, centerImage } from '../data/course-section/program-highlights/AiHighlightData';
+import { AiAnalystInternshipData } from '../data/course-section/Intership-section/AiAnalystInternshipData';
+import { AiAnalystProgramCurriculumData } from '../data/course-section/curriculum/AiAnalystProgramCurriculumData';
+import { AiAnalystProjectData } from '../data/course-section/project-section/AiAnalystProjectData';
 import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCollegeProgramJobsData';
+import { AiCollegeProgramJobsData } from '../data/course-section/job-drives/AiCollegeProgramJobsData';
+import { AiAnalystMentorsData } from '../data/course-section/mentors/AiAnalystMentorsData';
+import { AiAnalystCollegeProgramFaqsData } from '../data/course-section/faqs/AiAnalystCollegeProgramFaqsData';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -98,7 +104,7 @@ interface Props{
   initialCourse: Course; // Now required: the course data is passed from the server
 }
 
-const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
+const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -108,16 +114,16 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
   return (
     <>
 
-      <HelloBar isPrimaryForm={true} slug='data-analyst-course' />
+      <HelloBar isPrimaryForm={true} slug='ai-analyst-course' />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className={`flex-grow ${dmSerifDisplay.variable}`}>
-          <DaAnalystFF cohortDates={course.cohortDates} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:pt-[70px] md:pb-[160px]" />
-          <CardsFF cardData={DataAnalystCardData} sectionClass="px-[20px] pt-[50px] pb-[50px] md:px-[30px] md:pb-[0px] md:pt-[70px]" />
+          <AiAnalystFF cohortDates={course.cohortDates} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:pt-[70px] md:pb-[160px]" />
+          <CardsFF cardData={AiAnalystCardData} sectionClass="px-[20px] pt-[50px] pb-[50px] md:px-[30px] md:pb-[0px] md:pt-[70px]" />
           <section className="">
             <ImageResponsive
-              desktopSrc="https://strapi.odinschool.com/uploads/info_bg_3_a7fa49bc4b.webp"
-              mobileSrc="https://strapi.odinschool.com/uploads/Get_success_in_data_analytics_eed91c40c2.webp"
+              desktopSrc="https://strapi.odinschool.com/uploads/infographic_AIACP_26b476d282.webp"
+              mobileSrc="https://strapi.odinschool.com/uploads/infographic_AIACP_mobile_5b1f752cf5.webp"
               alt="Careers You’ll Be Ready For"
               width={1200}
               height={600}
@@ -127,24 +133,24 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
               fetchPriority="low"
             />
           </section>
-          <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={highlightData} centerImage={centerImage} />
-          <InternsJoruney  internshipData={DataAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
+          <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiHighlightData} centerImage={centerImage} />
+          {/* <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/> */}
           <ProgramCurriculum
-            data={DsEliteCurriculumData}
+            data={AiAnalystProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
-            slug="data-analyst-course"
+            slug="ai-analyst-course"
           />
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <DsEliteProjects slug='data-analyst-course' projects={DataAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <JobPrepSupport  programJobData={DaCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <YouCanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
-          <Roles sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
-          <DualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <DsEliteProjects slug='ai-analyst-course'  projects={AiAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <JobPrepSupport programJobData={AiCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <AiAnalystYoucanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
+          <AiAnalystRoleSection sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
+          <AiAnalystDualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <OrganizationLogos sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  />    
-          <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DsMentorsData} />
+          <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiAnalystMentorsData} />
           <StudentsTicker sectionClass="bg-primary-50 px-0 py-[50px] md:px-0 md:py-[70px]" />
-          <DaFeeModule slug='data-analyst-course' cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DaCollegeProgramFaqsData} />
+          <DaFeeModule slug='ai-analyst-course' cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiAnalystCollegeProgramFaqsData} />
         </main>
         <Footer />
       </div>
@@ -152,4 +158,4 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
   );
 };
 
-export default DataAnalystCollegeProgram;
+export default AiAnalystCollegeProgram;

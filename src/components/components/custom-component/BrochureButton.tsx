@@ -46,8 +46,11 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('Country', data.countryCode);
 
       brochureFormData.append('College Year Of Graduation', data.year);
-      brochureFormData.append('Program', 'Data Analyst');
-      brochureFormData.append('College Programs', 'Data Analyst');
+
+          // ✅ Dynamic Program assignment
+    const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';
+    brochureFormData.append('Program', programName);
+    brochureFormData.append('College Programs', programName);
       brochureFormData.append('Ga_client_id', '');
       brochureFormData.append('Business Unit', 'Odinschool');
 

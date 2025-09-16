@@ -2,21 +2,24 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Button from './Button';
+// import Button from './Button';
+import Button from '../Button';
 import { ArrowRight } from 'lucide-react';
-import Modal from './component-template/Modal';
-import PrimaryForm from './course-details/PrimaryForm';
-import { formatDateToReadable } from '../utils/formatDateToReadable';
+// import Modal from './component-template/Modal';
+import Modal from '../component-template/Modal';
+// import PrimaryForm from './course-details/PrimaryForm';
+import PrimaryForm from '../course-details/PrimaryForm';
+// import { formatDateToReadable } from '../utils/formatDateToReadable';
+import { formatDateToReadable } from '@/components/utils/formatDateToReadable';
 
     interface Props {
   sectionClass?: String;
-  slug:string;
   cohortDates?: { 
     cohort1?: string;
     cohort2?: string;
   };
 }
-const DaFeeModule = ({ sectionClass, cohortDates, slug }: Props) => {
+const AiAnalystFeeModule = ({ sectionClass, cohortDates }: Props) => {
  const [formOpen, setFormOpen] = useState(false);
 
   const data = {
@@ -88,7 +91,7 @@ const DaFeeModule = ({ sectionClass, cohortDates, slug }: Props) => {
           <Modal header_text="Enquire Now" open={formOpen} onOpenChange={setFormOpen}>
             <PrimaryForm
               buttonText="Request a Callback"
-              slug={slug}
+              slug="data-analyst-course"
               isModal={true}
               sourceDomain="Course form"
             />
@@ -118,4 +121,4 @@ const DaFeeModule = ({ sectionClass, cohortDates, slug }: Props) => {
   );
 };
 
-export default DaFeeModule;
+export default AiAnalystFeeModule;

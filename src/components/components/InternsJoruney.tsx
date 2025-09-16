@@ -1,9 +1,19 @@
 import React from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
+
+
+interface interCardItem{
+name:string;
+designation:string;
+intern_profile:string;
+certificate_img:string;
+}
 interface InternsJourneyProps {
   sectionClass?: string;
+  internshipData:interCardItem[]
 }
+
 
 export const internshipData = [
   {
@@ -26,7 +36,8 @@ export const internshipData = [
   },
 ];
 
-const InternsJourney = ({ sectionClass }: InternsJourneyProps) => {
+
+const InternsJourney = ({ sectionClass , internshipData }: InternsJourneyProps) => {
   return (
     <section className={`${sectionClass ?? "px-6 py-12 bg-white"}`}>
       <div className="container mx-auto">

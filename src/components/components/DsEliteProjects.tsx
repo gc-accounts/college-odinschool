@@ -7,76 +7,35 @@ import { ArrowRight } from 'lucide-react';
 import Modal from '@/components/components/component-template/Modal';
 import PrimaryForm from '@/components/components/course-details/PrimaryForm';
 
-interface DsEliteProjectsProps {
-  sectionClass?: string;
+
+
+interface DsEliteProjectItem{
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  prerequisites?: string; 
+  tools?: string[];       
+  ctaText?: string;       
+  ctaLink?: string;           
+  videoThumb?: string;        
+  videoUrl?: string;
 }
 
-const DsEliteProjects = ({ sectionClass }: DsEliteProjectsProps) => {
+interface DsEliteProjectsProps {
+  sectionClass?: string;
+  slug?:string;
+  projects:DsEliteProjectItem[]
+}
+
+const DsEliteProjects = ({ sectionClass , slug,  projects  }: DsEliteProjectsProps) => {
   const [playVideo, setPlayVideo] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
 
-  const projects = [
-    {
-      id: 1,
-      title: 'Amazon Sales Insights with SQL',
-      description:
-        'Analyze Amazon’s sales data to uncover trends in products, customers, and revenue across different branches.',
-      image: 'https://strapi.odinschool.com/uploads/Amazon_20sales_19ab24d32e.webp',
-    },
-    {
-      id: 2,
-      title: 'OTP Verification System',
-      description:
-        'A secure One-Time Password (OTP) verification system that generates, sends, and validates OTPs for user authentication.',
-      image: 'https://strapi.odinschool.com/uploads/OTP_20verification_dc55a28526.png',
-    },
-    {
-      id: 3,
-      title: 'COVID-19 Prediction',
-      description:
-        'Develop a predictive model that can accurately identify the likelihood of COVID-19 infection.',
-      image: 'https://strapi.odinschool.com/uploads/Covid_20prediction_a7d0f45362.webp',
-    },
-    {
-      id: 4,
-      title: 'Laptop Price Prediction for SmartTech Co.',
-      description:
-        'Predict laptop prices using machine learning by analyzing brand, specifications, and market trends.',
-      image: 'https://strapi.odinschool.com/uploads/laptop_948b5d2653.webp',
-    },
-    {
-      id: 5,
-      title: 'Health Insurance Prediction',
-      description:
-        'Build a predictive ML model to increase the accuracy of health-insurance prediction.',
-      image: 'https://strapi.odinschool.com/uploads/Health_20insurance_f36adc2b17.webp',
-    },
-    {
-      id: 6,
-      title: 'Credit Card Approval',
-      description:
-        'Help banks find potential customers to give out credit cards to by building an ML model.',
-      image: 'https://strapi.odinschool.com/uploads/credit_20card_20approval_53be4abea5.png',
-    },
-    /* ─────────────────── featured project (index 6) ─────────────────── */
-    {
-      id: 7,
-      title: 'Music Streaming Application Analysis',
-      description:
-        'Create a cutting-edge music-streaming platform. Focus on an extensive collection, personalised experiences & insights into user behaviour, and preferences for enhanced user experience.',
-      prerequisites: 'SQL',
-      tools: ['MySQL', 'Workbench'],
-      ctaText: 'Request a callback',
-      ctaLink: '#',
-      videoThumb:
-        'https://strapi.odinschool.com/uploads/Music_Streaming_App_Analysis_7965b470f0.webp',
-      videoUrl:
-        'https://strapi.odinschool.com/uploads/Music_20_Streaming_20_Application_20_Analysis_6788d41d8a.mp4',
-    },
-  ];
 
   /* shorthand — easier to read later */
   const featured = projects[6];
+  const featured2= projects[7]
 
   return (
     <section
@@ -203,6 +162,108 @@ const DsEliteProjects = ({ sectionClass }: DsEliteProjectsProps) => {
             </div>
           )}
         </div>
+
+
+
+    
+
+              {/* ── featured 2 project video ── */}
+              {
+                featured2 && 
+                   <div className="col-span-12 lg:col-span-6 rounded-xl overflow-hidden relative aspect-video border border-white">
+          {playVideo ? (
+            /* ▶ after clicking, show the HTML5 video element */
+            <video
+              className="w-full h-full object-cover rounded-xl"
+              src={featured2.videoUrl}
+              controls
+              autoPlay
+              playsInline
+              poster={featured2.videoThumb}
+            >
+              <source src={featured2.videoUrl} type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+          ) : (
+            /* ▶ thumbnail with play-button overlay */
+            <div
+              className="relative w-full h-full cursor-pointer"
+              onClick={() => setPlayVideo(true)}
+            >
+              <Image
+                src={featured2.videoThumb}
+                alt={`${featured2.title} video thumbnail`}
+                fill
+                className="rounded-xl object-cover"
+              />
+              <Image
+                src="https://strapi.odinschool.com/uploads/play_button_3a9c87c1ac.png"
+                alt="Play Button"
+                width={60}
+                height={60}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+              />
+            </div>
+          )}
+        </div>
+              }
+
+
+                          {/* ── large “featured” description card ── */}
+            {
+              featured2 &&      <div className="col-span-12 lg:col-span-6 bg-white text-black p-6 rounded-xl flex flex-col justify-between">
+          <h3 className="text-xl font-bold mb-2">{featured2.title}</h3>
+          <p className="text-sm text-gray-700 mb-4">{featured2.description}</p>
+
+          <div className="flex flex-col sm:flex-row justify-between text-sm mb-4 gap-4">
+            <div>
+              <p className="text-gray-500">Pre-requisite</p>
+              <p>{featured2.prerequisites}</p>
+            </div>
+            <div>
+              <p className="text-gray-500">Tools Required</p>
+              <div className="flex flex-wrap gap-2 mt-1">
+                {featured2.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-2 py-1 text-xs rounded-full border border-blue-500 text-blue-600"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CTA button + modal */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center delay-200 mt-10">
+            <Button
+              size="md"
+              variant="yellow"
+              icon={<ArrowRight className="ml-1" size={18} />}
+              iconPosition="right"
+              className="font-semibold"
+              onClick={() => setFormOpen(true)}
+            >
+              {featured2.ctaText}
+            </Button>
+
+            <Modal
+              header_text="Enquire Now"
+              open={formOpen}
+              onOpenChange={setFormOpen}
+            >
+              <PrimaryForm
+                buttonText="Request a Callback"
+                slug={slug}
+                isModal
+                sourceDomain="Course form"
+              />
+            </Modal>
+          </div>
+        </div>
+            }
+     
       </div>
     </section>
   );
