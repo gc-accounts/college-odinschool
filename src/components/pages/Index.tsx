@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { DsMentorsData } from '@/components/data/course-section/mentors/DsMentorsData';
 import dynamic from 'next/dynamic';
+import CustomCourseCard from '../components/CustomCourseCard';
 
 
 
@@ -89,8 +90,9 @@ const Index = ({
         <main className="flex-grow">
           <HeroSection sectionClass={'bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
           <OrganizationLogos sectionClass={'bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} organisations={organisations} />
-          <InstructorProfileHome data={DsMentorsData} />
-          <OdinTalks odinTalks={odinTalks} sectionClass={'bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
+          <CustomCourseCard sectionClass={'bg-blue-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]'}/>
+          <InstructorProfileHome data={DsMentorsData} sectionClass={'bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
+          <OdinTalks odinTalks={odinTalks} sectionClass={'bg-blue-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
         </main>
         <ExtrasSection1 />
         <NewsSection />

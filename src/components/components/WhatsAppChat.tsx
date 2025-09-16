@@ -27,11 +27,12 @@ const WhatsAppChat: React.FC = () => {
   const [utm, setUtm] = useState<Record<string, string>>({});
 
   useEffect(() => {
+    
     const data = getUTMTrackingData();
     setUtm(data);
   }, []);
   const pathname= usePathname()
-  
+  const isHomePage=  pathname === '/'
   const getAccessToken = async () => {
     try {
       const response = await fetch('/api/auth/token-whatsapp', {
@@ -160,13 +161,25 @@ const WhatsAppChat: React.FC = () => {
       </Link>
 
 <Modal header_text={'Chat with us on WhatsApp'} open={formOpen} onOpenChange={setFormOpen}>
-       <DynamicForm
-                fields={whatsappFormFields}
-                buttonText="Start WhatsApp Chat"
-                initialValues={initialValues}
-                onSubmit={handleFormSubmit}
-              />
-       </Modal>
+  <DynamicForm
+    fields={[
+      ...whatsappFormFields,
+      ...(isHomePage
+        ? [{
+            name: 'program',
+            label: 'Program',
+            type: 'select',
+            options: ['AI Analyst', 'Data Analyst'],
+            rules: { required: 'Please select a program' },
+          }]
+        : [])
+    ]}
+    buttonText="Start WhatsApp Chat"
+    initialValues={initialValues}
+    onSubmit={handleFormSubmit}
+  />
+</Modal>
+
     </>
   );
 };

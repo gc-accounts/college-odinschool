@@ -91,7 +91,7 @@ const OdinTalks = ({ sectionClass, odinTalks }: JobsSectionProps) => {
 
         <div className="text-center">
           <Button asChild size="lg">
-            <Link href="/odintalks">Explore OdinTalks</Link>
+            <Link href="https://www.odinschool.com/odintalks">Explore OdinTalks</Link>
           </Button>
         </div>
       </div>
