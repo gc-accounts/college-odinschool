@@ -51,7 +51,7 @@ const CourseSecondaryFormFields: FieldConfig[] = [
     name: 'program',
     label: 'Program',
     type: 'select',
-    options: ['Data Science Course', 'Certification Program in Applied Generative AI', 'Generative AI Course', 'Data Science Elite Course'],
+    options: ['AI Analyst', 'Data Analyst'],
     rules: { required: 'Please select a program' },
   },
   { name: 'ga_client_id', type: 'hidden' },
