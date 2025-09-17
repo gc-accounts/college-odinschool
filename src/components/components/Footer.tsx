@@ -54,14 +54,14 @@ const Footer = () => {
         { name: "Blog", href: "https://www.odinschool.com/blog" },
         { name: "Free Project", href: "https://www.odinschool.com/free-resources" },
         { name: "Fun With Statistics", href: "https://www.odinschool.com/fun-with-statistics" },
-        { name: "Data Science Career Guide", href: "https://www.odinschool.com/data-science-career-guide" },
+        { name: "Data Science Career Guide", href: "https://www.odinschool.com/data-science-guide-pdf" },
       ],
     },
     {
       title: 'Company',
       links: [
         { name: 'About Us', href: 'https://www.odinschool.com/about-us' },
-        { name: 'News Room', href: 'https://www.odinschool.com/news' },
+        { name: 'News Room', href: 'https://www.odinschool.com/news-room' },
         { name: 'Careers', href: 'https://www.odinschool.com/careers' },
         { name: 'Contact', href: 'https://www.odinschool.com/contact-us' },
         { name: 'FAQ', href: 'https://www.odinschool.com/faq' },
@@ -70,8 +70,8 @@ const Footer = () => {
     {
       title: 'Legal',
       links: [
-        { name: 'Terms of Use', href: 'https://www.odinschool.com/terms' },
-        { name: 'Privacy Policy', href: 'https://www.odinschool.com/privacy' },
+        { name: 'Terms of Use', href: 'https://www.odinschool.com/terms-of-use' },
+        { name: 'Privacy Policy', href: 'https://www.odinschool.com/privacy-policy' },
         // { name: 'Cookie Policy', href: '/cookies' },
       ],
     },
