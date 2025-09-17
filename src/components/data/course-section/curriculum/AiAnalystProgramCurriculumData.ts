@@ -1,7 +1,7 @@
 export const AiAnalystProgramCurriculumData = [
- {
+  {
      id: 1,
-    module: 'Core Modules - Live Online Classes',
+    module: '',
     subModules:[
         {
     program_title: "Python for AI Applications – Part I",
@@ -165,9 +165,9 @@ export const AiAnalystProgramCurriculumData = [
     module: 'Career Acceleration Skills',
     subModules: [
       {
-    program_title: "Communication Skills",
-    points: ['Effective communication is the bedrock of success in any profession. These sessions offer a comprehensive curriculum to sharpen your communication skills, ensuring you can convey your thoughts and ideas with confidence and clarity.'],
-    logo: [
+    program_title: "Resume and Interview Preparation",
+    points: ["Crafting an impressive resume and excelling in interviews are essential steps toward landing your dream job. This session guides you through building a compelling, professional resume that highlights your strengths and achievements. You’ll also learn key strategies to prepare for interviews, present your skills confidently, and leave a lasting positive impression on potential employers."],
+        logo: [
       // "https://strapi.odinschool.com/uploads/Excel_74543af3ba.webp"
     ]
   },
@@ -203,7 +203,7 @@ export const AiAnalystProgramCurriculumData = [
   },
 
   {
-    program_title: "Problem Solving aka Design Thinking",
+    program_title: "Design Thinking",
     points: [
         'Innovation is at the heart of success. Develop problem-solving prowess and foster creativity through design thinking methodologies. Learn how to tackle challenges with a systematic and innovative approach.'
       ],
@@ -211,6 +211,5 @@ export const AiAnalystProgramCurriculumData = [
   }
     ]
   },
-
 
 ]
