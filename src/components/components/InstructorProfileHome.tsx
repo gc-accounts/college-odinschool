@@ -112,7 +112,6 @@ const InstructorProfileHome = ({ sectionClass, data }: InstructorProfileProps) =
                         className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%]"
                       >
                         <Card className="mx-2 border border-gray-200 hover:shadow-lg transition-shadow overflow-hidden h-full">
-                          <Link href={`/expert/${instructor.id}`}>
                             <CardContent className="p-0">
                               <div className="h-7 bg-primary-600"></div>
                               <div className="p-6">
@@ -170,7 +169,6 @@ const InstructorProfileHome = ({ sectionClass, data }: InstructorProfileProps) =
                                 </div>
                               </div>
                             </CardContent>
-                          </Link>
                         </Card>
                       </div>
                     )
