@@ -12,11 +12,11 @@ const CustomCourseCard = ({sectionClass} : CustomCourseCardProps ) => {
       id: 1,
       isPopular: true,
       company: '',
-      image: 'https://strapi.odinschool.com/uploads/AIML_9ee02fd058.png',
+      image: 'https://strapi.odinschool.com/uploads/Data_Analyst_d85d3f99aa.webp',
       level: 'Beginner',
       title: 'Data Analyst Course',
       description:
-        'Master Artificial Intelligence, Generative AI, and LLMs with India’s only AI program backed by.',
+        'Learn to analyze data, uncover insights, and support smart business decisions.',
       path: '/data-analyst-course',
     },
     {
