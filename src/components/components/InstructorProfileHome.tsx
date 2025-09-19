@@ -71,7 +71,7 @@ const InstructorProfileHome = ({ sectionClass, data }: InstructorProfileProps) =
     <section className={`${sectionClass ? sectionClass : ''} relative`}>
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 ">
+             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">
             Meet our <span className="text-primary-600">Mentors and Speakers!</span>
           </h2>
           {/* <p className="body-md text-gray-600 max-w-2xl mx-auto">
