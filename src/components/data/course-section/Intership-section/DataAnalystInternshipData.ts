@@ -2,6 +2,8 @@ export const DataAnalystInternshipData=[
       {
     name: "Burra Srinidhi",
     designation: "Intern - Data Analysis",
+    from_pos: "B.Sc (Maths, Stats, Computer Science)",
+    to_pos: "Intern - Data Analysis",
     intern_profile:
       "https://strapi.odinschool.com/uploads/Srinidhi_0a6441c10c.webp",
     certificate_img:
@@ -10,6 +12,8 @@ export const DataAnalystInternshipData=[
   {
     name: "Sunil Etamarpuram",
     designation: "Intern - Data Analysis",
+    from_pos: "B.Sc (Maths, Stats, Computer Science)",
+    to_pos: "Intern - Data Analysis",
     intern_profile:
       "https://strapi.odinschool.com/uploads/Sunil_e5a5612c41.webp",
     certificate_img:

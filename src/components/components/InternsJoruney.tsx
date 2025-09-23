@@ -8,6 +8,8 @@ name:string;
 designation:string;
 intern_profile:string;
 certificate_img:string;
+from_pos:string;
+to_pos:string
 }
 interface InternsJourneyProps {
   sectionClass?: string;
@@ -57,8 +59,8 @@ const InternsJourney = ({ sectionClass , internshipData }: InternsJourneyProps) 
               className="flex flex-col sm:flex-row items-center justify-between gap-6 border border-gray-200 rounded-2xl bg-white shadow-md hover:shadow-lg transition-all duration-300 p-6"
             >
               {/* Profile */}
-              <div className="flex flex-col items-center text-center w-full sm:w-1/3">
-                <div className="w-32 h-32 overflow-hidden rounded-xl shadow-md">
+              <div className="flex flex-col items-center text-center w-full sm:w-1/2">
+                <div className="w-36 h-32 overflow-hidden rounded-xl shadow-md">
                   <img
                     src={intern.intern_profile}
                     alt={intern.name}
