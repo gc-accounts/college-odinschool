@@ -15,6 +15,7 @@ import whatsappFormFields from '../data/form-fields/whatsappFormFields';
 import dynamic from 'next/dynamic';
 import Modal from '@/components/components/component-template/Modal';
 import { usePathname } from 'next/navigation';
+import { fetchUserLocation } from '../utils/fetchUserLocation';
 const DynamicForm = dynamic(() => import('@/components/components/form/DynamicForm'), {
   loading: () => <div>Loading...</div>,
   ssr: true
@@ -26,10 +27,26 @@ const WhatsAppChat: React.FC = () => {
   const { toast } = useToast();
   const [utm, setUtm] = useState<Record<string, string>>({});
 
+    const [city, setCity]= useState('')
+  const [state, setState]= useState('')
+
+
+
+
+const getLocation= async()=>{
+   const location = await fetchUserLocation();
+  setCity(location.city)
+  setState(location.region)
+
+}
+
+
+
   useEffect(() => {
     
     const data = getUTMTrackingData();
     setUtm(data);
+    getLocation()
   }, []);
   const pathname= usePathname()
   const isHomePage=  pathname === '/'
@@ -75,6 +92,14 @@ const WhatsAppChat: React.FC = () => {
       zohoFormData.append('Year of Graduation', data.year);
       zohoFormData.append('Ga_client_id', '');
       zohoFormData.append('Business Unit', 'Odinschool');
+
+
+      // user location open
+      zohoFormData.append('Other_City', city  );
+      zohoFormData.append('Other_State', state);
+      // user location close
+
+
 
       // UTM Tracking details
       zohoFormData.append('First Page Seen', utm['First Page Seen'] || '');

@@ -8,6 +8,7 @@ import brochureFormField from '@/components/data/brochureFormField'
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData'
 import { useToast } from '@/components/hooks/use-toast';
 import { pushToDataLayer } from '@/lib/gtm'
+import { fetchUserLocation } from '@/components/utils/fetchUserLocation'
 interface BrochureButtonProps {
   slug: string
 }
@@ -16,12 +17,25 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
   const [formOpen, setFormOpen] = useState(false)
   const [brochureFormOpen, setBrochureFormOpen] = useState(false)
     const [utm, setUtm] = React.useState<Record<string, string>>({});
+  const [state, setState]= useState('')
+    
   
   const { toast } = useToast()
+
+
+
+  const getLocation= async()=>{
+     const location = await fetchUserLocation();
+    setState(location.region)
+  
+  }
+
 
    useEffect(() => {
       const data = getUTMTrackingData();
       setUtm(data);
+
+      getLocation()
     }, []);
 
   // ✅ Handle Brochure Form Submission
@@ -55,6 +69,11 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('Business Unit', 'Odinschool');
 
       brochureFormData.append('Source_Domain', 'Brochure Form')
+
+
+            // user location open
+      brochureFormData.append('Other_State', state);
+      // user location close
 
 
 

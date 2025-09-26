@@ -1,12 +1,13 @@
 // PrimaryForm.tsx
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useToast } from '@/components/hooks/use-toast';
 import DynamicForm, { FieldConfig } from '@/components/components/form/DynamicForm';
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData';
 import { useRouter } from 'next/navigation';
 import CourseSecondaryFormFields from '@/components/data/form-fields/CourseSecondaryFormFields';
+import { fetchUserLocation } from '@/components/utils/fetchUserLocation';
 interface SecondaryFormProps {
   isModal: Boolean;
   isCoupon: Boolean;
@@ -20,7 +21,15 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
   const [utm, setUtm] = React.useState<Record<string, string>>({});
   const router = useRouter();
 
+      const [city, setCity]= useState('')
+    const [state, setState]= useState('')
 
+const getLocation= async()=>{
+   const location = await fetchUserLocation();
+  setCity(location.city)
+  setState(location.region)
+
+}
 
   const getAccessToken = async () => {
     const res = await fetch('/api/auth/course-form-token', {
@@ -35,6 +44,7 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
   useEffect(() => {
     const data = getUTMTrackingData();
     setUtm(data);
+    getLocation()
     sessionStorage.setItem('utmTracking', JSON.stringify(data));
   }, []);
 
@@ -53,6 +63,15 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
       formData.append('Business Unit', 'Odinschool');
       formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course Form');
       isCoupon && formData.append('Coupon Code', 'EBO2025');
+
+
+         // user location open
+      formData.append('Other_City', city  );
+      formData.append('Other_State', state);
+      // user location close
+
+
+
       formData.append('First Page Seen', utm['First Page Seen'] || '');
       formData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
       formData.append(
