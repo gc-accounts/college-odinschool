@@ -32,6 +32,12 @@ export async function POST(request: Request) {
         Source_Domain: getField('Source_Domain'),
         Coupon_Code: formData.get('Coupon Code'),
 
+        // user location 
+        Other_State: getField('Other_State'),
+      
+
+
+
 
        // utm tracking details
         Latest_Page_Seen: getField('First Page Seen'),

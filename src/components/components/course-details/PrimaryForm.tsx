@@ -1,13 +1,14 @@
 // PrimaryForm.tsx
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useToast } from '@/components/hooks/use-toast';
 import DynamicForm, { FieldConfig } from '@/components/components/form/DynamicForm';
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData';
 import CoursePrimaryFormFields from '@/components/data/form-fields/CoursePrimaryFormFields';
 import { useRouter } from 'next/navigation';
 import { pushToDataLayer } from '@/lib/gtm';
+import { fetchUserLocation } from '@/components/utils/fetchUserLocation';
 interface PrimaryFormProps {
   slug: string;
   isModal: Boolean;
@@ -21,7 +22,7 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
   const { toast } = useToast();
   const [utm, setUtm] = React.useState<Record<string, string>>({});
   const router = useRouter();
-
+  const [state, setState]= useState('')
 
   const getAccessToken = async () => {
     const res = await fetch('/api/auth/course-form-token', {
@@ -33,9 +34,17 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
     return data.access_token;
   };
 
+
+const getLocation= async()=>{
+   const location = await fetchUserLocation();
+  setState(location.region)
+
+}
+
   useEffect(() => {
     const data = getUTMTrackingData();
     setUtm(data);
+    getLocation()
   }, []);
 
 const handleFormSubmit = async (data: any, reset: () => void) => {
@@ -67,6 +76,12 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
     formData.append('Business Unit', 'Odinschool');
     formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course form');
     isCoupon && formData.append('Coupon Code', 'EBO2025');
+
+
+      // user location open
+      formData.append('Other_State', state);
+      // user location close
+
 
     // Use the UTM data from state
     formData.append('First Page Seen', utm['First Page Seen'] || '');

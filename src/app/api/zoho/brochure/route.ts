@@ -29,6 +29,11 @@ export async function POST(request: Request) {
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: formData.get('Source_Domain'),
 
+
+
+        // user location 
+        Other_State: formData.get('Other_State'),
+
          // utm tracking details
         Latest_Page_Seen: formData.get('First Page Seen'),
         Latest_Traffic_Source:formData.get('Original Traffic Source'),
