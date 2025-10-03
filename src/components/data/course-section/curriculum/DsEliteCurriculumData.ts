@@ -4,111 +4,98 @@ export const DsEliteCurriculumData = [
     module: 'Core Modules - Live Online Classes',
     subModules: [
   {
-    "program_title": "Foundations of Excel & Data Skills",
-    "points": [
-      "Introduction to Data and Data Types",
-      "Google Sheets Basics: Functions (SUM, AVERAGE, MEDIAN, MODE, VAR, IQR, Standard deviation)",
-      "Basic Formulas: IF, COUNT, Sorting, Filtering",
-      "Data Cleaning: Removing Duplicates",
-      "Data Visualization Basics (Bar, Pie, Histogram, Scatter, Box, Line)"
+    program_title: "Statistics for Data Science",
+    points: [
+      "Data types, distributions, and variability",
+      "Descriptive & inferential statistics",
+      "Probability concepts & real-world applications",
+      "Hypothesis testing and confidence intervals"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "Statistics & Exploratory Data Analysis (EDA)",
-    "points": [
-      "Exploring Distributions: Skewness, Kurtosis, Normal Distribution",
-      "Correlation Analysis",
-      "Exploratory Data Analysis with Pandas",
-      "Data Visualization for Insights"
+    program_title: "Advanced SQL for Data Analysis",
+    points: [
+      "Complex SELECTs with filtering and sorting",
+      "Joins and aggregations with GROUP BY and HAVING",
+      "Subqueries and Common Table Expressions (CTEs)",
+      "Window functions for ranking and analytics"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "SQL & Databases",
-    "points": [
-      "Introduction to Databases and SQL: SELECT, FROM, WHERE, Operators (LIKE)",
-      "Functions and Data Types: Primary Key, Foreign Key",
-      "Joins & Aggregations: GROUP BY, HAVING, Aggregate Functions",
-      "Subqueries: Correlated & Non-Correlated",
-      "Common Table Expressions (CTEs)",
-      "Advanced SQL with Window Functions: ROW_NUMBER, RANK, DENSE_RANK, LEAD, LAG"
+    program_title: "Power BI – Data Integration & Power Query",
+    points: [
+      "Connecting to multiple data sources (CSV, Excel, OData)",
+      "Power Query: Transform vs Load, merge & append queries",
+      "Column transformations: add/remove, sorting, conditional, examples",
+      "Date/time handling and creation of new tables"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "Python Programming & Data Wrangling",
-    "points": [
-      "Python Basics: Data Types, Operators, Conditional Statements",
-      "Loops: While, For, Break, Continue",
-      "Data Structures: Lists, Tuples, Sets, Dictionaries",
-      "Functions in Python",
-      "Numerical Computing with NumPy",
-      "Data Analysis with Pandas"
+    program_title: "Power BI – Modeling, DAX & Visual Analytics",
+    points: [
+      "Building data models and managing relationships",
+      "Quick measures, DAX basics and math functions",
+      "Interactive visualizations: slicers, drillthrough, bookmarks",
+      "Publishing and sharing dashboards"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "Data Visualization & Power BI",
-    "points": [
-      "Introduction to Business Intelligence & Power BI",
-      "Power BI Workflow & Key Components",
-      "Connecting Power BI to Data Sources (Excel, CSV, SQL, OData)",
-      "Data Preparation with Power Query: Transform, Merge, Append",
-      "Building Data Models: Star Schema, Snowflake Schema, Relationships",
-      "Getting Started with DAX: Calculated Columns & Measures"
+    program_title: "Exploratory Data Analysis (EDA) Techniques",
+    points: [
+      "Data cleaning and preprocessing",
+      "Handling missing values and outliers",
+      "Feature scaling and transformations",
+      "Visualization-driven insights for decision making"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "Advanced DAX, Reporting & Power BI Service",
-    "points": [
-      "Advanced DAX: Aggregations, Logical & Text Functions, Time Intelligence",
-      "Quick Measures, Relationship Functions, Information Functions",
-      "Advanced Visualizations in Power BI (Drill Down, Drill Through, Tooltips, AI visuals)",
-      "Exploring Power BI Service: Workspaces, Quick Insights, Publishing Reports",
-      "Advanced Features & Reporting: Performance Analyzer, What-If Parameters, Currency Conversion, Paginated Reports"
+    program_title: "Supervised Machine Learning & Feature Engineering",
+    points: [
+      "Regression models (linear, logistic)",
+      "Classification algorithms (Decision Trees, Random Forest, etc.)",
+      "Feature encoding, selection, and transformations",
+      "Model evaluation and cross-validation"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "Machine Learning",
-    "points": [
-      "Introduction to Machine Learning",
-      "Supervised Learning: Classification & Regression",
-      "Model Evaluation: Accuracy, Precision, Recall, F1, R², MSE, RMSE, MAE",
-      "Unsupervised Learning: Clustering (K-Means, Hierarchical)",
-      "Dimensionality Reduction Techniques"
+    program_title: "Unsupervised Learning & Dimensionality Reduction",
+    points: [
+      "Clustering techniques (K-means, hierarchical)",
+      "Association rules and pattern discovery",
+      "Dimensionality reduction (PCA)",
+      "Segmentation and real-world applications"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "Generative AI & RAG",
-    "points": [
-      "Generative AI Landscape & Use Cases (LLMs, Images, Multimodal AI)",
-      "Prompt Engineering: Zero-shot, Few-shot, Role Prompting, Chain-of-thought",
-      "Fine-tuning vs. Retrieval-Augmented Generation (RAG)",
-      "Demo: Querying PDFs with RAG",
-      "Multimodal AI: Image Generation / Text-to-Speech",
-      "Responsible AI: Bias, Copyright, Misuse",
-      "Automating Workflows with n8n / Zapier"
+    program_title: "Generative AI Applications",
+    points: [
+      "Introduction to LLMs and Generative AI",
+      "Prompt engineering for business use-cases",
+      "Text summarization and chatbot applications",
+      "Ethical AI and responsible deployment"
     ],
-    "logo": []
+    logo: []
   },
   {
-    "program_title": "Capstone Project",
-    "points": [
-      "Apply all skills to a comprehensive project",
-      "Integrating Data from Google Sheets, Statistics, SQL, Power BI, and EDA",
-      "Building End-to-End Business Insights"
+    program_title: "Capstone Project – End-to-End Data Solution",
+    points: [
+      "Business problem framing and data acquisition",
+      "EDA, SQL, and BI integration",
+      "Model building and validation",
+      "Final presentation and project defense"
     ],
-    "logo": []
+    logo: []
   }
 ]
 
   },
-
-
   {
     id: 2,
     module: 'Bonus modules for flexible learning',
