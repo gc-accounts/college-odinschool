@@ -79,7 +79,7 @@ const ImageResponsive = dynamic(() => import('@/components/components/ImageRespo
 
 import { highlightData, centerImage } from '@/components/data/course-section/program-highlights/DaCollegeProgramData';
 import { DsMentorsData } from '../data/course-section/mentors/DsMentorsData';
-import { DsEliteCurriculumData } from '@/components/data/course-section/curriculum/DsEliteCurriculumData';
+import { DaCollegeProgramCurriculumData } from '@/components/data/course-section/curriculum/DaCollegeProgramCurriculumData';
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
 import InternsJoruney from '../components/InternsJoruney';
 import { DataAnalystCardData } from '../data/course-section/card-data/DataAnalystCardData';
@@ -130,7 +130,7 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
           <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={highlightData} centerImage={centerImage} />
           <InternsJoruney  internshipData={DataAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
           <ProgramCurriculum
-            data={DsEliteCurriculumData}
+            data={DaCollegeProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
             slug="data-analyst-course"
           />
