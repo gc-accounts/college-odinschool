@@ -65,8 +65,11 @@ export const courseToolsData = [
                 name: 'n8n',
                 description: "",
             },
-
-
+            {
+                path: 'https://strapi.odinschool.com/uploads/MS_20_Excel_eeebe0b81a.png',
+                name: 'Excel',
+                description: "",
+            },
         ]
     },
 
