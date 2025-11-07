@@ -1,76 +1,76 @@
 export const AIEliteCurriculumData = [
-  {
-    id: 1,
-    module: '',
-    subModules: [
-      {
-        "program_title": "Python for AI Applications",
-        "points": [
-          "Lists for AI Data Management",
-          "Tuples for Model Configuration",
-          "Sets for Feature Engineering",
-          "Dictionaries for AI Mapping",
-          "Functions for Machine Learning Algorithms"
-        ],
-        "logo": []
-      },
-      {
-        "program_title": "Machine Learning Models",
-        "points": [
-          "Introduction to Supervised Learning",
-          "Regression and Classification",
-          "Model Training and Evaluation",
-          "Feature Engineering",
-          "Cross Validation and Optimization"
-        ],
-        "logo": []
-      },
-      {
-        "program_title": "Deep Learning & Natural Language Processing (NLP)",
-        "points": [
-          "CNN and its Working Principles",
-          "RNN and its Types",
-          "Tokenization and Word Embeddings",
-          "Sequence Models and Attention",
-          "NLP Applications in AI"
-        ],
-        "logo": []
-      },
-      {
-        "program_title": "Foundational Language Models (LLMs) & Fine-Tuning",
-        "points": [
-          "LLaMA4, Mistral, and Other Foundation Models",
-          "Prompt Engineering for LLMs",
-          "Fine-Tuning with PEFT and LoRA",
-          "Evaluation and Optimization",
-          "Model Adaptation for Custom Tasks"
-        ],
-        "logo": []
-      },
-      {
-        "program_title": "RAGs (Retrieval-Augmented Generation) Frameworks",
-        "points": [
-          "Chunking and Embedding Techniques",
-          "Vector Search and Ranking",
-          "Building RAG Pipelines",
-          "LangChain and LlamaIndex Integration",
-          "Enhancing LLMs with Contextual Knowledge"
-        ],
-        "logo": []
-      },
-      {
-        "program_title": "AI Agents, AutoGen & Deployment",
-        "points": [
-          "Agentic Workflows and Function Calling",
-          "Multi-Agent Collaboration with AutoGen",
-          "Vision and Contact Center AI",
-          "Model Deployment Strategies",
-          "LLM Development"
-        ],
-        "logo": []
-      },
-    ]
-  },
+  // {
+  //   id: 1,
+  //   module: '',
+  //   subModules: [
+  //     {
+  //       "program_title": "Python for AI Applications",
+  //       "points": [
+  //         "Lists for AI Data Management",
+  //         "Tuples for Model Configuration",
+  //         "Sets for Feature Engineering",
+  //         "Dictionaries for AI Mapping",
+  //         "Functions for Machine Learning Algorithms"
+  //       ],
+  //       "logo": []
+  //     },
+  //     {
+  //       "program_title": "Machine Learning Models",
+  //       "points": [
+  //         "Introduction to Supervised Learning",
+  //         "Regression and Classification",
+  //         "Model Training and Evaluation",
+  //         "Feature Engineering",
+  //         "Cross Validation and Optimization"
+  //       ],
+  //       "logo": []
+  //     },
+  //     {
+  //       "program_title": "Deep Learning & Natural Language Processing (NLP)",
+  //       "points": [
+  //         "CNN and its Working Principles",
+  //         "RNN and its Types",
+  //         "Tokenization and Word Embeddings",
+  //         "Sequence Models and Attention",
+  //         "NLP Applications in AI"
+  //       ],
+  //       "logo": []
+  //     },
+  //     {
+  //       "program_title": "Foundational Language Models (LLMs) & Fine-Tuning",
+  //       "points": [
+  //         "LLaMA4, Mistral, and Other Foundation Models",
+  //         "Prompt Engineering for LLMs",
+  //         "Fine-Tuning with PEFT and LoRA",
+  //         "Evaluation and Optimization",
+  //         "Model Adaptation for Custom Tasks"
+  //       ],
+  //       "logo": []
+  //     },
+  //     {
+  //       "program_title": "RAGs (Retrieval-Augmented Generation) Frameworks",
+  //       "points": [
+  //         "Chunking and Embedding Techniques",
+  //         "Vector Search and Ranking",
+  //         "Building RAG Pipelines",
+  //         "LangChain and LlamaIndex Integration",
+  //         "Enhancing LLMs with Contextual Knowledge"
+  //       ],
+  //       "logo": []
+  //     },
+  //     {
+  //       "program_title": "AI Agents, AutoGen & Deployment",
+  //       "points": [
+  //         "Agentic Workflows and Function Calling",
+  //         "Multi-Agent Collaboration with AutoGen",
+  //         "Vision and Contact Center AI",
+  //         "Model Deployment Strategies",
+  //         "LLM Development"
+  //       ],
+  //       "logo": []
+  //     },
+  //   ]
+  // },
   {
     id: 2,
     module: 'Career Acceleration Skills',
