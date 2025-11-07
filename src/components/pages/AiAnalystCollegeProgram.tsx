@@ -92,6 +92,9 @@ import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCo
 import { AiCollegeProgramJobsData } from '../data/course-section/job-drives/AiCollegeProgramJobsData';
 import { AiAnalystMentorsData } from '../data/course-section/mentors/AiAnalystMentorsData';
 import { AiAnalystCollegeProgramFaqsData } from '../data/course-section/faqs/AiAnalystCollegeProgramFaqsData';
+import { AimlCoreModuleData } from '../data/course-section/curriculum/AimlCoreModuleData';
+import ProgramCurriculum2 from '../components/ProgramCurriculum2';
+import { AIEliteCurriculumData } from '../data/course-section/curriculum/AIEliteCurriculumData';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -135,11 +138,23 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
           </section>
           <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiHighlightData} centerImage={centerImage} />
           {/* <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/> */}
-          <ProgramCurriculum
+          {/* <ProgramCurriculum
             data={AiAnalystProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
             slug="ai-analyst-course"
-          />
+          /> */}
+
+     
+              <ProgramCurriculum2
+                title="A Curriculum designed for outcomes"
+                subText=""
+                data={AIEliteCurriculumData}
+                sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
+                slug="ai-analyst-course" sourceDomain="Course form"
+                aimlCoremoduleData={AimlCoreModuleData}
+              />
+    
+
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <DsEliteProjects slug='ai-analyst-course'  projects={AiAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <JobPrepSupport programJobData={AiCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />

@@ -4,99 +4,95 @@ export const DaCollegeProgramCurriculumData = [
     module: 'Core Modules - Live Online Classes',
     subModules: [
   {
-  program_title: "Applied Statistics for Data Science",
-  points: [
-    "Data types, distributions, and measures of variability",
-    "Descriptive and inferential statistics",
-    "Probability concepts and sampling principles",
-    "Hypothesis testing and confidence intervals"
-  ],
-  logo: []
-},
-{
-  program_title: "Advanced SQL for Data Analysis",
-  points: [
-    "Complex SELECTs with filtering, sorting and conditional logic",
-    "Joins, aggregations with GROUP BY and HAVING",
-    "Subqueries and Common Table Expressions (CTEs)",
-    "Window functions for ranking, running totals and analytics"
-  ],
-  logo: []
-},
-{
-  program_title: "Power BI – Data Integration & Power Query",
-  points: [
-    "Connecting to multiple data sources (CSV, Excel, OData)",
-    "Power Query transforms: Transform vs Load, merge & append",
-    "Column operations: add/remove, conditional columns, column from examples",
-    "Date/time handling and creation of new tables"
-  ],
-  logo: []
-},
-{
-  program_title: "Power BI – Modeling, DAX & Visual Analytics",
-  points: [
-    "Building data models and managing relationships",
-    "Quick measures, DAX basics and math functions",
-    "Interactive visuals: slicers, drillthrough, bookmarks",
-    "Publishing, sharing and distributing reports"
-  ],
-  logo: []
-},
-{
-  program_title: "Exploratory Data Analysis (EDA) Techniques",
-  points: [
-    "Data cleaning and preprocessing workflows",
-    "Handling missing values and outliers",
-    "Feature scaling and transformations",
-    "Visualization-driven insights and EDA storytelling"
-  ],
-  logo: []
-},
-{
-  program_title: "Python for Data Analysis",
-  points: [
-    "Core data types and operators",
-    "Control flow: conditional statements and loops",
-    "Collections: tuples, dictionaries and practical usage",
-    "Reusable code: functions and modules",
-    "Data manipulation with Pandas (DataFrame ops, merge, groupby)",
-    "Working with files: CSV/Excel I/O"
-  ],
-  logo: []
-},
-{
-  program_title: "Machine Learning & Feature Engineering",
-  points: [
-    "Regression and classification algorithms with evaluation metrics",
-    "Clustering and unsupervised methods (K-means, hierarchical)",
-    "Dimensionality reduction (PCA) and pattern discovery",
-    "Feature encoding, selection and transformations",
-    "Hyperparameter tuning and cross-validation",
-    "Ensemble methods and model optimization (bagging/boosting)"
-  ],
-  logo: []
-},
-{
-  program_title: "Generative AI Applications",
-  points: [
-    "Introduction to LLMs and Generative AI",
-    "Prompt engineering for business use-cases",
-    "Text summarization and chatbot applications",
-    "Ethical AI and responsible deployment"
-  ],
-  logo: []
-},
-{
-  program_title: "Capstone Project – End-to-End Data Solution",
-  points: [
-    "Framing a business problem and sourcing data",
-    "Applying EDA, SQL, Power BI and ML techniques",
-    "Model building, validation and evaluation",
-    "Project documentation, presentation and defense"
-  ],
-  logo: []
-},
+    "program_title": "Statistics for Data Science",
+    "points": [
+      "Introduction to data and data types",
+      "Descriptive statistics and measures of spread",
+      "Correlation and distribution analysis",
+      "Fundamentals of statistical functions and metrics"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "Advanced Excel for Data Analysis",
+    "points": [
+      "Data entry, formatting, and basic formulas",
+      "Sorting, filtering, and data cleaning",
+      "Advanced lookups and logical functions",
+      "PivotTables, PivotCharts, and data visualization"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "SQL for Data Management",
+    "points": [
+      "Introduction to databases and SQL fundamentals",
+      "Joins, keys, and relationships",
+      "Filtering, grouping, and aggregating data",
+      "Hands-on SQL project for analytics"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "Power BI and Data Visualization",
+    "points": [
+      "Introduction to Power BI and architecture",
+      "Connecting and preparing data using Power Query",
+      "Data modelling with star and snowflake schemas",
+      "Building interactive dashboards and reports"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "Python for Data Science",
+    "points": [
+      "Getting started with Python and data types",
+      "Numerical computing with NumPy",
+      "Data manipulation and analysis with Pandas",
+      "Exploratory data analysis (EDA)"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "Machine Learning Foundations",
+    "points": [
+      "Supervised learning – classification and regression",
+      "Model training, validation, and evaluation metrics",
+      "Performance measurement using accuracy, precision, recall, and F1 score",
+      "Understanding R², MSE, RMSE, and MAE"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "Generative AI Fundamentals",
+    "points": [
+      "Understanding LLMs and multimodal AI",
+      "Prompt engineering and structured prompting",
+      "Handling AI limitations like hallucination and bias",
+      "Zero-shot, few-shot, and chain-of-thought prompting"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "LLM Customization & AI Tools",
+    "points": [
+      "Fine-tuning models using RAG and PEFT",
+      "Using Hugging Face and OpenAI playgrounds",
+      "Automating workflows with n8n and Zapier",
+      "AI tools for analytics and applied intelligence"
+    ],
+    "logo": []
+  },
+  {
+    "program_title": "Capstone Projects",
+    "points": [
+      "Real-world case studies using Power BI and Python",
+      "Business insights and performance dashboards",
+      "End-to-end data processing and analysis pipelines",
+      "Industry-aligned mini and major projects"
+    ],
+    "logo": []
+  }
 ]
 
   },
