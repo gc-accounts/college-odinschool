@@ -101,16 +101,17 @@ export const DaCollegeProgramCurriculumData = [
     module: 'Bonus modules for flexible learning',
     subModules: [
       {
-    program_title: "Advanced Excel",
+    program_title: "Tableau",
     points: [
-      "Introduction to Excel",
-      "Data manipulation, cleaning, and formatting",
-      "Formulas and functions, Pivot tables and Charts",
-      "Data analysis using Excel"
+       "Getting Started with Tableau: Installation and Basics",
+          "Creating and Working with Different Chart Types",
+          "Data Visualizations with Filters, Hierarchies, and Drilldowns",
+          "Creating Dashboards and Stories",
+          "Advanced Functions: Parameters, Forecasting, and Relationships"
     ],
     logo: [
       // "https://strapi.odinschool.com/uploads/Excel_74543af3ba.webp"
-    ]
+    ],
   },
   {
     program_title: "Deep Learning",
