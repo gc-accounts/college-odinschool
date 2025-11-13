@@ -118,8 +118,13 @@ const ProgramCurriculum2 = ({
           </div>
         ))}
 
-        <p className='text-white font-medium md:text-xl text-base text-center mt-10 mb-5'>
+
+             <p className='text-black font-medium md:text-xl text-base text-center mt-10 mb-3'>
           The curriculum includes both Mini Capstone and Capstone projects, providing students with practical application of their learning.
+        </p>
+
+        <p className='text-black md:text-sm text-xs text-center mb-5 italic'>
+          Note: AI tools are subject to changes based on the availability and other updates on the course pages.
         </p>
 
         <BrochureButton slug={slug} />
