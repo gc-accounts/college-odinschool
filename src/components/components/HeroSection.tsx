@@ -195,23 +195,39 @@ const HeroSection = ({ sectionClass }: dsEliteProps) => {
           <div className="space-y-8">
             <div ref={addToRefs} className="opacity-0">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary-700 mb-6">
-                <span className="text-xs font-medium">Master In-Demand Tech Skills. Get Job-Ready.</span>
+                <span className="text-xs font-medium">Master AI Tools. Accelerate Your Growth.</span>
               </div>
               <h1 className="heading-xl text-balance">
-                <span className='text-nowrap text-white'>Get Future-Ready with </span><br />
-                <span className="text-primary-600">Data & AI!</span>
+                <span className='text-nowrap text-white'>Get Future-Ready for <br /> 2026  with </span>
+                <span className="text-primary-600">Data & AI Skills</span>
               </h1>
             </div>
 
-            <p ref={addToRefs} className="text-gray-300 delay-100 max-w-xl">
-              Exclusive Career-Boosting Courses for College Students
+            <p ref={addToRefs} className="text-gray-300 delay-100 max-w-xl text-lg">
+              Built for 2026 Tech Careers | Tailored to Both Freshers & Experienced Talent
             </p>
 
-            <ul className='text-gray-300 delay-100'>
-              <li className='flex gap-1'><span className='mr-2'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Live online classes</span></li>
-              <li className='flex gap-1'><span className='mr-2'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Project-based learning</span></li>
-              <li className='flex gap-1'><span className='mr-2'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Job Prep Support</span></li>
-            </ul>
+
+                <ul className="md:text-base text-sm text-black mt-6 grid grid-cols-12 gap-4 max-w-xl">
+                <li className='flex gap-1 col-span-12 rounded-md md:p-4 p-3 bg-white/20 backdrop-blur-md'>
+                  <span className='mr-2'>
+                    <CiCircleCheck className='md:w-6 md:h-6 w-5 h-5 rounded-full text-white bg-primary-600' />
+                  </span>
+                  <span className='text-white'>University Recognised Certificate Programs</span>
+                </li>
+                <li className='flex gap-1 col-span-6 rounded-md md:p-4 p-3 bg-white/20 backdrop-blur-md'>
+                  <span className='mr-2'>
+                    <CiCircleCheck className='md:w-6 md:h-6 w-5 h-5 rounded-full text-white bg-primary-600' />
+                  </span>
+                  <span className='text-white' >AI Tools Integrated</span>
+                </li>
+                <li className='flex gap-1 col-span-6 rounded-md md:p-4 p-3 bg-white/20 backdrop-blur-md'>
+                  <span className='mr-2'>
+                    <CiCircleCheck className='md:w-6 md:h-6 w-5 h-5 rounded-full text-white bg-primary-600' />
+                  </span>
+                  <span className='text-white' >Job Prep Support</span>
+                </li>
+              </ul>
 
             <div ref={addToRefs} className="flex flex-col sm:flex-row gap-4 opacity-0 delay-200">
               <Button
@@ -219,6 +235,7 @@ const HeroSection = ({ sectionClass }: dsEliteProps) => {
                 icon={<ArrowRight className='ml-1' size={18} />}
                 iconPosition="right"
                 onClick={() => setFormOpen(true)}
+                className='bg-yellow-400 hover:bg-yellow-500 text-black'
               >
                 Talk to an Expert
               </Button>

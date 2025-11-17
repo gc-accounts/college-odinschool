@@ -197,14 +197,14 @@ ListItem.displayName = "ListItem";
 
 const learningLinks = [
   {
-    title: "Data Analyst College Program",
+    title: "Data Analyst program",
     href: "/data-analyst-course",
-    description: "Master Data Analytics and get job-ready before you graduate!",
+    description: "Master essential analytics skills and become job-ready for 2026 roles.",
   },
   {
-    title: "AI Analyst College Program",
+    title: "AI Analyst Program",
     href: "/ai-analyst-course",
-    description: "Become an AI-Powered Analyst & Stay Ahead in the Age of Automation! ",
+    description: "Learn AI-driven analysis to thrive in tomorrow’s tech-powered careers. ",
   },
 
 ];

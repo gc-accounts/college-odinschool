@@ -77,7 +77,6 @@ const ImageResponsive = dynamic(() => import('@/components/components/ImageRespo
 
 
 
-import { highlightData, centerImage } from '@/components/data/course-section/program-highlights/DaCollegeProgramData';
 import { DsMentorsData } from '../data/course-section/mentors/DsMentorsData';
 import { DaCollegeProgramCurriculumData } from '@/components/data/course-section/curriculum/DaCollegeProgramCurriculumData';
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
@@ -86,6 +85,7 @@ import { DataAnalystCardData } from '../data/course-section/card-data/DataAnalys
 import { DataAnalystInternshipData } from '../data/course-section/Intership-section/DataAnalystInternshipData';
 import { DataAnalystProjectData } from '../data/course-section/project-section/DataAnalystProjectData';
 import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCollegeProgramJobsData';
+import { DaProgramHighlightsData } from '../data/course-section/program-highlights/DaCollegeProgramData';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -116,7 +116,7 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
           <CardsFF cardData={DataAnalystCardData} sectionClass="px-[20px] pt-[50px] pb-[50px] md:px-[30px] md:pb-[0px] md:pt-[70px]" />
           <section className="">
             <ImageResponsive
-              desktopSrc="https://strapi.odinschool.com/uploads/info_bg_3_a7fa49bc4b.webp"
+              desktopSrc="https://strapi.odinschool.com/uploads/infographic_4b23c99b10.png"
               mobileSrc="https://strapi.odinschool.com/uploads/Get_success_in_data_analytics_eed91c40c2.webp"
               alt="Careers You’ll Be Ready For"
               width={1200}
@@ -127,7 +127,12 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
               fetchPriority="low"
             />
           </section>
-          <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={highlightData} centerImage={centerImage} />
+         <ProgramHighlights2
+                 data={DaProgramHighlightsData} 
+                 title='Program Highlights'
+                 centerImg='https://strapi.odinschool.com/uploads/program_student_50d859907a.webp'
+                 sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
+                 centerText='Master Data Analytics with AI tools & Projects' />
           <InternsJoruney  internshipData={DataAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
           <ProgramCurriculum
             data={DaCollegeProgramCurriculumData}
