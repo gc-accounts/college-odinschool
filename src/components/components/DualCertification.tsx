@@ -4,30 +4,30 @@ import React from 'react';
 import Image from 'next/image';
 
 
-  const data = {
-    features: [
-      {
-        id: 1,
-        iconLabel: 'https://strapi.odinschool.com/uploads/licensing_43c4e06c53.webp',
-        title: 'Official and Verified',
-        description: 'Get two certificates with verifiable credentials',
-      },
-      {
-        id: 2,
-        iconLabel: 'https://strapi.odinschool.com/uploads/reputational_5b2f63d287.webp',
-        title: 'Easily Sharable',
-        description: 'Enrich your LinkedIn profile by sharing the certificates with just a click',
-      },
-      {
-        id: 3,
-        iconLabel: 'https://strapi.odinschool.com/uploads/network_80391a3cc6.webp',
-        title: 'Enhances credibility',
-        description: 'Grab the winning advantage in the job market with credible certificates',
-      },
-    ],
-    certificateLeft: 'https://strapi.odinschool.com/uploads/DAP_20_20_College_20cert_2e89b8c6bd.webp',
-    certificateRight: 'https://strapi.odinschool.com/uploads/DAP_20intern_20_Cert_dfd0616f41.webp',
-  };
+const data = {
+  features: [
+    {
+      id: 1,
+      iconLabel: 'https://strapi.odinschool.com/uploads/licensing_43c4e06c53.webp',
+      title: 'Official and Verified',
+      description: 'Get two certificates with verifiable credentials',
+    },
+    {
+      id: 2,
+      iconLabel: 'https://strapi.odinschool.com/uploads/reputational_5b2f63d287.webp',
+      title: 'Easily Sharable',
+      description: 'Enrich your LinkedIn profile by sharing the certificates with just a click',
+    },
+    {
+      id: 3,
+      iconLabel: 'https://strapi.odinschool.com/uploads/network_80391a3cc6.webp',
+      title: 'Enhances credibility',
+      description: 'Grab the winning advantage in the job market with credible certificates',
+    },
+  ],
+  certificateLeft: 'https://strapi.odinschool.com/uploads/DAP_20_20_College_20cert_2e89b8c6bd.webp',
+  certificateRight: 'https://strapi.odinschool.com/uploads/DAP_20intern_20_Cert_dfd0616f41.webp',
+};
 
 
 
@@ -42,8 +42,8 @@ const DualCertification = ({ sectionClass }: CertificateProps) => {
 
       <div className="container max-w-7xl mx-auto px-4 md:px-6">
 
-        <div className="text-center mb-12 animate-on-scroll ">
-          <h2 className="text-3xl md:text-5xl  font-display leading-tight mb-4">
+        <div className="text-center mb-6 animate-on-scroll ">
+          <h2 className="text-3xl md:text-5xl  font-display leading-tight">
             Get Dual <span className="text-primary-600">Certification</span>
           </h2>
           {/* <p className="text-md text-gray-600 max-w-3xl mx-auto">
@@ -51,8 +51,17 @@ const DualCertification = ({ sectionClass }: CertificateProps) => {
           </p> */}
         </div>
 
+        <div className='mb-12 w-full flex justify-center gap-10 items-center'>
+          <div className='px-8 py-2 text-center text-white text-sm font-medium bg-blue-600 rounded-md'>
+            <p>Certificate from Jain (Deemed) University</p>
+          </div>
+          <div className='px-8 py-2 text-center text-white text-sm font-medium bg-blue-600 rounded-md'>
+            <p> Internship Certificate </p>
+          </div>
+        </div>
+
         {/* Top Icons Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {data.features.map(({ id, iconLabel, title, description }) => (
             <div key={id} className="flex items-start gap-4">
               <div className="flex-shrink-0 bg-white p-3 rounded-md shadow-sm">

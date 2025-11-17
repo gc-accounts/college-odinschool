@@ -1,94 +1,105 @@
-// components/ProgramHighlights2.tsx
-'use client';
-
-import React from 'react';
-import Image from 'next/image';
-
-interface HighlightItem {
-  title: string;
-  features: {
-    icon: string;
+interface Props {
+  title?: string;
+  subText?: string;
+  data: {
     label: string;
+    points: string[];
+    icon1: JSX.Element;
+    iconBg: string;
   }[];
+  sectionClass?: string;
+  centerImg?: string;
+  centerText?: string;
 }
 
-interface ProgramHighlights2Props {
-sectionClass: string;
-  data: HighlightItem[];
-  centerImage: {
-    src: string;
-    caption: string;
-  };
-}
+const ProgramHighlights2 = ({ title, subText, data, sectionClass, centerImg, centerText }: Props) => (
+  <section className={`${sectionClass ?? ""}`}>
+    <div className="container mx-auto">
 
-    const ProgramHighlights2 = ({ sectionClass, data, centerImage }: ProgramHighlights2Props) => {
-
-  return (
-    <section className={`${sectionClass ?? "px-6 py-12 bg-white"}`}>
-
-         <div className="container mx-auto">
-        <div className="text-center mb-12 animate-on-scroll ">
-          <h2 className="mb-4 text-3xl md:text-5xl font-display leading-tight text-white">
+      <div className="section-header text-center">
+         <h2 className="mb-4 text-3xl md:text-5xl font-display leading-tight text-black">
             Program <span className="text-primary-600">Highlights</span>
           </h2>
-          {/* <p className="text-md text-gray-600 max-w-3xl mx-auto">
-            Our comprehensive curriculum teaches you the most in-demand tools used by data professionals worldwide
-          </p> */}
-        </div>
-        </div>
 
-      <div className="max-w-7xl mx-auto border border-white/10 rounded-xl p-6 md:p-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-          {/* Left */}
-          <div className="flex flex-col gap-6">
-            {data.slice(0, 2).map((group, i) => (
-              <div key={i}>
-                <h3 className="text-sm font-medium text-center underline underline-offset-4 mb-4 text-white/80">{group.title}</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {group.features.map((item, j) => (
-                    <div key={j} className="text-center rounded-md overflow-hidden border border-white/65">
-                        <div className='bg-white'>
-                      <Image src={item.icon} alt={item.label} width={70} height={70} className="mx-auto py-3" />
-                      </div>
-                      <p className="py-4 px-2 text-sm font-semibold text-white">{item.label}</p>
-                    </div>
-                  ))}
+      </div>
+
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 w-full">
+        {/* Left side boxes */}
+        <div className="flex flex-col">
+          {data.slice(0, 3).map((item, idx) => (
+
+            <div key={idx} className="md:mb-6 mb-4">
+              <p className="md:text-lg text-center text-base font-semibold text-[#2f2477] mb-2">{item.label}</p>
+
+              <div className="bg-[#021331] rounded-lg shadow-lg md:p-5 p-4 flex  items-center gap-4 w-full">
+                <div className={`flex items-center shrink-0 justify-center md:w-14 md:h-14 w-10 h-10 md:rounded-xl rounded-md ${item.iconBg}`}>
+                  {item.icon1}
                 </div>
-              </div>
-            ))}
-          </div>
+                <div>
+                  <ul className="list-none text-gray-300">
+                    {item.points.map((pt, i) => (
+                      <li key={i} className={`md:text-base text-sm leading-tight ${i == 1 ? '' : 'mb-1'} `}>{pt}</li>
+                    ))}
+                  </ul>
+                </div>
+                {/* <div className={`flex items-center shrink-0 justify-center md:w-14 md:h-14 w-10 h-10 md:rounded-xl rounded-md ${item.iconBg}`}>
+                  {item.icon2}
+                </div> */}
 
-          {/* Center */}
-          <div className="flex flex-col items-center justify-center">
-            <div className="overflow-hidden rounded-md w-60 border border-white/65">
-              <Image src={centerImage.src} alt="Center" width={300} height={400} className="w-full h-auto" />
-              <p className="py-4 text-center font-semibold text-white">{centerImage.caption}</p>
+              </div>
+
             </div>
-            
+
+          ))}
+        </div>
+
+        {/* Center circle image */}
+        <div className="flex flex-col items-center justify-center space-y-4">
+          <div className="relative w-60 h-60 flex items-center justify-center overflow-hidden">
+            <img
+              src={centerImg} // replace with your actual image
+              alt="A Complete 360° AI Learning Experience!"
+              className="object-cover w-full h-full rounded-full"
+            />
           </div>
 
-          {/* Right */}
-          <div className="flex flex-col gap-6">
-            {data.slice(2).map((group, i) => (
-              <div key={i}>
-                <h3 className="text-sm font-medium text-center underline underline-offset-4 mb-4 text-white/80">{group.title}</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {group.features.map((item, j) => (
-                     <div key={j} className="text-center rounded-md overflow-hidden border border-white/65">
-                      <div className='bg-white'>
-                      <Image src={item.icon} alt={item.label} width={70} height={70} className="mx-auto py-3" />
-                      </div>
-                     <p className="py-4 px-2 text-sm font-semibold text-white">{item.label}</p>
-                    </div>
-                  ))}
+          <p className="text-center font-semibold text-gray-800 text-base leading-snug">
+            {centerText}
+          </p>
+        </div>
+
+        {/* Right side boxes */}
+        <div className="flex flex-col">
+          {data.slice(3).map((item, idx) => (
+
+            <div key={idx} className="md:mb-6 mb-4">
+              <p className="md:text-lg text-center text-base font-semibold text-[#2f2477] mb-2">{item.label}</p>
+
+              <div className="bg-[#021331] rounded-lg shadow-lg md:p-5 p-4 flex  items-center gap-4 w-full">
+                <div className={`flex items-center shrink-0 justify-center md:w-14 md:h-14 w-10 h-10 md:rounded-xl rounded-md ${item.iconBg}`}>
+                  {item.icon1}
                 </div>
+                <div>
+                  <ul className="list-none text-gray-300">
+                    {item.points.map((pt, i) => (
+                      <li key={i} className={`md:text-base text-sm leading-tight ${i == 1 ? '' : 'mb-1'} `}>{pt}</li>
+                    ))}
+                  </ul>
+                </div>
+                {/* <div className={`flex items-center shrink-0 justify-center md:w-14 md:h-14 w-10 h-10 md:rounded-xl rounded-md ${item.iconBg}`}>
+                  {item.icon2}
+                </div> */}
+
               </div>
-            ))}
-          </div>
+
+            </div>
+
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default ProgramHighlights2;

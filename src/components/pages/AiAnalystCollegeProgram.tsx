@@ -84,7 +84,7 @@ import { DsEliteCurriculumData } from '@/components/data/course-section/curricul
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
 import InternsJoruney from '../components/InternsJoruney';
 import { AiAnalystCardData } from '../data/course-section/card-data/AiAnalystCardData';
-import { AiHighlightData, centerImage } from '../data/course-section/program-highlights/AiHighlightData';
+import { AiHighlightData } from '../data/course-section/program-highlights/AiHighlightData';
 import { AiAnalystInternshipData } from '../data/course-section/Intership-section/AiAnalystInternshipData';
 import { AiAnalystProgramCurriculumData } from '../data/course-section/curriculum/AiAnalystProgramCurriculumData';
 import { AiAnalystProjectData } from '../data/course-section/project-section/AiAnalystProjectData';
@@ -136,7 +136,13 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
               fetchPriority="low"
             />
           </section>
-          <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiHighlightData} centerImage={centerImage} />
+          <ProgramHighlights2 
+          sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" 
+          data={AiHighlightData} 
+          title='Program Highlights'
+          centerImg='https://strapi.odinschool.com/uploads/program_student_50d859907a.webp'
+          centerText='Master AI Analytics with AI tools & Projects'
+           />
           {/* <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/> */}
           {/* <ProgramCurriculum
             data={AiAnalystProgramCurriculumData}

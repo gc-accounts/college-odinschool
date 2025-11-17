@@ -91,10 +91,12 @@ const Index = ({
           <HeroSection sectionClass={'bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
           <OrganizationLogos sectionClass={'bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} organisations={organisations} />
           <CustomCourseCard sectionClass={'bg-blue-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]'}/>
+          {/* <ExtrasSection1 /> */}
+           <ExtrasSection1 title='Everything You Need to Fast-Track Your Career' subText='Gain industry-relevant skills, a diploma from a recognized university, and direct hiring access — all in one plac'
+            sectionClass='bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]' />
           <InstructorProfileHome data={DsMentorsData} sectionClass={'bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
           <OdinTalks sectionClass={'bg-blue-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]'} />
         </main>
-        <ExtrasSection1 />
         <NewsSection />
         <Footer />
       </div>
