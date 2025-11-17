@@ -93,7 +93,7 @@ const AiAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
 
           <div className="bg-[#F0F7FF] border border-[#C9E2FF] rounded-xl p-4 mb-8 w-fit">
             <p className="text-[#0A3A75] font-medium text-sm">
-              Earn University Recognised Certificate
+             University Recognised Certificate Course
             </p>
           </div>
 
