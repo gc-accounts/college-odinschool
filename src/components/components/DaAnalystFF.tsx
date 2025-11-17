@@ -93,18 +93,10 @@ const DaAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
             Upgraded with AI tools for 2026 industry demands | Ideal for working professionals & freshers
           </p>
 
-          <div className="bg-[#F0F7FF] border border-[#C9E2FF] rounded-xl p-4 mb-8 w-fit">
-  <p className="text-[#0A3A75] font-medium text-sm">
-    Earn University Recognised Certificate
-  </p>
-</div>
-
-
-           <ul className='text-gray-300 delay-100 grid grid-cols-2 gap-4 mb-6'>
-                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Internship program </span></li>
-                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Job prep support </span></li>
-                        {/* <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Live online classes</span></li>
-                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>20+ Projects </span></li> */}
+           <ul className='text-gray-300 delay-100 grid grid-cols-12 gap-4 mb-6'>
+                        <li className='col-span-12 flex gap-1 px-2 py-3 rounded-md  text-[#0A3A75] font-medium text-base bg-[#F0F7FF] border border-[#C9E2FF]'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Internship program </span></li>
+                        <li className='md:col-span-6 col-span-12 flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Internship program </span></li>
+                        <li className='md:col-span-6 col-span-12 flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Job prep support </span></li>
            </ul>
 
           <div className="mt-4 flex items-center justify-start gap-3">
