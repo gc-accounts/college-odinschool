@@ -4,6 +4,23 @@ const REFRESH_TOKEN = "1000.9b4dbb55d16aadef9c61903e76ba2da4.69d48a051fedb737862
 const CLIENT_ID = "1000.LPEX18DMS543XBXHSS34VO5R5M1N5I";
 const CLIENT_SECRET = "9f7a181ed293e292212631402c822de38f04a6da7e";
 
+// Allowed Webflow domain
+const ALLOWED_ORIGIN = "https://odinschool-f5702c.webflow.io";
+
+function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  };
+}
+
+// Handle OPTIONS preflight
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 200, headers: corsHeaders() });
+}
+
 export async function POST() {
   try {
     const response = await fetch('https://accounts.zoho.in/oauth/v2/token', {
@@ -24,12 +41,18 @@ export async function POST() {
     }
 
     const data = await response.json();
-    return NextResponse.json(data);
+
+    return new NextResponse(JSON.stringify(data), {
+      status: 200,
+      headers: corsHeaders(),
+    });
+
   } catch (error) {
     console.error('Error refreshing token:', error);
-    return NextResponse.json(
-      { error: 'Failed to refresh token' },
-      { status: 500 }
+
+    return new NextResponse(
+      JSON.stringify({ error: 'Failed to refresh token' }),
+      { status: 500, headers: corsHeaders() }
     );
   }
-} 
+}

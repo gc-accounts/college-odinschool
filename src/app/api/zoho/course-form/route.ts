@@ -1,18 +1,34 @@
 import { NextResponse } from 'next/server';
 
+// Allowed Webflow domain
+const ALLOWED_ORIGIN = "https://odinschool-f5702c.webflow.io";
+
+function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  };
+}
+
+// Handle preflight
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 200, headers: corsHeaders() });
+}
+
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     const accessToken = formData.get('accessToken');
 
     if (!accessToken) {
-      return NextResponse.json(
-        { error: 'Access token is required' },
-        { status: 400 }
+      return new NextResponse(
+        JSON.stringify({ error: 'Access token is required' }),
+        { status: 400, headers: corsHeaders() }
       );
     }
 
-    // Helper function to get field values
     const getField = (name: string) => formData.get(name) || '';
 
     const contactData = {
@@ -32,28 +48,20 @@ export async function POST(request: Request) {
         Source_Domain: getField('Source_Domain'),
         Coupon_Code: formData.get('Coupon Code'),
 
-        // user location 
         Other_State: getField('Other_State'),
-      
 
-
-
-
-       // utm tracking details
         Latest_Page_Seen: getField('First Page Seen'),
         Latest_Traffic_Source: getField('Original Traffic Source'),
         Latest_Traffic_Source_Drill_Down_1: getField('Original Traffic Source Drill-Down 1'),
         Latest_Traffic_Source_Drill_Down_2: getField('Original Traffic Source Drill-Down 2'),
         UTM_Term_First_Page_Seen: getField('UTM Term-First Page Seen'),
         UTM_Content_First_Page_Seen: getField('UTM Content-First Page Seen'),
-        ads_gclid:formData.get('ads_gclid'),
+        ads_gclid: formData.get('ads_gclid'),
 
-        duplicate_check_fields: ['Email']
+        duplicate_check_fields: ['Email'],
       }],
-      trigger: ['workflow']
+      trigger: ['workflow'],
     };
-
-    console.log('Sending to Zoho:', JSON.stringify(contactData, null, 2));
 
     const response = await fetch('https://www.zohoapis.in/crm/v2/Contacts/upsert', {
       method: 'POST',
@@ -65,18 +73,22 @@ export async function POST(request: Request) {
     });
 
     const responseData = await response.json();
-    console.log('Zoho Response:', responseData);
 
     if (!response.ok) {
       throw new Error(responseData.message || 'Failed to create or update contact');
     }
 
-    return NextResponse.json(responseData);
-  } catch (error) {
+    return new NextResponse(JSON.stringify(responseData), {
+      status: 200,
+      headers: corsHeaders(),
+    });
+
+  } catch (error: any) {
     console.error('Error creating/updating contact:', error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Failed to create or update contact' },
-      { status: 500 }
+
+    return new NextResponse(
+      JSON.stringify({ error: error.message }),
+      { status: 500, headers: corsHeaders() }
     );
   }
 }
