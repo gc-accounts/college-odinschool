@@ -198,7 +198,7 @@ const HeroSection = ({ sectionClass }: dsEliteProps) => {
                 <span className="text-xs font-medium">Master AI Tools. Accelerate Your Growth.</span>
               </div>
               <h1 className="heading-xl text-balance">
-                <span className='text-nowrap text-white'>Get Future-Ready for <br /> 2026  with </span>
+                <span className=' text-white'> Get Ready for 2026 with </span>
                 <span className="text-primary-600">Data & AI Skills</span>
               </h1>
             </div>
@@ -209,7 +209,7 @@ const HeroSection = ({ sectionClass }: dsEliteProps) => {
 
 
                 <ul className="md:text-base text-sm text-black mt-6 grid grid-cols-12 gap-4 max-w-xl">
-                                   <li className='col-span-12 flex gap-1 px-2 py-3 rounded-md  text-[#0A3A75] font-medium text-base bg-[#F0F7FF] border border-[#C9E2FF]'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>University Recognised Certificate Program </span></li>
+                                   <li className='col-span-12 flex gap-1 px-2 py-3 rounded-md  text-[#0A3A75] font-medium text-base bg-[#F0F7FF] border border-[#C9E2FF]'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>University Recognised Certificate Course </span></li>
            
                 <li className='flex gap-1 col-span-6 rounded-md md:p-4 p-3 bg-white/20 backdrop-blur-md'>
                   <span className='mr-2'>
