@@ -21,15 +21,15 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
   const [utm, setUtm] = React.useState<Record<string, string>>({});
   const router = useRouter();
 
-      const [city, setCity]= useState('')
-    const [state, setState]= useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
 
-const getLocation= async()=>{
-   const location = await fetchUserLocation();
-  setCity(location.city)
-  setState(location.region)
+  const getLocation = async () => {
+    const location = await fetchUserLocation();
+    setCity(location.city)
+    setState(location.region)
 
-}
+  }
 
   const getAccessToken = async () => {
     const res = await fetch('/api/auth/course-form-token', {
@@ -58,15 +58,15 @@ const getLocation= async()=>{
       formData.append('Email', data.email);
       formData.append('Phone', data.phone);
       formData.append('Program', data.program);
-    formData.append('College Year Of Graduation', data.year);
+      formData.append('College Year Of Graduation', data.year);
       formData.append('Ga_client_id', '');
       formData.append('Business Unit', 'Odinschool');
       formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course Form');
       isCoupon && formData.append('Coupon Code', 'EBO2025');
 
 
-         // user location open
-      formData.append('Other_City', city  );
+      // user location open
+      formData.append('Other_City', city);
       formData.append('Other_State', state);
       // user location close
 
