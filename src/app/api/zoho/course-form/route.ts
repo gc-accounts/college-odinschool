@@ -1,19 +1,22 @@
-export const runtime = "nodejs";          
-export const dynamic = "force-dynamic";   
+export const runtime = "nodejs";          // ⬅ REQUIRED for CORS to work on Vercel
+export const dynamic = "force-dynamic";   // ⬅ Prevents caching and ensures OPTIONS works
 
 import { NextResponse } from "next/server";
 
-// PUBLIC CORS (allows all domains)
+// Allowed Webflow domain
+const ALLOWED_ORIGIN = "https://odinschool-f5702c.webflow.io";
+
+// CORS headers
 function corsHeaders() {
   return {
-    "Access-Control-Allow-Origin": "*",           // ← PUBLIC
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
     "Access-Control-Allow-Credentials": "true",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization",
   };
 }
 
-// OPTIONS preflight
+// OPTIONS — preflight
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
@@ -21,6 +24,7 @@ export async function OPTIONS() {
   });
 }
 
+// POST — Zoho submit
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -52,9 +56,11 @@ export async function POST(request: Request) {
           Business_Unit: getField("Business Unit"),
           Source_Domain: getField("Source_Domain"),
           Coupon_Code: formData.get("Coupon Code"),
+
+          // User location
           Other_State: getField("Other_State"),
 
-          // UTM tracking
+          // UTM fields
           Latest_Page_Seen: getField("First Page Seen"),
           Latest_Traffic_Source: getField("Original Traffic Source"),
           Latest_Traffic_Source_Drill_Down_1: getField(
@@ -73,7 +79,9 @@ export async function POST(request: Request) {
       trigger: ["workflow"],
     };
 
-    const response = await fetch(
+    console.log("Sending to Zoho:", JSON.stringify(contactData, null, 2));
+
+    const zohoResponse = await fetch(
       "https://www.zohoapis.in/crm/v2/Contacts/upsert",
       {
         method: "POST",
@@ -85,9 +93,10 @@ export async function POST(request: Request) {
       }
     );
 
-    const responseJSON = await response.json();
+    const responseJSON = await zohoResponse.json();
+    console.log("Zoho Response:", responseJSON);
 
-    if (!response.ok) {
+    if (!zohoResponse.ok) {
       throw new Error(
         responseJSON.message || "Failed to create or update contact"
       );
@@ -98,9 +107,14 @@ export async function POST(request: Request) {
       headers: corsHeaders(),
     });
   } catch (error: any) {
+    console.error("Error creating/updating contact:", error);
+
     return new NextResponse(
       JSON.stringify({ error: error.message }),
-      { status: 500, headers: corsHeaders() }
+      {
+        status: 500,
+        headers: corsHeaders(),
+      }
     );
   }
 }
