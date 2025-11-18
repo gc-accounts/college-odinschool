@@ -58,7 +58,7 @@ const getLocation= async()=>{
       formData.append('Email', data.email);
       formData.append('Phone', data.phone);
       formData.append('Program', data.program);
-      formData.append('Year of Graduation', data.year);
+    formData.append('College Year Of Graduation', data.year);
       formData.append('Ga_client_id', '');
       formData.append('Business Unit', 'Odinschool');
       formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course Form');
