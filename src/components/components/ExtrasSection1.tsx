@@ -4,7 +4,7 @@ const features = [
   {
     img: "https://strapi.odinschool.com/uploads/5_4b761a5a2d.webp",
     title: "University Certificate",
-    desc: "Earn a University Recognised Certificate and make your profile stand out"
+    desc: "Get a University Recognised Certificate and make your profile stand out"
   },
   {
     img: "https://strapi.odinschool.com/uploads/6_e856345d91.webp",
