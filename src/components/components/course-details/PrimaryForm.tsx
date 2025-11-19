@@ -9,6 +9,8 @@ import CoursePrimaryFormFields from '@/components/data/form-fields/CoursePrimary
 import { useRouter } from 'next/navigation';
 import { pushToDataLayer } from '@/lib/gtm';
 import { fetchUserLocation } from '@/components/utils/fetchUserLocation';
+import { getGaCookieValue } from '@/components/utils/cookieUtils';
+import { fetchUserLocation2 } from '@/components/utils/fetchUserLocation2';
 interface PrimaryFormProps {
   slug: string;
   isModal: Boolean;
@@ -22,7 +24,10 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
   const { toast } = useToast();
   const [utm, setUtm] = React.useState<Record<string, string>>({});
   const router = useRouter();
-  const [state, setState]= useState('')
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [GaClientId, setGaClientId] = useState('');
+
 
   const getAccessToken = async () => {
     const res = await fetch('/api/auth/course-form-token', {
@@ -35,16 +40,19 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
   };
 
 
-const getLocation= async()=>{
-   const location = await fetchUserLocation();
-  setState(location.region)
-
-}
+  const getLocation = async () => {
+    const location = await fetchUserLocation2();
+    setCity(location.city);
+    setState(location.region);
+  };
 
   useEffect(() => {
     const data = getUTMTrackingData();
     setUtm(data);
     getLocation()
+
+    const gaValue = getGaCookieValue();
+    setGaClientId(gaValue);
   }, []);
 
 const handleFormSubmit = async (data: any, reset: () => void) => {
@@ -69,6 +77,7 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
     // formData.append('Other City', data.city);
     // formData.append('College Year Of Graduation', data.year);
 
+
     formData.append('Country', data.countryCode);
     
 
@@ -77,13 +86,14 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
     formData.append('Program', programName);
     formData.append('College Programs', programName);
 
-    formData.append('Ga_client_id', '');
+    formData.append('Ga_client_id', GaClientId ? GaClientId : '');
     formData.append('Business Unit', 'Odinschool');
     formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course form');
     isCoupon && formData.append('Coupon Code', 'EBO2025');
 
 
       // user location open
+      formData.append('Other_City', city);
       formData.append('Other_State', state);
       // user location close
 
