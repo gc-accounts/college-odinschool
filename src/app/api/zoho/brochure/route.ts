@@ -28,7 +28,7 @@ export async function POST(request: Request) {
         
         Program: formData.get('Program'),
         College_Programs: formData.get('College Programs'),
-         Ga_client_id: formData.get('Ga_client_id'),
+         ga_client_id: formData.get('Ga_client_id'),
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: formData.get('Source_Domain'),
 
