@@ -23,18 +23,17 @@ export async function POST(request: Request) {
 
         // Application_ID: formData.get('StudentId'),
         // College_Name: formData.get('College Name'),
-        // Other_City: formData.get('Other City'),
         // College_Year_Of_Graduation: formData.get('College Year Of Graduation'),
 
+        
         Program: formData.get('Program'),
         College_Programs: formData.get('College Programs'),
         Ga_client_id: formData.get('ga_client_id'),
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: formData.get('Source_Domain'),
 
-
-
         // user location 
+        Other_City: formData.get('Other City'),
         Other_State: formData.get('Other_State'),
 
          // utm tracking details
