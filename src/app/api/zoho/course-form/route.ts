@@ -53,7 +53,7 @@ export async function POST(request: Request) {
           // College_Year_Of_Graduation: getField("College Year Of Graduation"),
           Program: getField("Program"),
           College_Programs: getField("College Programs"),
-          Ga_client_id: getField("Ga_client_id"),
+          ga_client_id: getField("Ga_client_id"),
           Business_Unit: getField("Business Unit"),
           Source_Domain: getField("Source_Domain"),
           Coupon_Code: formData.get("Coupon Code"),

@@ -24,7 +24,7 @@ export async function POST(request: Request) {
         Program: formData.get('Program'),
         College_Programs: formData.get('College Programs'),
         Year_Of_Graduation: formData.get('Year of Graduation'),
-        Ga_client_id: formData.get('Ga_client_id'),
+        ga_client_id: formData.get('Ga_client_id'),
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: 'Odinschool Whatsapp Form',
         Incoming_Medium: 'Whatsapp',
