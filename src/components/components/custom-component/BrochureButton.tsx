@@ -71,7 +71,10 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('College Programs', programName);
       brochureFormData.append('Ga_client_id', GaClientId ? GaClientId : ''); // updated to get actual client id
       brochureFormData.append('Business Unit', 'Odinschool');
-      brochureFormData.append('Source_Domain', 'Brochure Form')
+      brochureFormData.append('Source_Domain', 'Brochure Form');
+
+      brochureFormData.append('Year of Graduation', data.year);
+      brochureFormData.append('Work Experience Level', data.experience);
 
       // user location open (now both city & state)
       brochureFormData.append('Other_City', city); // added
