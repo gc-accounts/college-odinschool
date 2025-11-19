@@ -50,7 +50,6 @@ export async function POST(request: Request) {
           Work_Experience_Level: getField('Work Experience Level'),
           // Application_ID: getField("StudentId"),
           // College_Name: getField("College Name"),
-          // Other_City: getField("Other City"),
           // College_Year_Of_Graduation: getField("College Year Of Graduation"),
           Program: getField("Program"),
           College_Programs: getField("College Programs"),
@@ -60,6 +59,7 @@ export async function POST(request: Request) {
           Coupon_Code: formData.get("Coupon Code"),
 
           // User location
+          Other_City: getField("Other_City"),
           Other_State: getField("Other_State"),
 
           // UTM fields

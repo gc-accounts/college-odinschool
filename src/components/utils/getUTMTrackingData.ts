@@ -31,7 +31,7 @@ export const getUTMTrackingData = (): Record<string, string> => {
   if (hasUTMParams) {
     utmData['First Page Seen'] = url.href;
     utmData['Original Traffic Source'] = (params.get('utm_source') || '').replace(/\+/g, ' ').trim();
-    utmData['Original Traffic Source Drill-Down 1'] = (params.get('utm_custom_source') || '').replace(/\+/g, ' ').trim();
+    utmData['Original Traffic Source Drill-Down 1'] = (params.get('utm_medium') || '').replace(/\+/g, ' ').trim();
     utmData['Original Traffic Source Drill-Down 2'] = (params.get('utm_campaign') || '').replace(/\+/g, ' ').trim();
     utmData['UTM Term-First Page Seen'] = (params.get('utm_term') || '').replace(/\+/g, ' ').trim();
     utmData['UTM Content-First Page Seen'] = (params.get('utm_content') || '').replace(/\+/g, ' ').trim();
