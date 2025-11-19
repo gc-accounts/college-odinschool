@@ -28,12 +28,12 @@ export async function POST(request: Request) {
         
         Program: formData.get('Program'),
         College_Programs: formData.get('College Programs'),
-        Ga_client_id: formData.get('ga_client_id'),
+         Ga_client_id: formData.get('Ga_client_id'),
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: formData.get('Source_Domain'),
 
         // user location 
-        Other_City: formData.get('Other City'),
+        Other_City: formData.get('Other_City'),
         Other_State: formData.get('Other_State'),
 
          // utm tracking details
