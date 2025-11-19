@@ -61,11 +61,16 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
     const fullPhoneNumber = countryCode + data.phone;
     formData.append('Phone', fullPhoneNumber);
 
-    formData.append('StudentId', data.StudentId);
-    formData.append('College Name', data.collegeName);
-    formData.append('Other City', data.city);
+    formData.append('Year of Graduation', data.year);
+    formData.append('Work Experience Level', data.experience);
+
+    // formData.append('StudentId', data.StudentId);
+    // formData.append('College Name', data.collegeName);
+    // formData.append('Other City', data.city);
+    // formData.append('College Year Of Graduation', data.year);
+
     formData.append('Country', data.countryCode);
-    formData.append('College Year Of Graduation', data.year);
+    
 
     // ✅ Dynamic Program assignment
     const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';

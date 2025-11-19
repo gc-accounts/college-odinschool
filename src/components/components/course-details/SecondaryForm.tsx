@@ -58,7 +58,10 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
       formData.append('Email', data.email);
       formData.append('Phone', data.phone);
       formData.append('Program', data.program);
-      formData.append('College Year Of Graduation', data.year);
+      formData.append('Year of Graduation', data.year);
+      formData.append('Work Experience Level', data.experience);
+
+      // formData.append('College Year Of Graduation', data.year);
       formData.append('Ga_client_id', '');
       formData.append('Business Unit', 'Odinschool');
       formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course Form');

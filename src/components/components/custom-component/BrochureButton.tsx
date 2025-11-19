@@ -54,13 +54,15 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       const countryCode = data.countryCodeValue.split(' ')[0];
       const fullPhoneNumber = countryCode + data.phone; // Concatenate country code and phone number
       brochureFormData.append('Phone', fullPhoneNumber);
-      brochureFormData.append('StudentId', data.StudentId);
-      brochureFormData.append('College Name', data.collegeName);
-      brochureFormData.append('Other City', data.city);
+
+      // brochureFormData.append('StudentId', data.StudentId);
+      // brochureFormData.append('College Name', data.collegeName);
+      // brochureFormData.append('Other City', data.city);
+      // brochureFormData.append('College Year Of Graduation', data.year);
+
       brochureFormData.append('Country', data.countryCode);
 
-      brochureFormData.append('College Year Of Graduation', data.year);
-
+      
           // ✅ Dynamic Program assignment
     const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';
     brochureFormData.append('Program', programName);
