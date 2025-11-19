@@ -59,6 +59,7 @@ export async function POST(request: Request) {
           Coupon_Code: formData.get("Coupon Code"),
 
           // User location
+          Other_Country: getField("Country"),
           Other_City: getField("Other_City"),
           Other_State: getField("Other_State"),
 
