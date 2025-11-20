@@ -131,9 +131,9 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
                  data={DaProgramHighlightsData} 
                  title='Program Highlights'
                  centerImg='https://strapi.odinschool.com/uploads/program_student_50d859907a.webp'
-                 sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
+                 sectionClass=" px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
                  centerText='Master Data Analytics with AI tools & Projects' />
-          <InternsJoruney  internshipData={DataAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
+          {/* <InternsJoruney  internshipData={DataAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/> */}
           <ProgramCurriculum
             data={DaCollegeProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
