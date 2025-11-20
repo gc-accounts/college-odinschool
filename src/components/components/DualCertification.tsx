@@ -82,7 +82,7 @@ const DualCertification = ({ sectionClass }: CertificateProps) => {
         </div>
 
         {/* Certificates Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Image
             src={data.certificateLeft}
             alt="Certificate of Completion"
@@ -97,7 +97,7 @@ const DualCertification = ({ sectionClass }: CertificateProps) => {
             height={400}
             className="rounded-xl w-full h-auto object-contain"
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
