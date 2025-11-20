@@ -4,13 +4,36 @@ const REFRESH_TOKEN = "1000.afd301a865f9a5e4119cb8d7f1295af0.53ed5cb5514da621ebb
 const CLIENT_ID = "1000.7QE3VLHU967NKQU93FKMFGMQGVCT3H";
 const CLIENT_SECRET = "aaedaa79975835c112dcb3ef34a51ed5aa1c8e60ef";
 
-export async function POST() {
+const allowedOrigins = [
+  "https://odinschool-f5702c.webflow.io",
+  "https://preview.webflow.com",
+  "https://webflow.io"
+];
+
+function corsResponse(data: any, origin: string | null) {
+  const res = NextResponse.json(data);
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.headers.set('Access-Control-Allow-Origin', origin);
+    res.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+  }
+
+  return res;
+}
+
+export async function OPTIONS(request: Request) {
+  const origin = request.headers.get("origin");
+  return corsResponse({}, origin);
+}
+
+export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+
   try {
     const response = await fetch('https://accounts.zoho.in/oauth/v2/token', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
         refresh_token: REFRESH_TOKEN,
         client_id: CLIENT_ID,
@@ -24,12 +47,13 @@ export async function POST() {
     }
 
     const data = await response.json();
-    return NextResponse.json(data);
+    return corsResponse(data, origin);
+
   } catch (error) {
     console.error('Error refreshing brochure token:', error);
-    return NextResponse.json(
+    return corsResponse(
       { error: 'Failed to refresh brochure token' },
-      { status: 500 }
+      origin
     );
   }
 }
