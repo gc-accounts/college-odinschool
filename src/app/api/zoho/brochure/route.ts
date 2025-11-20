@@ -1,14 +1,40 @@
 import { NextResponse } from 'next/server';
 
+const allowedOrigins = [
+  "https://odinschool-f5702c.webflow.io",
+  "https://preview.webflow.com",
+  "https://webflow.io"
+];
+
+function corsResponse(data: any, origin: string | null, status = 200) {
+  const res = NextResponse.json(data, { status });
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.headers.set("Access-Control-Allow-Origin", origin);
+    res.headers.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  }
+
+  return res;
+}
+
+export async function OPTIONS(request: Request) {
+  const origin = request.headers.get("origin");
+  return corsResponse({}, origin);
+}
+
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+
   try {
     const formData = await request.formData();
     const accessToken = formData.get('accessToken');
 
     if (!accessToken) {
-      return NextResponse.json(
+      return corsResponse(
         { error: 'Access token is required' },
-        { status: 400 }
+        origin,
+        400
       );
     }
 
@@ -21,29 +47,22 @@ export async function POST(request: Request) {
         Year_Of_Graduation: formData.get('Year of Graduation'),
         Work_Experience_Level: formData.get('Work Experience Level'),
 
-        // Application_ID: formData.get('StudentId'),
-        // College_Name: formData.get('College Name'),
-        // College_Year_Of_Graduation: formData.get('College Year Of Graduation'),
-
-        
         Program: formData.get('Program'),
         College_Programs: formData.get('College Programs'),
-         ga_client_id: formData.get('Ga_client_id'),
+        ga_client_id: formData.get('Ga_client_id'),
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: formData.get('Source_Domain'),
 
-        // user location 
         Other_City: formData.get('Other_City'),
         Other_State: formData.get('Other_State'),
 
-         // utm tracking details
         Latest_Page_Seen: formData.get('First Page Seen'),
-        Latest_Traffic_Source:formData.get('Original Traffic Source'),
+        Latest_Traffic_Source: formData.get('Original Traffic Source'),
         Latest_Traffic_Source_Drill_Down_1: formData.get('Original Traffic Source Drill-Down 1'),
         Latest_Traffic_Source_Drill_Down_2: formData.get('Original Traffic Source Drill-Down 2'),
         UTM_Term_First_Page_Seen: formData.get('UTM Term-First Page Seen'),
         UTM_Content_First_Page_Seen: formData.get('UTM Content-First Page Seen'),
-        ads_gclid:formData.get('ads_gclid'),
+        ads_gclid: formData.get('ads_gclid'),
 
         duplicate_check_fields: ['Email']
       }],
@@ -65,12 +84,14 @@ export async function POST(request: Request) {
     }
 
     const data = await response.json();
-    return NextResponse.json(data);
-  } catch (error) {
+    return corsResponse(data, origin);
+
+  } catch (error: any) {
     console.error('Brochure API Error:', error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Internal Server Error' },
-      { status: 500 }
+    return corsResponse(
+      { error: error.message || 'Internal Server Error' },
+      origin,
+      500
     );
   }
 }
