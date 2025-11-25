@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";   // ⬅ Prevents caching and ensures OP
 import { NextResponse } from "next/server";
 
 // Allowed Webflow domain
-const ALLOWED_ORIGIN = ["https://college.odinschool.com",'https://staging-college-odinschool.webflow.io'];
+const ALLOWED_ORIGIN = "https://college.odinschool.com";
 
 // CORS headers
 function corsHeaders() {

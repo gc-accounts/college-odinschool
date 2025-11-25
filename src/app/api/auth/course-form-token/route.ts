@@ -7,7 +7,7 @@ const REFRESH_TOKEN = "1000.9b4dbb55d16aadef9c61903e76ba2da4.69d48a051fedb737862
 const CLIENT_ID = "1000.LPEX18DMS543XBXHSS34VO5R5M1N5I";
 const CLIENT_SECRET = "9f7a181ed293e292212631402c822de38f04a6da7e";
 
-const ALLOWED_ORIGIN = ["https://college.odinschool.com",'https://staging-college-odinschool.webflow.io/'];
+const ALLOWED_ORIGIN = "https://college.odinschool.com";
 
 function corsHeaders() {
   return {
