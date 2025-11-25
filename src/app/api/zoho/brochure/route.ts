@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server';
 
-const allowedOrigins = [
-  "https://odinschool-f5702c.webflow.io",
-  "https://preview.webflow.com",
-  "https://webflow.io"
-];
+const allowedOrigins = ["https://college.odinschool.com",'https://staging-college-odinschool.webflow.io'];
+
 
 function corsResponse(data: any, origin: string | null, status = 200) {
   const res = NextResponse.json(data, { status });

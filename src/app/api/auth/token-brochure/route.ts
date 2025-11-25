@@ -4,11 +4,10 @@ const REFRESH_TOKEN = "1000.afd301a865f9a5e4119cb8d7f1295af0.53ed5cb5514da621ebb
 const CLIENT_ID = "1000.7QE3VLHU967NKQU93FKMFGMQGVCT3H";
 const CLIENT_SECRET = "aaedaa79975835c112dcb3ef34a51ed5aa1c8e60ef";
 
-const allowedOrigins = [
-  "https://odinschool-f5702c.webflow.io",
-  "https://preview.webflow.com",
-  "https://webflow.io"
-];
+
+
+const allowedOrigins = ["https://college.odinschool.com",'https://staging-college-odinschool.webflow.io'];
+
 
 function corsResponse(data: any, origin: string | null) {
   const res = NextResponse.json(data);
