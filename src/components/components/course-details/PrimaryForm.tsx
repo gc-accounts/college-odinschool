@@ -137,6 +137,13 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
 
     sessionStorage.setItem('submittedEmail', data.email);
     reset();
+
+    
+      sessionStorage.setItem('first_name', data.firstName);
+      sessionStorage.setItem('last_name', data.lastName);
+      sessionStorage.setItem('phone', data.phone);
+
+      
     setTimeout(() => router.push(`/thank-you?title=${slug}`), 1000);
   } catch (error: any) {
     console.error(error);
