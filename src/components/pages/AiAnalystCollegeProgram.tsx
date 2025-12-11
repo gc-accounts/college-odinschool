@@ -95,6 +95,11 @@ import { AiAnalystCollegeProgramFaqsData } from '../data/course-section/faqs/AiA
 import { AimlCoreModuleData } from '../data/course-section/curriculum/AimlCoreModuleData';
 import ProgramCurriculum2 from '../components/ProgramCurriculum2';
 import { AIEliteCurriculumData } from '../data/course-section/curriculum/AIEliteCurriculumData';
+import { AiAnalystPrepSupport } from '../data/course-section/prepSupport/AiAnalystPrepSupport';
+import JobsSection from '../components/JobsSection';
+import { dsJobsDrives } from '../data/dsJobsDrives';
+import { AIEliteJobDrives } from '../data/aiEliteJobDrives';
+import EnrollProgram from '../components/EnrollProgram';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -163,13 +168,15 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
 
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <DsEliteProjects slug='ai-analyst-course'  projects={AiAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <JobPrepSupport programJobData={AiCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <JobPrepSupport jobPrepItems={AiAnalystPrepSupport} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <JobsSection jobs={AIEliteJobDrives} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
           <AiAnalystYoucanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
           <AiAnalystRoleSection sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
           <AiAnalystDualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <OrganizationLogos sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  />    
-          <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiAnalystMentorsData} />
+          <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DsMentorsData} />
           <StudentsTicker sectionClass="bg-primary-50 px-0 py-[50px] md:px-0 md:py-[70px]" />
+          <EnrollProgram sectionClass="bg-white px-0 py-[50px] md:px-0 md:py-[70px]" />
           <DaFeeModule slug='ai-analyst-course' cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiAnalystCollegeProgramFaqsData} />
         </main>
