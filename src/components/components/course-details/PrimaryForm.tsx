@@ -84,7 +84,7 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
     // ✅ Dynamic Program assignment
     const programName =
   slug === 'data-analyst-course' ? 'Data Analyst' :
-  slug === 'ai-analyst-program' ? 'AI Analyst' :
+  slug === 'ai-analyst-course' ? 'AI Analyst' :
   slug === 'investment-banking-finance-ops' ? 'College Investment Banking' :
   '';
     formData.append('Program', programName);
