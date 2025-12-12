@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 const Page = async () => {
-  const courseSlug = 'data-science-course'; // The specific slug for this page
+  const courseSlug = 'ai-course-with-machine-learning'; // The specific slug for this page
 
   const response = await getCourse("", courseSlug);
   const course: Course | null = response && response[0] ? response[0] : null;

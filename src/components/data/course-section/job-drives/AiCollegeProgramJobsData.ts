@@ -5,7 +5,7 @@ export const AiCollegeProgramJobsData = [
     jobDesignation: "AI/ML Engineer",
     jobExp: "0 - 1 years",
     jobSkills: ["Pytrhon", "NLP", "Pyspark", "Tensorflow"],
-    jobLocation: "Not Mentioned"
+    jobLocation: ""
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const AiCollegeProgramJobsData = [
     jobDesignation: "Junior AI  Engineer",
     jobExp: "2 - 4 years",
     jobSkills: ["AI Expertise", "ML", "Data Analysis", "Python"],
-    jobLocation: "Not Mentioned"
+    jobLocation: ""
   },
   {
     id: 3,
@@ -21,6 +21,6 @@ export const AiCollegeProgramJobsData = [
     jobDesignation: "AI/ML Engineer",
     jobExp: "0 - 2 years",
     jobSkills: ["ML", "Predictive Analytics", "NLP", "Pytorch"],
-    jobLocation: "Not Mentioned"
+    jobLocation: ""
   },
 ];

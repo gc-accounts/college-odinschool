@@ -1,22 +1,46 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import { Card, CardContent } from '@/components/components/ui/card';
-import { Badge } from '@/components/components/ui/badge';
-import { MapPin, Building, BriefcaseBusiness, ChevronLeft, ChevronRight } from 'lucide-react';
-import { dsJobsDrives } from '@/components/data/dsJobsDrives';
-import Image from 'next/image';
+"use client";
+
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { Card, CardContent } from "@/components/components/ui/card";
+import { Badge } from "@/components/components/ui/badge";
+import {
+  MapPin,
+  Building,
+  BriefcaseBusiness,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import Image from "next/image";
+
+interface JobDriveItem {
+  id: number;
+  jobCompanyLogo: string;
+  jobDesignation: string;
+  jobExp: string;
+  jobSkills: string[];
+  jobLocation: string;
+}
 
 interface JobsSectionProps {
   sectionClass?: string;
+  jobs: JobDriveItem[]; // 💡 Accept job drives from props
 }
 
-const JobsSection = ({ sectionClass }: JobsSectionProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start', containScroll: 'trimSnaps' });
+const JobsSection = ({ sectionClass, jobs }: JobsSectionProps) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    align: "start",
+    containScroll: "trimSnaps",
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
+  const scrollTo = useCallback(
+    (index: number) => emblaApi?.scrollTo(index),
+    [emblaApi]
+  );
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -25,7 +49,7 @@ const JobsSection = ({ sectionClass }: JobsSectionProps) => {
 
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
     onSelect();
   }, [emblaApi, onSelect]);
 
@@ -35,15 +59,16 @@ const JobsSection = ({ sectionClass }: JobsSectionProps) => {
   }, [emblaApi]);
 
   return (
-    <section className={`${sectionClass ? sectionClass : 'py-16 md:py-24 bg-white'} relative`}>
+    <section className={`${sectionClass || "py-16 md:py-24 bg-white"} relative`}>
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
             Job Drives<span className="text-blue-600"> Every Month!</span>
           </h2>
           <p className="text-md text-gray-600">
-            Participate in company assessments, get shortlisted based on your skills—not your background—and attend multiple placement drives every month.
-            {/* Participate in company assessments, get shortlisted based on your skills—not your background—and attend at least three placement drives each month. */}
+            Participate in company assessments, get shortlisted based on your
+            skills—not your background—and attend multiple placement drives
+            every month.
           </p>
         </div>
 
@@ -65,8 +90,11 @@ const JobsSection = ({ sectionClass }: JobsSectionProps) => {
           {/* Carousel */}
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {dsJobsDrives.map((item) => (
-                <div key={item.id} className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%] px-2">
+              {jobs.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%] px-2"
+                >
                   <Card className="border border-gray-200 hover:shadow-lg transition-all h-full">
                     <CardContent className="p-6">
                       <div className="mb-4">
@@ -75,13 +103,14 @@ const JobsSection = ({ sectionClass }: JobsSectionProps) => {
                             src={item.jobCompanyLogo}
                             alt={item.jobDesignation}
                             className="w-30 h-14 object-contain rounded-md shadow-sm border"
-
                             loading="lazy"
                             width={500}
-                            height={500}
+                            height={300}
                           />
                         </div>
-                        <h3 className="font-bold text-md mb-1 text-gray-900">{item.jobDesignation}</h3>
+                        <h3 className="font-bold text-md mb-1 text-gray-900">
+                          {item.jobDesignation}
+                        </h3>
                       </div>
 
                       <div className="mb-4 space-y-2 text-sm text-gray-600">
@@ -100,8 +129,12 @@ const JobsSection = ({ sectionClass }: JobsSectionProps) => {
                       </div>
 
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {item.jobSkills.map((skill: string, idx: number) => (
-                          <Badge key={idx} variant="outline" className="bg-primary-50">
+                        {item.jobSkills.map((skill, idx) => (
+                          <Badge
+                            key={idx}
+                            variant="outline"
+                            className="bg-primary-50"
+                          >
                             {skill}
                           </Badge>
                         ))}
@@ -119,13 +152,15 @@ const JobsSection = ({ sectionClass }: JobsSectionProps) => {
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
-                className={`md:w-2 md:h-2  w-[0.4rem] h-[0.4rem] rounded-full transition-all duration-200 ${index === selectedIndex ? 'bg-blue-600 md:w-[28px] w-[1.5rem] shadow' : 'bg-gray-300'
-                  }`}
+                className={`md:w-2 md:h-2 w-[0.4rem] h-[0.4rem] rounded-full transition-all duration-200 ${
+                  index === selectedIndex
+                    ? "bg-blue-600 md:w-[28px] w-[1.5rem] shadow"
+                    : "bg-gray-300"
+                }`}
               />
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -84,7 +84,7 @@ const LatestOdintalks = ({ sectionClass }: Props) => {
                     loading='lazy'
                   />
                 )}
-                <div className="absolute top-0 left-0 w-full p-4 flex justify-end items-start z-10">
+                {/* <div className="absolute top-0 left-0 w-full p-4 flex justify-end items-start z-10">
                   <span
                     className={`text-xs font-semibold px-2 py-1 rounded-full ${
                       getOdintalkStatus(odintalk.date) === 'Past'
@@ -94,7 +94,7 @@ const LatestOdintalks = ({ sectionClass }: Props) => {
                   >
                     {getOdintalkStatus(odintalk.date)}
                   </span>
-                </div>
+                </div> */}
                 <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/20 to-transparent p-4 text-white z-10"></div>
               </div>
 

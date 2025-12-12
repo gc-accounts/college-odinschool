@@ -30,6 +30,17 @@ const CustomCourseCard = ({sectionClass} : CustomCourseCardProps ) => {
         'Master Artificial Intelligence, Generative AI, and LLMs with India’s only AI program backed by.',
       path: '/ai-analyst-course',
     },
+     {
+      id: 3,
+      isPopular: true,
+      company: '',
+      image: 'https://strapi.odinschool.com/uploads/69217f525cc669f414fe0164_Course_p_500_fac16be454.webp',
+      level: 'Beginner',
+      title: "Explore OdinSchool's Diverse Learning Programs",
+      description:
+        'Designed to help you crack great jobs in emerging technologies and in-demand areas for 2026.',
+      path: '/investment-banking-finance-ops',
+    },
   ];
 
   return (
@@ -46,7 +57,7 @@ const CustomCourseCard = ({sectionClass} : CustomCourseCardProps ) => {
       </div>
 
       {/* Card Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2  gap-8 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3  gap-8 px-6">
         {courseCard.map((course) => (
           <Link
             href={course.path}

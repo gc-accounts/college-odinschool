@@ -4,8 +4,7 @@ export const DaCollegeProgramFaqsData = [
     question: "What is the eligibility for the program?",
     answer: `
       <ul class="list-disc pl-5 space-y-1">
-        <li>Undergraduate students (any discipline).</li>
-        <li>College ID is compulsory for the registration into the program.</li>
+        <li>Freshers & Working professionals from any background</li>
         <li>Basic understanding of mathematics (algebra, statistics) and programming concepts is advantageous, but not mandatory.</li>
         <li>No prior experience is required, but interest in learning is essential.</li>
         <li>Commitment to a 3-month live online program.</li>
@@ -15,7 +14,7 @@ export const DaCollegeProgramFaqsData = [
   {
     id: 2,
     question: "Will I be awarded a certificate after the program?",
-    answer: `Yes, you will receive two certifications. Upon successfully completing the Data Analyst Program, you will receive a course completion certification and an internship certificate.`
+    answer: `Yes, you will receive two certifications. Upon successfully completing the Data Analyst Program, you will receive an university recognised certificate and an internship certificate.`
   },
   {
     id: 3,
@@ -38,9 +37,4 @@ export const DaCollegeProgramFaqsData = [
     question: "Is there a refund policy for this Data Analyst Program?",
     answer: `As per our refund policy, fee amounts once paid are non-refundable.`
   },
-   {
-    id: 6,
-    question: "Will I be awarded a certificate after the program?",
-    answer: `Yes, you will receive an internship certificate and a university recognised certification upon completion of the Data Analyst Program`
-  }
 ];

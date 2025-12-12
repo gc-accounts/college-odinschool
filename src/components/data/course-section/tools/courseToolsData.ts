@@ -77,12 +77,10 @@ export const courseToolsData = [
                 description: "",
             },
             {
-                path: 'https://strapi.odinschool.com/uploads/AI_2sql_2cc93c6c2b.png',
-                name: 'AI2sql',
+                path: 'https://strapi.odinschool.com/uploads/TEXT_2_SQAI_d8778941b5.webp',
+                name: 'TEXT2SQL.AI',
                 description: "",
             },
-
-
         ]
     },
 
