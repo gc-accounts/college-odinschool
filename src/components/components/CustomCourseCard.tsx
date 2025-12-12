@@ -36,8 +36,8 @@ const CustomCourseCard = ({sectionClass} : CustomCourseCardProps ) => {
       company: '',
       image: 'https://strapi.odinschool.com/uploads/69217f525cc669f414fe0164_Course_p_500_fac16be454.webp',
       level: 'Beginner',
-      title: "Investment Banking & Finance Ops Program",
-      description: 'Prepare for finance roles in BFSI with expert-led training and exclusive hiring sprints',
+      title: "Investment Banking & Finance Ops",
+      description: 'Master investment banking concepts, financial operations, and data-driven decision-making with a university-recognised program',
       path: '/investment-banking-finance-ops',
     },
   ];

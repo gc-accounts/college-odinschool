@@ -209,7 +209,7 @@ const learningLinks = [
    {
     title: "Investment Banking & Finance Ops",
     href: "/investment-banking-finance-ops",
-    description: "Prepare for finance roles in BFSI with expert-led training and exclusive hiring sprints",
+    description: "Master investment banking concepts, financial operations, and data-driven decision-making with a university-recognised program",
   },
 
 ];
