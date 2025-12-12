@@ -21,7 +21,7 @@ const IbFeeModule = ({ sectionClass, cohortDates, slug }: Props) => {
 
   const data = {
     // cohorts: [formatDateToReadable(cohortDates?.cohort1), formatDateToReadable(cohortDates?.cohort2)],
-    cohorts: ['27 December 2025', '31 January 2026'],
+    cohorts: ['31 Jan 2026', '28 Feb 2026'],
     fee: '₹ 35,000',
     partners: [
       { id: 1, name: 'Feemonk', logo: 'https://strapi.odinschool.com/uploads/Fee_Monk_High_Res_Logo_100_X_40_b460d38c45.webp' },

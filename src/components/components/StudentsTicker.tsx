@@ -45,7 +45,6 @@ const StudentsTicker = ({ sectionClass }: CardsProps) => {
                       width={65}
                       height={65}
                       className="stdImg bg-primary-50 w-[65px] h-[65px] rounded-full mb-2 mx-auto object-cover"
-                      objectFit="cover"
                       loading="eager"
                       draggable="false"
                       priority={index < 4}
@@ -57,10 +56,9 @@ const StudentsTicker = ({ sectionClass }: CardsProps) => {
                         alt="Current Company"
                         width={80}
                         height={80}
-                        className="placeLogo px-2"
+                        className="placeLogo px-2 object-contain"
                         loading="lazy"
                         draggable="false"
-                        objectFit="contain"
                       />
                     </div>
                   </div>

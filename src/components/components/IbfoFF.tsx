@@ -116,7 +116,7 @@ const IbfoFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
             <p className="text-xs mb-1">Upcoming Cohort</p>
             { cohortDates?.cohort1 && <h4 className="mb-0 font-semibold">
               {/* {formatDateToReadable(cohortDates?.cohort1)} */}
-              27 December 2025
+              31 Jan 2026
               </h4> }
         </div>
 

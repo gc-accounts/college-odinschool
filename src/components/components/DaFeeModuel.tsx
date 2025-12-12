@@ -22,10 +22,8 @@ const DaFeeModule = ({ sectionClass, cohortDates, slug }: Props) => {
   const [formOpen, setFormOpen] = useState(false);
 
   const data = {
-    cohorts: [
-      formatDateToReadable(cohortDates?.cohort1),
-      formatDateToReadable(cohortDates?.cohort2),
-    ],
+    // cohorts: [ formatDateToReadable(cohortDates?.cohort1), formatDateToReadable(cohortDates?.cohort2),
+    cohorts: [ '20 December 2025', '30 December 2025'],
     fee: "₹ 35,000 + GST",
     partners: [
       {
