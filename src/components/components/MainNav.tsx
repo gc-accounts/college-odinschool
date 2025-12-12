@@ -206,6 +206,11 @@ const learningLinks = [
     href: "/ai-analyst-course",
     description: "Learn AI-driven analysis to thrive in tomorrow’s tech-powered careers. ",
   },
+   {
+    title: "Investment Banking & Finance Ops",
+    href: "/investment-banking-finance-ops",
+    description: "Prepare for finance roles in BFSI with expert-led training and exclusive hiring sprints",
+  },
 
 ];
 

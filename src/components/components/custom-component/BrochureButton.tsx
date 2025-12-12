@@ -66,7 +66,12 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('Country', data.countryCode);
 
       // ✅ Dynamic Program assignment
-      const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';
+          const programName =
+  slug === 'data-analyst-course' ? 'Data Analyst' :
+  slug === 'ai-analyst-program' ? 'AI Analyst' :
+  slug === 'investment-banking-finance-ops' ? 'College Investment Banking' :
+  '';
+
       brochureFormData.append('Program', programName);
       brochureFormData.append('College Programs', programName);
       brochureFormData.append('Ga_client_id', GaClientId ? GaClientId : ''); // updated to get actual client id

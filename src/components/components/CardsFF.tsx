@@ -44,8 +44,10 @@ interface CardsProps {
                             width={50}
                             height={50}
                           />
-              {/* <h2 className='font-semibold text-lg mb-2 mt-4'>{data.title}</h2> */}
-              <p className='text-sm'>{data.description}</p>
+      
+             {data?.title && <h2 className="font-semibold text-lg mb-2 mt-4">{data.title}</h2>}
+             {data?.description && <p className="text-sm">{data.description}</p>}
+
             </div>
           )
         })
