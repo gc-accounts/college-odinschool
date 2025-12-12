@@ -7,7 +7,6 @@ import dynamic from 'next/dynamic';
 import { Course } from '@/components/hooks/useCourseDetails';
 
 
-
 const HelloBar = dynamic(() => import('@/components/components/HelloBar'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
@@ -16,6 +15,9 @@ const Navbar = dynamic(() => import('@/components/components/Navbar'), {
 });
 
 const DaAnalystFF = dynamic(() => import('@/components/components/DaAnalystFF'), {
+  loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
+});
+const JobsSection = dynamic(() => import('@/components/components/JobsSection'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 const CardsFF = dynamic(() => import('@/components/components/CardsFF'), {
@@ -60,6 +62,10 @@ const StudentsTicker = dynamic(() => import('@/components/components/StudentsTic
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
 
+const EnrollProgram = dynamic(() => import('@/components/components/EnrollProgram'), {
+  loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
+});
+
 const DaFeeModule = dynamic(() => import('@/components/components/DaFeeModuel'), {
   loading: () => <div className="h-16 bg-gray-100 animate-pulse" />,
 });
@@ -86,6 +92,8 @@ import { DataAnalystInternshipData } from '../data/course-section/Intership-sect
 import { DataAnalystProjectData } from '../data/course-section/project-section/DataAnalystProjectData';
 import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCollegeProgramJobsData';
 import { DaProgramHighlightsData } from '../data/course-section/program-highlights/DaCollegeProgramData';
+import { DaPrepSupport } from '../data/course-section/prepSupport/DaPrepSupport';
+import { dsJobsDrives } from '../data/dsJobsDrives';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -141,15 +149,17 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
           />
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <DsEliteProjects slug='data-analyst-course' projects={DataAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <JobPrepSupport  programJobData={DaCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <JobPrepSupport  jobPrepItems={DaPrepSupport} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <JobsSection jobs={dsJobsDrives} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/>
           <YouCanSection sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  /> 
           <Roles sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> 
           <DualCertification sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <OrganizationLogos sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  />    
           <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DsMentorsData} />
           <StudentsTicker sectionClass="bg-primary-50 px-0 py-[50px] md:px-0 md:py-[70px]" />
-          <DaFeeModule slug='data-analyst-course' cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
-          <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DaCollegeProgramFaqsData} />
+          <EnrollProgram sectionClass="bg-white px-0 py-[50px] md:px-0 md:py-[70px]" />
+          <DaFeeModule slug='data-analyst-course' cohortDates={course.cohortDates} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DaCollegeProgramFaqsData} />
         </main>
         <Footer />
       </div>

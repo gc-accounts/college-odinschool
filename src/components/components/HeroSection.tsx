@@ -1,298 +1,106 @@
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import Button from "./Button";
+import { ArrowRight } from "lucide-react";
+import Modal from "./component-template/Modal";
+import SecondaryForm from "@/components/components/course-details/SecondaryForm";
+import { useToast } from "@/components/hooks/use-toast";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { getUTMTrackingData } from "@/components/utils/getUTMTrackingData";
 
-import React, { useEffect, useRef, useState } from 'react';
-import Button from './Button';
-import { ArrowRight, Code, Cpu, Trophy, LaptopMinimalCheck, BookOpenText, BriefcaseBusiness } from 'lucide-react';
-import { cn } from '@/components/lib/utils';
-import Modal from './component-template/Modal';
-import DynamicForm from './form/DynamicForm';
-import axios from 'axios';
-import { useToast } from '@/components/hooks/use-toast';
-import { FieldConfig } from './form/DynamicForm';
-import { useRouter } from 'next/navigation';
-import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData';
-import SecondaryForm from '@/components/components/course-details/SecondaryForm';
-import Image from 'next/image';
-import { CiCircleCheck } from 'react-icons/ci';
-const formFields: FieldConfig[] = [
-  {
-    name: 'firstName',
-    label: 'First Name',
-    type: 'text',
-    required: true,
-    rules: { required: 'First Name is required' },
-  },
-  {
-    name: 'lastName',
-    label: 'Last Name',
-    type: 'text',
-    required: true,
-    rules: { required: 'Last Name is required' },
-  },
-  {
-    name: 'email',
-    label: 'Email',
-    type: 'text',
-    required: true,
-    rules: {
-      required: 'Email is required',
-      pattern: {
-        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        message: 'Invalid email format',
-      },
-    },
-  },
-  {
-    name: 'phone',
-    label: 'Phone',
-    type: 'text',
-    required: true,
-    rules: {
-      required: 'Phone number is required',
-      pattern: {
-        value: /^[0-9]{10,12}$/,
-        message: 'Phone number must be between 10 and 12 digits (numbers only)',
-      },
-    },
-  },
-  {
-    name: 'year',
-    label: 'Year of Graduation',
-    type: 'select',
-    options: ['Before 2018', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', 'After 2025'],
-    rules: { required: 'Please select your graduation year' },
-  },
-  {
-    name: 'program',
-    label: 'Program',
-    type: 'select',
-    options: ['AI Analyst', 'Data Analyst'],
-    rules: { required: 'Please select a program' },
-  },
-  { name: 'ga_client_id', type: 'hidden' },
-];
-
-interface dsEliteProps {
-  sectionClass?: String
-}
-const HeroSection = ({ sectionClass }: dsEliteProps) => {
-
+const HeroSection = ({ sectionClass }: { sectionClass?: string }) => {
   const [formOpen, setFormOpen] = useState(false);
+  const { toast } = useToast();
+  const router = useRouter();
   const [utmData, setUtmData] = useState<Record<string, string>>({});
-
-
-  const elementRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const { toast } = useToast()
-  const router = useRouter()
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    elementRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    const trackingData = getUTMTrackingData();
-    setUtmData(trackingData);
-    sessionStorage.setItem('utmTracking', JSON.stringify(trackingData));
-
-    return () => observer.disconnect();
-  }, []);
+  const elRefs = useRef<HTMLDivElement[]>([]);
 
   const addToRefs = (el: HTMLDivElement | null) => {
-    if (el && !elementRefs.current.includes(el)) {
-      elementRefs.current.push(el);
-    }
+    if (el && !elRefs.current.includes(el)) elRefs.current.push(el);
   };
 
+  useEffect(() => {
+    const tracking = getUTMTrackingData();
+    setUtmData(tracking);
+    sessionStorage.setItem("utmTracking", JSON.stringify(tracking));
+  }, []);
 
-  // Handle Form Submit
-  const handleFormSubmit = async (data: any) => {
-    console.log('data------------------------', data);
-
-    const zohoEndpoint = "https://crm.zoho.in/crm/WebToContactForm";
-
-    const hiddenFields = {
-      xnQsjsdp: "b3f43adc4710a41efc03cab70d04a5eee598f225642df4a1f565782c83a02d3a",
-      xmIwtLD: "a2deb9be306e58e854a1535496bd061b69e1d5dd0efc44a28ae5ee26dfe42b099e51cbb9f06e7317ab708b49c270667a",
-      actionType: "Q29udGFjdHM=",
-      returnURL: "null",
-    };
-
-    const formData = new FormData();
-
-    // Append hidden fields
-    Object.entries(hiddenFields).forEach(([key, value]) => {
-      formData.append(key, value);
+  useEffect(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("opacity-100", "transition-all", "duration-700");
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.1 });
 
-    // Append visible form data
-    formData.append("First Name", data.firstName || '');
-    formData.append("Last Name", data.lastName || '');
-    formData.append("Email", data.email || '');
-    formData.append("Phone", data.phone || '');
-    formData.append("Year of Graduation", data.year || '');
-    formData.append("Program", data.program);
-    formData.append("ga_client_id", '');
-    formData.append("Business Unit", 'OdinSchool');
-    formData.append("Source Domain", 'Odinschool Home Page')
+  elRefs.current.forEach((el) => el && observer.observe(el));
 
+  return () => observer.disconnect();
+}, []);
 
-    // UTM Tracking 
-    formData.append('First Page Seen', utmData['First Page Seen'] || '');
-    formData.append('Original Traffic Source', utmData['Original Traffic Source'] || '');
-    formData.append('Original Traffic Source Drill-Down 1', utmData['Original Traffic Source Drill-Down 1'] || '');
-    formData.append('Original Traffic Source Drill-Down 2', utmData['Original Traffic Source Drill-Down 2'] || '');
-    formData.append('UTM Term-First Page Seen', utmData['UTM Term-First Page Seen'] || '');
-    formData.append('UTM Content-First Page Seen', utmData['UTM Content-First Page Seen'] || '');
-
-
-    try {
-      const response = await axios.post(zohoEndpoint, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-
-      sessionStorage.setItem('submittedEmail', data.email);
-
-
-      toast({
-        title: "Form submitted successfully!",
-        description: "Thank you for your interest. Our team will contact you shortly.",
-      });
-
-
-
-      setTimeout(() => {
-        router.push(`/thank-you`);
-      }, 1000);
-
-    } catch (err) {
-      console.error('Error submitting form:', err);
-
-      toast({
-        title: "Form submission failed!",
-        description: "Something went wrong. Please try again later.",
-        variant: "destructive"
-      });
-    }
-
-    setFormOpen(false);
-  };
 
   return (
-    <section className={`${sectionClass ? sectionClass : ''}`}>
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
-          <div className="space-y-8">
-            <div ref={addToRefs} className="opacity-0">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary-700 mb-6">
-                <span className="text-xs font-medium">Master AI Tools. Accelerate Your Growth.</span>
-              </div>
-              <h1 className="heading-xl text-balance">
-                <span className=' text-white'> Get Ready for 2026 with </span>
-                <span className="text-primary-600">Data & AI Skills</span>
-              </h1>
-            </div>
+    <section className={`${sectionClass || ""} bg-[#EAF3FF] pt-16 pb-0`}>
+      <div className="container mx-auto px-4 text-center">
+        {/* HEADING */}
+        <h1
+          ref={addToRefs}
+          className="opacity-0 text-3xl md:text-5xl font-bold text-[#0B274A] leading-tight"
+        >
+          Get Ready for 2026 with <br />
+          <span className="text-[#0A66FF]">Data & AI Skills</span>
+        </h1>
 
-            <p ref={addToRefs} className="text-gray-300 delay-100 max-w-xl text-lg">
-              Built for 2026 Tech Careers | Tailored to Both Freshers & Experienced Talent
-            </p>
+        {/* SUBTEXT */}
+        <p
+          ref={addToRefs}
+          className="opacity-0 mt-4 text-gray-700 md:text-lg"
+        >
+          Built for 2026 Tech Careers | University Recognised Certificate
+        </p>
 
-
-                <ul className="md:text-base text-sm text-black mt-6 grid grid-cols-12 gap-4 max-w-xl">
-                                   <li className='col-span-12 flex gap-1 px-2 py-3 rounded-md  text-[#0A3A75] font-medium text-base bg-[#F0F7FF] border border-[#C9E2FF]'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>University Recognised Certificate Course </span></li>
-           
-                <li className='flex gap-1 col-span-6 rounded-md md:p-4 p-3 bg-white/20 backdrop-blur-md'>
-                  <span className='mr-2'>
-                    <CiCircleCheck className='md:w-6 md:h-6 w-5 h-5 rounded-full text-white bg-primary-600' />
-                  </span>
-                  <span className='text-white' >AI Tools Integrated</span>
-                </li>
-                <li className='flex gap-1 col-span-6 rounded-md md:p-4 p-3 bg-white/20 backdrop-blur-md'>
-                  <span className='mr-2'>
-                    <CiCircleCheck className='md:w-6 md:h-6 w-5 h-5 rounded-full text-white bg-primary-600' />
-                  </span>
-                  <span className='text-white' >Job Prep Support</span>
-                </li>
-              </ul>
-
-            <div ref={addToRefs} className="flex flex-col sm:flex-row gap-4 opacity-0 delay-200">
-              <Button
-                size="lg"
-                icon={<ArrowRight className='ml-1' size={18} />}
-                iconPosition="right"
-                onClick={() => setFormOpen(true)}
-                className='bg-yellow-400 hover:bg-yellow-500 text-black'
-              >
-                Talk to an Expert
-              </Button>
-            </div>
-            <Modal header_text={'Enquire Now'} open={formOpen} onOpenChange={setFormOpen}>
-              <SecondaryForm isModal={true} isCoupon={false} buttonText='Request a Callback' sourceDomain='Home page' />
-
-            </Modal>
-
-          </div>
-
-          <div ref={addToRefs} className="wrap opacity-0 delay-200">
-            <div>
-              <div className="flex gap-8 items-end justify-center flex-row ">
-                <Image
-                  src="https://strapi.odinschool.com/uploads/image1_5d9dce47c3.webp"
-                  alt="Student 1"
-                  className="rounded-full md:w-60 md:h-60 w-32 h:32 object-cover"
-
-                  loading="lazy"
-                  width={150}
-                  height={150}
-                />
-
-                <Image
-                  src="https://strapi.odinschool.com/uploads/img2_a118e82026.webp"
-                  alt="Student 2"
-                  className="rounded-3xl md:w-40 md:h-40 w-32 h:32 object-cover"
-
-                  loading="lazy"
-                  width={150}
-                  height={150}
-                />
-              </div>
-              <div className="flex gap-10 items-top justify-center flex-direction:row mt-8">
-                <Image
-                  src="https://strapi.odinschool.com/uploads/img2_fc7fbb8c4e.png"
-                  alt="Student 3"
-                  className="rounded-3xl md:w-40 md:h-40 w-32 h:32 object-cover"
-
-                  loading="lazy"
-                  width={150}
-                  height={150}
-                />
-
-                <Image
-                  src="https://strapi.odinschool.com/uploads/img3_d2a7f5236c.png"
-                  alt="Student 4"
-                  className="rounded-full md:w-60 md:h-60 w-32 h:32 object-cover"
-
-                  loading="lazy"
-                  width={150}
-                  height={150}
-                />
-              </div>
-            </div>
-            <div className="absolute -bottom-0 -right-6 md:w-28 md:h-28 rounded-full bg-primary-100 z-0"></div>
-            <div className="absolute -top-0 -left-0 md:w-20 md:h-20 rounded-full bg-primary-100 z-0"></div>
-          </div>
+        {/* CTA */}
+        <div ref={addToRefs} className="opacity-0 mt-6">
+          <Button
+            size="lg"
+            icon={<ArrowRight className="ml-2" size={18} />}
+            iconPosition="right"
+            className="bg-[#1A73E8] hover:bg-[#0F5FCC] text-white mx-auto"
+            onClick={() => setFormOpen(true)}
+          >
+            Talk to an Expert
+          </Button>
         </div>
       </div>
+
+      {/* FULL IMAGE (With all 9 cards baked into it) */}
+      <div className="w-full flex justify-center mt-10">
+        <Image
+          src="https://strapi.odinschool.com/uploads/691455051ac91daae7d38122_os_ff_bg_ce667e1885.avif"
+          alt="Students Podium"
+          width={1600}
+          height={700}
+          className="w-full max-w-6xl object-contain"
+          priority
+        />
+      </div>
+
+      {/* MODAL */}
+      <Modal
+        header_text={"Enquire Now"}
+        open={formOpen}
+        onOpenChange={setFormOpen}
+      >
+        <SecondaryForm
+          isModal={true}
+          isCoupon={false}
+          buttonText="Request a Callback"
+          sourceDomain="Home page"
+        />
+      </Modal>
     </section>
   );
 };

@@ -51,7 +51,7 @@ const CourseSecondaryFormFields: FieldConfig[] = [
     name: 'program',
     label: 'Program',
     type: 'select',
-    options: ['AI Analyst', 'Data Analyst'],
+    options: ['AI Analyst', 'Data Analyst', 'Investment Banking Course'],
     rules: { required: 'Please select a program' },
   },
 
