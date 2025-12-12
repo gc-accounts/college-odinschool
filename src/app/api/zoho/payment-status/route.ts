@@ -19,7 +19,7 @@ export async function POST(request: Request) {
         Payment_Status: formData.get('Payment_Status'),
         Payable_Amount: formData.get('Payable_Amount'),
         Effective_Bootcamp_Fee: formData.get('Effective Bootcamp Fee'),
-        Ga_client_id: formData.get('Ga_client_id'),
+        ga_client_id: formData.get('Ga_client_id'),
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: 'Razorpay status form',
         duplicate_check_fields: ['Email'],  // ✅ critical fix

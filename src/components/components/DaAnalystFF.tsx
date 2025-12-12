@@ -87,24 +87,18 @@ const DaAnalystFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
           </div>
 
           <h2 className="text-3xl md:text-5xl text-white mb-3 font-display leading-normal">
-            Data Analyst <br /> College Program
+            Data Analyst Program
           </h2>
           <p className="text-white text-md mb-10">
-            Master Data Analytics and get job-ready before you graduate!
+            Upgraded with AI tools for 2026 industry demands | Ideal for working professionals & freshers
           </p>
 
+           <ul className='text-gray-300 delay-100 grid grid-cols-12 gap-4 mb-6'>
+                        <li className='col-span-12 flex gap-1 px-2 py-3 rounded-md  text-[#0A3A75] font-medium text-base bg-[#F0F7FF] border border-[#C9E2FF]'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>University Recognised Certificate Course </span></li>
+                        <li className='md:col-span-6 col-span-12 flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Internship program </span></li>
+                        <li className='md:col-span-6 col-span-12 flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Job prep support </span></li>
+           </ul>
 
-           <ul className='text-gray-300 delay-100 grid grid-cols-2 gap-4 mb-6'>
-                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Internship program </span></li>
-                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Job prep support </span></li>
-                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>Live online classes</span></li>
-                        <li className='flex gap-1 px-2 py-3 rounded-md border border-primary-800 bg-primary-900'><span className='mr-2 flex items-center'><CiCircleCheck className='md:w-5 md:h-5 w-5 h-5 rounded-full text-white bg-primary-600' /></span> <span>20+ Projects </span></li>
-                      </ul>
-
-
-          <p className="text-yellow-400 font-medium">
-            Student ID is mandatory for the enrollment to the course.
-          </p>
           <div className="mt-4 flex items-center justify-start gap-3">
             <p className='text-xs text-white'>A Certified Member of</p>
             <Image src="https://strapi.odinschool.com/uploads/hysea_rc_f9ae5c4e82.webp" alt="HYSEA" className="h-6" width={70} height={20} />

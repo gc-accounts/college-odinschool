@@ -3,115 +3,99 @@ export const DsEliteCurriculumData = [
     id: 1,
     module: 'Core Modules - Live Online Classes',
     subModules: [
-      {
-    program_title: "Statistics & Exploratory Data Analysis",
+  {
+    program_title: "Statistics for Data Science",
     points: [
-       "Introduction to Data & Datasheets",
-"Types of Data",
-"Basic Excel Functions (SUM, AVERAGE, IF)",
-"Sorting, Filtering & Removing Duplicates",
-"Data Visualization Basics",
-"Charts: Bar, Line & Pie",
-"Choosing the Right Chart",
-"Descriptive Statistics",
-"Measures of Central Tendency (Mean, Median, Mode)",
-"Measures of Spread (Standard Deviation, Range, Correlation)",
-"Storytelling with Data & Case Study",
+      "Data types, distributions, and variability",
+      "Descriptive & inferential statistics",
+      "Probability concepts & real-world applications",
+      "Hypothesis testing and confidence intervals"
     ],
-    logo: [
-      //     'https://strapi.odinschool.com/uploads/Scikit_150_X60_78e109b38a.webp',
-      // 'https://strapi.odinschool.com/uploads/matplotlib_d282ba51f5.webp'
-    ]
+    logo: []
   },
   {
-    program_title: "Foundations of Power BI",
+    program_title: "Advanced SQL for Data Analysis",
     points: [
-          "Introduction to Business Intelligence & Power BI: Learn what BI is, its life cycle, Power BI architecture, licensing, and the Power BI Desktop interface. ",
-
- "Power BI Workflow and Key Components: Understand the Power BI flow, core building blocks, and how data moves through the platform. ",
-
- "Connecting Power BI to Data Sources: Import data from Excel, CSV, SQL, and other popular sources with ease. ",
-
- "Data Preparation with Power Query: Transform, clean, and shape your data using Merge, Append, Pivot, Unpivot, and more. ",
-
- "Data Modelling Made Easy: Design star and snowflake schemas, define relationships, cardinality, and cross-filtering.",
+      "Complex SELECTs with filtering and sorting",
+      "Joins and aggregations with GROUP BY and HAVING",
+      "Subqueries and Common Table Expressions (CTEs)",
+      "Window functions for ranking and analytics"
     ],
-    logo: [
-      // 'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
-      // 'https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp'
-    ]
+    logo: []
   },
   {
-    program_title: "Data Analysis, DAX & SQL Integration",
+    program_title: "Power BI – Data Integration & Power Query",
     points: [
-      "Getting Started with DAX: Build calculated columns and measures, and explore essential DAX functions for analysis.",
-"Advanced DAX for Deeper Insights: Leverage advanced functions like TOPN, KEEPFILTERS, ALL, RANKX, and Time Intelligence.",
-"Building Powerful Visualizations in Power BI: Create dashboards with charts, cards, slicers, maps, drill-throughs, tooltips, and AI visuals.",
-"SQL for Power BI Users: Strengthen SQL fundamentals to filter, sort, and aggregate data before loading into Power BI.",
-"Writing basic queries with SELECT, FROM, WHERE",
-"Using SQL Operators for filtering",
-"Sorting with ORDER BY",
-"Grouping and summarizing with GROUP BY, SUM, AVG, COUNT, MIN, MAX",
-"Combining SQL and Power BI for efficient data prep",
+      "Connecting to multiple data sources (CSV, Excel, OData)",
+      "Power Query: Transform vs Load, merge & append queries",
+      "Column transformations: add/remove, sorting, conditional, examples",
+      "Date/time handling and creation of new tables"
     ],
-    logo: [
-      // 'https://strapi.odinschool.com/uploads/My_SQL_100_X40_9476ebdaf1.webp',
-      //   'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
-    ]
+    logo: []
   },
   {
-    program_title: "Power BI Service & Advanced Reporting",
+    program_title: "Power BI – Modeling, DAX & Visual Analytics",
     points: [
-       "Exploring Power BI Service: Set up workspaces, publish reports, enable refresh, collaborate, and manage dashboards online.",
-"Advanced Features and Reporting in Power BI: Enhance reports with Performance Analyzer, What-If parameters, Currency Conversion, and Paginated Reports."
+      "Building data models and managing relationships",
+      "Quick measures, DAX basics and math functions",
+      "Interactive visualizations: slicers, drillthrough, bookmarks",
+      "Publishing and sharing dashboards"
     ],
-    logo: [
-            //  'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
-              
-    ]
+    logo: []
   },
   {
-    program_title: "Gen AI and Machine Learning With Python",
+    program_title: "Exploratory Data Analysis (EDA) Techniques",
     points: [
-      " What is ML, supervised vs unsupervised, import data, apply linear regression using sklearn",
-
-" Split dataset using train_test_split, metrics like MAE, MSE, R2, visualize predictions",
-" Unsupervised learning, K-means concept, apply clustering using sklearn, elbow method",
-" Plot clusters using matplotlib/seaborn, interpret results, real-world clustering examples",
-
-" What is prompt engineering, structure of good prompts, task-specific prompting (e.g., summarize, rewrite, extract info)",
-" Intro to Hugging Face, how to create & use access tokens, explore models on Hugging Face, use ChatGPT/Gemini for tasks",
-
-" Automating Workflows with n8n",
-" What is n8n and why it matters",
-" No-code automation: Create workflows to process data, call APIs, send alerts",
-" Hands-on: Build a workflow that pulls data, processes it, and notifies a user",
+      "Data cleaning and preprocessing",
+      "Handling missing values and outliers",
+      "Feature scaling and transformations",
+      "Visualization-driven insights for decision making"
     ],
-    logo: [
-      // "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
-      // "https://strapi.odinschool.com/uploads/Google_Colab_150_X60_2a6cb5dedc.webp",
-      //  "https://strapi.odinschool.com/uploads/N8n_20100_X40_cd14c12c7a.webp",
-      // "https://strapi.odinschool.com/uploads/Hugging_20_Face_20100_X40_20efc02ae2.svg",
-  
-    ]
+    logo: []
   },
   {
-    program_title: "Capstone Project",
+    program_title: "Supervised Machine Learning & Feature Engineering",
     points: [
-      "Apply all the skills you've acquired throughout the curriculum in a comprehensive capstone project that ties together data from Google Sheets, Statistics, EDA, Power BI, and SQL.",
+      "Regression models (linear, logistic)",
+      "Classification algorithms (Decision Trees, Random Forest, etc.)",
+      "Feature encoding, selection, and transformations",
+      "Model evaluation and cross-validation"
     ],
-    logo: [
-      // "https://strapi.odinschool.com/uploads/N8n_20100_X40_cd14c12c7a.webp",
-      // "https://strapi.odinschool.com/uploads/Hugging_20_Face_20100_X40_20efc02ae2.svg",
-      //    "https://strapi.odinschool.com/uploads/Python_20_3a290a8839.webp",
-      //    'https://strapi.odinschool.com/uploads/Power_20_Bi_023c537eb1.webp',
-
-    ]
+    logo: []
   },
-    ]
+  {
+    program_title: "Unsupervised Learning & Dimensionality Reduction",
+    points: [
+      "Clustering techniques (K-means, hierarchical)",
+      "Association rules and pattern discovery",
+      "Dimensionality reduction (PCA)",
+      "Segmentation and real-world applications"
+    ],
+    logo: []
   },
+  {
+    program_title: "Generative AI Applications",
+    points: [
+      "Introduction to LLMs and Generative AI",
+      "Prompt engineering for business use-cases",
+      "Text summarization and chatbot applications",
+      "Ethical AI and responsible deployment"
+    ],
+    logo: []
+  },
+  {
+    program_title: "Capstone Project – End-to-End Data Solution",
+    points: [
+      "Business problem framing and data acquisition",
+      "EDA, SQL, and BI integration",
+      "Model building and validation",
+      "Final presentation and project defense"
+    ],
+    logo: []
+  }
+]
 
-
+  },
   {
     id: 2,
     module: 'Bonus modules for flexible learning',

@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { BsCheck2Circle } from "react-icons/bs";
 import { useRouter } from 'next/navigation';
-import { useToast } from '@/components/hooks/use-toast'; // ✅ Use OdinSchool's global toast
+import { useToast } from '@/components/hooks/use-toast';
+import { createClient } from '@/components/utils/supabase/client'; // <-- Supabase client import
 
 const degrees = ['B.Tech/B.E', 'Bsc', 'BBA', 'Bcom', 'BA', 'Other'];
 const DegreesSpecialization = ['Computer science', 'IT', 'EEE', 'ECE', 'Civil', 'Mechanical', 'Aeronautical', 'Architecture', 'Agriculture', 'Mathematics', 'Statistics', 'Commerce', 'Other'];
@@ -15,9 +16,10 @@ const EmployementStatusData = ["Yes", "No", "Never Employed"];
 const openToRelocateData = ["Yes", "No"];
 
 const ThankYouForm = () => {
-  const { toast } = useToast(); // ✅ use global toast
+  const { toast } = useToast();
   const router = useRouter();
 
+  // THIS IS YOUR EXISTING formData STATE - IT WILL NOT BE MODIFIED DIRECTLY FOR SUPABASE
   const [formData, setFormData] = useState({
     firstName: "", lastName: "", email: "", number: "", program: "", yearOfGraduation: '',
     currentLocation: '', knownLanguages: '', degree: '', degreeSpecialization: '',
@@ -32,36 +34,29 @@ const ThankYouForm = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchContactData = async () => {
-      const email = sessionStorage.getItem('submittedEmail');
-      if (!email) {
-        router.push('/');
-        return;
-      }
+    // Access data directly from session storage here for pre-filling
+    const email = sessionStorage.getItem('submittedEmail') || '';
+    const firstName = sessionStorage.getItem('first_name') || '';
+    const lastName = sessionStorage.getItem('last_name') || '';
+    const number = sessionStorage.getItem('phone') || '';
 
-      try {
-        const res = await fetch(`/api/zoho/get-contact-by-email?email=${encodeURIComponent(email)}`);
-        const data = await res.json();
+    // Update formData with session storage values directly
+    setFormData((prev) => ({
+      ...prev,
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
+      number: number,
+      // 'program' and 'yearOfGraduation' were likely from Zoho,
+      // now they will remain as their initial empty state or whatever
+      // default you assign if they are not part of this form.
+      // If you need to pre-fill these from elsewhere, add relevant sessionStorage items.
+      program: prev.program, // Retain existing value or ""
+      yearOfGraduation: prev.yearOfGraduation // Retain existing value or ""
+    }));
 
-        if (res.ok && data?.data?.length > 0) {
-          const contact = data.data[0];
-          setFormData((prev) => ({
-            ...prev,
-            email: contact.Email || '',
-            firstName: contact.First_Name || '',
-            lastName: contact.Last_Name || '',
-            number: contact.Phone || '',
-            program: contact.Program || '',
-            yearOfGraduation: contact.Year_Of_Graduation || ''
-          }));
-        }
-      } catch (err) {
-        console.error('Error fetching Zoho contact:', err);
-      }
-    };
-
-    fetchContactData();
-  }, [router]);
+    // Removed the Zoho fetch logic from useEffect as per request
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,39 +81,76 @@ const ThankYouForm = () => {
 
     setLoading(true);
 
+    // --- Supabase Integration Starts Here (now the ONLY submission target) ---
+    const supabase = createClient();
+
+    const dataToInsertIntoSupabase = {
+      "First Name": formData.firstName,
+      "Last Name": formData.lastName,
+      "Email": formData.email,
+      "Phone": formData.number,
+      "Prior Experience": formData.priorExprience,
+      "Known Languages": formData.knownLanguages,
+      "Bachelor Degree": formData.degree,
+      "Bachelor Degree Specialization": formData.degreeSpecialization,
+      "Bachelor Degree College Name": formData.degreeCollegeName,
+      "Bachelor Degree Percentage": formData.degreePercentage,
+      "Bachelor Degree Year of Passing": formData.degreeYearOfPassing,
+      "PhD Degree": formData.PhdFieldOfStudy,
+      "PhD Degree Specialization": formData.PhdSpecialization,
+      "PhD University Name": formData.phd_university_name,
+      "Are you open to relocate": formData.openToRelocate,
+      "Employment Status": formData.EmployementStatus,
+      "Current Location": formData.currentLocation,
+      "Master Degree": formData.masterDegree,
+      "Master Degree Specialization": formData.masterDegreeSpecialization,
+      "Master Degree College Name": formData.masterDegreeCollegeName,
+      "Master Degree Percentage": formData.masterDegreePercentage,
+      "Master Degree Year of Passing": formData.masterDegreeYearOfPassing,
+      "Business Unit": "College Odinschool"
+    };
+
+    // console.log('Data to be inserted into Supabase:', dataToInsertIntoSupabase);
+
     try {
-      const res = await fetch('/api/zoho/scholarship', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      const { error: supabaseError } = await supabase
+        .from('os_user_details') // Your Supabase table name
+        .insert([dataToInsertIntoSupabase]);
 
-      const result = await res.json();
-
-      if (res.ok && result.success) {
+      if (supabaseError) {
+        console.error('Supabase insertion error:', supabaseError);
+        toast({
+          title: "Submission failed!",
+          description: `There was an issue saving your details: ${supabaseError.message}`,
+          variant: "destructive"
+        });
+      } else {
+        // console.log('Data successfully stored in Supabase!');
         toast({
           title: "Form submitted successfully!",
           description: "Thank you for filling the scholarship form. You will be contacted soon.",
         });
 
+        // Clear session storage only after successful Supabase submission
         sessionStorage.removeItem('submittedEmail');
-        router.push('/');
-      } else {
-        toast({
-          title: "Submission failed!",
-          description: "Something went wrong. Please try again.",
-          variant: "destructive"
-        });
+        sessionStorage.removeItem('first_name');
+        sessionStorage.removeItem('last_name');
+        sessionStorage.removeItem('phone');
+        router.push('/'); // Redirect after successful submission
       }
-    } catch (err) {
+    } catch (supabaseCatchError) {
+      console.error('Unexpected Supabase error:', supabaseCatchError);
       toast({
         title: "Something went wrong.",
-        description: "Please try again later.",
+        description: "An unexpected error occurred. Please try again later.",
         variant: "destructive"
       });
+    } finally {
+      setLoading(false); // Always reset loading state
     }
+    // --- Supabase Integration Ends Here ---
 
-    setLoading(false);
+    // Removed all original Zoho CRM Submission Logic as per request
   };
 
   return (
@@ -143,7 +175,7 @@ const ThankYouForm = () => {
             {errors.currentLocation && <p className="text-xs text-red-500">{errors.currentLocation}</p>}
 
             <input type="text" name="knownLanguages" value={formData.knownLanguages} onChange={handleChange} placeholder="Known Languages*" className="w-full border px-4 py-2 rounded text-sm" />
-            {errors.knownLanguages && <p className="text-xs text-red-500">{errors.currentLocation}</p>}
+            {errors.knownLanguages && <p className="text-xs text-red-500">{errors.knownLanguages}</p>}
 
 
             <div className='mt-2'>

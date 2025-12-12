@@ -3,8 +3,8 @@ export const courseToolsData = [
         id: 1,
         title: 'Data Analyst College Program',
         path: '/data-analyst-course',
-        tools: [
-           {
+         tools: [
+            {
                 path: 'https://strapi.odinschool.com/uploads/Power_BI_eaa71186a4.webp',
                 name: 'Power BI',
                 description: "",
@@ -63,6 +63,22 @@ export const courseToolsData = [
             {
                 path: 'https://strapi.odinschool.com/uploads/n8n_5a2ea5ac44.webp',
                 name: 'n8n',
+                description: "",
+            },
+
+            {
+                path: 'https://strapi.odinschool.com/uploads/MS_20_Excel_eeebe0b81a.png',
+                name: 'Excel',
+                description: "",
+            },
+            {
+                path: 'https://strapi.odinschool.com/uploads/Claude_AI_2845cec6a1.webp',
+                name: 'Claude',
+                description: "",
+            },
+            {
+                path: 'https://strapi.odinschool.com/uploads/AI_2sql_2cc93c6c2b.png',
+                name: 'AI2sql',
                 description: "",
             },
 

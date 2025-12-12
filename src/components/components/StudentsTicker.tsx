@@ -23,7 +23,7 @@ const StudentsTicker = ({ sectionClass }: CardsProps) => {
 
         <div className="text-center mb-12 animate-on-scroll ">
           <h2 className="text-3xl md:text-5xl  font-display leading-tight mb-4">
-            Success Stories <span className="text-primary-600">Placed Freshers</span>
+            Success Stories
           </h2>
           {/* <p className="text-md text-gray-600 max-w-3xl mx-auto">
             Our comprehensive curriculum teaches you the most in-demand tools used by data professionals worldwide

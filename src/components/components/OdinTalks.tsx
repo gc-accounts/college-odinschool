@@ -99,10 +99,10 @@ const LatestOdintalks = ({ sectionClass }: Props) => {
               </div>
 
               <div className="md:p-5 p-4 space-y-4">
-                <div className="flex items-center text-gray-600 text-sm">
+                {/* <div className="flex items-center text-gray-600 text-sm">
                   <Calendar size={16} className="mr-2 text-gray-500" />
                   <span>{formatDate(odintalk.date)}</span>
-                </div>
+                </div> */}
 
                 <h3 className="text-md font-semibold text-gray-900">{odintalk.title || odintalk.name}</h3>
 

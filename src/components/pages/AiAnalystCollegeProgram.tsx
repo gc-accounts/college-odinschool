@@ -84,7 +84,7 @@ import { DsEliteCurriculumData } from '@/components/data/course-section/curricul
 import { DaCollegeProgramFaqsData } from '../data/course-section/faqs/DaCollegeProgramFaqsData';
 import InternsJoruney from '../components/InternsJoruney';
 import { AiAnalystCardData } from '../data/course-section/card-data/AiAnalystCardData';
-import { AiHighlightData, centerImage } from '../data/course-section/program-highlights/AiHighlightData';
+import { AiHighlightData } from '../data/course-section/program-highlights/AiHighlightData';
 import { AiAnalystInternshipData } from '../data/course-section/Intership-section/AiAnalystInternshipData';
 import { AiAnalystProgramCurriculumData } from '../data/course-section/curriculum/AiAnalystProgramCurriculumData';
 import { AiAnalystProjectData } from '../data/course-section/project-section/AiAnalystProjectData';
@@ -92,6 +92,9 @@ import { DaCollegeProgramJobsData } from '../data/course-section/job-drives/DaCo
 import { AiCollegeProgramJobsData } from '../data/course-section/job-drives/AiCollegeProgramJobsData';
 import { AiAnalystMentorsData } from '../data/course-section/mentors/AiAnalystMentorsData';
 import { AiAnalystCollegeProgramFaqsData } from '../data/course-section/faqs/AiAnalystCollegeProgramFaqsData';
+import { AimlCoreModuleData } from '../data/course-section/curriculum/AimlCoreModuleData';
+import ProgramCurriculum2 from '../components/ProgramCurriculum2';
+import { AIEliteCurriculumData } from '../data/course-section/curriculum/AIEliteCurriculumData';
 
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -133,13 +136,31 @@ const AiAnalystCollegeProgram = ({initialCourse}:Props) => {
               fetchPriority="low"
             />
           </section>
-          <ProgramHighlights2 sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={AiHighlightData} centerImage={centerImage} />
+          <ProgramHighlights2 
+          sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" 
+          data={AiHighlightData} 
+          title='Program Highlights'
+          centerImg='https://strapi.odinschool.com/uploads/program_student_50d859907a.webp'
+          centerText='Master AI Analytics with AI tools & Projects'
+           />
           {/* <InternsJoruney internshipData={AiAnalystInternshipData}  sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"/> */}
-          <ProgramCurriculum
+          {/* <ProgramCurriculum
             data={AiAnalystProgramCurriculumData}
             sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
             slug="ai-analyst-course"
-          />
+          /> */}
+
+     
+              <ProgramCurriculum2
+                title="A Curriculum designed for outcomes"
+                subText=""
+                data={AIEliteCurriculumData}
+                sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]"
+                slug="ai-analyst-course" sourceDomain="Course form"
+                aimlCoremoduleData={AimlCoreModuleData}
+              />
+    
+
           <ToolsSection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <DsEliteProjects slug='ai-analyst-course'  projects={AiAnalystProjectData} sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
           <JobPrepSupport programJobData={AiCollegeProgramJobsData} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />

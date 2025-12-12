@@ -20,15 +20,19 @@ export async function POST(request: Request) {
         Phone: formData.get('Phone'),
         Application_ID: formData.get('StudentId'),
         College_Name: formData.get('College Name'),
-        Other_City: formData.get('Other City'),
         College_Year_Of_Graduation: formData.get('College Year Of Graduation'),
         Program: formData.get('Program'),
         College_Programs: formData.get('College Programs'),
         Year_Of_Graduation: formData.get('Year of Graduation'),
-        Ga_client_id: formData.get('Ga_client_id'),
+        ga_client_id: formData.get('Ga_client_id'),
         Business_Unit: formData.get('Business Unit'),
         Source_Domain: 'Odinschool Whatsapp Form',
         Incoming_Medium: 'Whatsapp',
+
+
+          // user location 
+        Other_City: formData.get('Other_City'),
+        Other_State: formData.get('Other_State'),
 
         // utm tracking details
         Latest_Page_Seen: formData.get('First Page Seen'),

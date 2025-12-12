@@ -36,5 +36,10 @@ export const AiAnalystCollegeProgramFaqsData = [
     id: 5,
     question: "Is there a refund policy for this AI Analyst Program?",
     answer: `As per our refund policy, fee amounts once paid are non-refundable.`
+  },
+  {
+    id: 6,
+    question: "Will I be awarded a certificate after the program?",
+    answer: `Yes, you will receive an internship certificate and a university recognised certification upon completion of the AI Analyst Program`
   }
 ];

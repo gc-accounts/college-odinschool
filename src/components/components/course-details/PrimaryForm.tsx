@@ -1,13 +1,16 @@
 // PrimaryForm.tsx
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useToast } from '@/components/hooks/use-toast';
 import DynamicForm, { FieldConfig } from '@/components/components/form/DynamicForm';
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData';
 import CoursePrimaryFormFields from '@/components/data/form-fields/CoursePrimaryFormFields';
 import { useRouter } from 'next/navigation';
 import { pushToDataLayer } from '@/lib/gtm';
+import { fetchUserLocation } from '@/components/utils/fetchUserLocation';
+import { getGaCookieValue } from '@/components/utils/cookieUtils';
+import { fetchUserLocation2 } from '@/components/utils/fetchUserLocation2';
 interface PrimaryFormProps {
   slug: string;
   isModal: Boolean;
@@ -21,6 +24,9 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
   const { toast } = useToast();
   const [utm, setUtm] = React.useState<Record<string, string>>({});
   const router = useRouter();
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [GaClientId, setGaClientId] = useState('');
 
 
   const getAccessToken = async () => {
@@ -33,9 +39,20 @@ const PrimaryForm: React.FC<PrimaryFormProps> = ({ slug, isModal, buttonText, is
     return data.access_token;
   };
 
+
+  const getLocation = async () => {
+    const location = await fetchUserLocation2();
+    setCity(location.city);
+    setState(location.region);
+  };
+
   useEffect(() => {
     const data = getUTMTrackingData();
     setUtm(data);
+    getLocation()
+
+    const gaValue = getGaCookieValue();
+    setGaClientId(gaValue);
   }, []);
 
 const handleFormSubmit = async (data: any, reset: () => void) => {
@@ -52,21 +69,34 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
     const fullPhoneNumber = countryCode + data.phone;
     formData.append('Phone', fullPhoneNumber);
 
-    formData.append('StudentId', data.StudentId);
-    formData.append('College Name', data.collegeName);
-    formData.append('Other City', data.city);
+    formData.append('Year of Graduation', data.year);
+    formData.append('Work Experience Level', data.experience);
+
+    // formData.append('StudentId', data.StudentId);
+    // formData.append('College Name', data.collegeName);
+    // formData.append('Other City', data.city);
+    // formData.append('College Year Of Graduation', data.year);
+
+
     formData.append('Country', data.countryCode);
-    formData.append('College Year Of Graduation', data.year);
+    
 
     // ✅ Dynamic Program assignment
     const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';
     formData.append('Program', programName);
     formData.append('College Programs', programName);
 
-    formData.append('Ga_client_id', '');
+    formData.append('Ga_client_id', GaClientId ? GaClientId : '');
     formData.append('Business Unit', 'Odinschool');
     formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course form');
     isCoupon && formData.append('Coupon Code', 'EBO2025');
+
+
+      // user location open
+      formData.append('Other_City', city);
+      formData.append('Other_State', state);
+      // user location close
+
 
     // Use the UTM data from state
     formData.append('First Page Seen', utm['First Page Seen'] || '');
@@ -107,6 +137,13 @@ const handleFormSubmit = async (data: any, reset: () => void) => {
 
     sessionStorage.setItem('submittedEmail', data.email);
     reset();
+
+    
+      sessionStorage.setItem('first_name', data.firstName);
+      sessionStorage.setItem('last_name', data.lastName);
+      sessionStorage.setItem('phone', data.phone);
+
+      
     setTimeout(() => router.push(`/thank-you?title=${slug}`), 1000);
   } catch (error: any) {
     console.error(error);

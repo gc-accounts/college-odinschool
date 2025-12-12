@@ -8,6 +8,9 @@ import brochureFormField from '@/components/data/brochureFormField'
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData'
 import { useToast } from '@/components/hooks/use-toast';
 import { pushToDataLayer } from '@/lib/gtm'
+import { fetchUserLocation2 } from '@/components/utils/fetchUserLocation2' // updated for city/state
+import { getGaCookieValue } from '@/components/utils/cookieUtils' // added for GA client
+
 interface BrochureButtonProps {
   slug: string
 }
@@ -15,14 +18,27 @@ interface BrochureButtonProps {
 const BrochureButton = ({ slug }: BrochureButtonProps) => {
   const [formOpen, setFormOpen] = useState(false)
   const [brochureFormOpen, setBrochureFormOpen] = useState(false)
-    const [utm, setUtm] = React.useState<Record<string, string>>({});
-  
+  const [utm, setUtm] = React.useState<Record<string, string>>({});
+  const [state, setState] = useState('')
+  const [city, setCity] = useState('') // added for city
+  const [GaClientId, setGaClientId] = useState('') // added for GA client id
+
   const { toast } = useToast()
 
-   useEffect(() => {
-      const data = getUTMTrackingData();
-      setUtm(data);
-    }, []);
+  // Get location (city/state) and GA client id
+  const getLocation = async () => {
+    const location = await fetchUserLocation2();
+    setCity(location.city)
+    setState(location.region)
+  }
+
+  useEffect(() => {
+    const data = getUTMTrackingData();
+    setUtm(data);
+    getLocation()
+    const gaValue = getGaCookieValue(); // GA client id logic
+    setGaClientId(gaValue);
+  }, []);
 
   // ✅ Handle Brochure Form Submission
   const handleBrochureFormSubmit = async (data: any, reset: () => void) => {
@@ -36,30 +52,36 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('First Name', data.firstName);
       brochureFormData.append('Last Name', data.lastName);
       brochureFormData.append('Email', data.email);
-       // Extract country code (e.g., '+91 (India)' -> '+91')
+
+      // Extract country code (e.g., '+91 (India)' -> '+91')
       const countryCode = data.countryCodeValue.split(' ')[0];
       const fullPhoneNumber = countryCode + data.phone; // Concatenate country code and phone number
       brochureFormData.append('Phone', fullPhoneNumber);
-      brochureFormData.append('StudentId', data.StudentId);
-      brochureFormData.append('College Name', data.collegeName);
-      brochureFormData.append('Other City', data.city);
+
+      // brochureFormData.append('StudentId', data.StudentId);
+      // brochureFormData.append('College Name', data.collegeName);
+      // brochureFormData.append('Other City', data.city);
+      // brochureFormData.append('College Year Of Graduation', data.year);
+
       brochureFormData.append('Country', data.countryCode);
 
-      brochureFormData.append('College Year Of Graduation', data.year);
-
-          // ✅ Dynamic Program assignment
-    const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';
-    brochureFormData.append('Program', programName);
-    brochureFormData.append('College Programs', programName);
-      brochureFormData.append('Ga_client_id', '');
+      // ✅ Dynamic Program assignment
+      const programName = slug === 'ai-analyst-course' ? 'AI Analyst' : 'Data Analyst';
+      brochureFormData.append('Program', programName);
+      brochureFormData.append('College Programs', programName);
+      brochureFormData.append('Ga_client_id', GaClientId ? GaClientId : ''); // updated to get actual client id
       brochureFormData.append('Business Unit', 'Odinschool');
+      brochureFormData.append('Source_Domain', 'Brochure Form');
 
-      brochureFormData.append('Source_Domain', 'Brochure Form')
+      brochureFormData.append('Year of Graduation', data.year);
+      brochureFormData.append('Work Experience Level', data.experience);
 
+      // user location open (now both city & state)
+      brochureFormData.append('Other_City', city); // added
+      brochureFormData.append('Other_State', state);
+      // user location close
 
-
-
-       // Use the UTM data from state
+      // Use the UTM data from state
       brochureFormData.append('First Page Seen', utm['First Page Seen'] || '');
       brochureFormData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
       brochureFormData.append(
@@ -73,7 +95,6 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
       brochureFormData.append('UTM Term-First Page Seen', utm['UTM Term-First Page Seen'] || '');
       brochureFormData.append('UTM Content-First Page Seen', utm['UTM Content-First Page Seen'] || '');
       brochureFormData.append('ads_gclid', utm['ads_gclid'])
-
 
       const response = await fetch('/api/zoho/brochure', {
         method: 'POST',
@@ -90,7 +111,6 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
         description: 'Check your email shortly for the brochure.'
       })
 
-
       // --- START: Add GTM Data Layer Push Here ---
       pushToDataLayer('brochure_download_success', {
         eventName: 'brochure_download_modal',
@@ -98,7 +118,6 @@ const BrochureButton = ({ slug }: BrochureButtonProps) => {
         user_email: data.email,
       });
       // --- END: Add GTM Data Layer Push Here ---
-
 
       reset() // ✅ Clear form fields
       setBrochureFormOpen(false)

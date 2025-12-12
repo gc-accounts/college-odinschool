@@ -9,11 +9,11 @@ designation:string;
 intern_profile:string;
 certificate_img:string;
 from_pos:string;
-to_pos:string
+to_pos:string;
 }
 interface InternsJourneyProps {
   sectionClass?: string;
-  internshipData:interCardItem[]
+  internshipData12:interCardItem[]
 }
 
 
@@ -39,7 +39,7 @@ export const internshipData = [
 ];
 
 
-const InternsJourney = ({ sectionClass , internshipData }: InternsJourneyProps) => {
+const InternsJourney = ({ sectionClass  }: InternsJourneyProps) => {
   return (
     <section className={`${sectionClass ?? "px-6 py-12 bg-white"}`}>
       <div className="container mx-auto">
@@ -71,7 +71,7 @@ const InternsJourney = ({ sectionClass , internshipData }: InternsJourneyProps) 
 
                 {/* From → To */}
       <div className="flex items-center gap-2 mt-2 text-sm text-gray-700 text-center">
-  <span className="font-medium break-words max-w-[200px] text-xs">
+  <span className="font-medium break-words max-w-fit text-xs">
     {intern.from_pos}
   </span>
   <MdKeyboardDoubleArrowRight className="text-primary-600 w-10 h-10" />

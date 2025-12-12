@@ -34,6 +34,7 @@ const Footer = () => {
         { name: 'Home', href: '/' },
         // { name: 'Courses', href: '/courses' },
         { name: 'Webinars', href: 'https://www.odinschool.com/webinars' },
+        { name: 'Reviews', href: 'https://www.odinschool.com/reviews' },
         { name: 'Success Stories', href: 'https://www.odinschool.com/success-stories' },
       ],
     },

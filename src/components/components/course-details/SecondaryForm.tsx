@@ -1,12 +1,15 @@
 // PrimaryForm.tsx
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useToast } from '@/components/hooks/use-toast';
 import DynamicForm, { FieldConfig } from '@/components/components/form/DynamicForm';
 import { getUTMTrackingData } from '@/components/utils/getUTMTrackingData';
 import { useRouter } from 'next/navigation';
 import CourseSecondaryFormFields from '@/components/data/form-fields/CourseSecondaryFormFields';
+import { fetchUserLocation } from '@/components/utils/fetchUserLocation';
+import { getGaCookieValue } from '@/components/utils/cookieUtils';
+import { fetchUserLocation2 } from '@/components/utils/fetchUserLocation2';
 interface SecondaryFormProps {
   isModal: Boolean;
   isCoupon: Boolean;
@@ -20,7 +23,17 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
   const [utm, setUtm] = React.useState<Record<string, string>>({});
   const router = useRouter();
 
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
 
+  const [GaClientId, setGaClientId] = useState('');
+  
+
+  const getLocation = async () => {
+    const location = await fetchUserLocation2();
+    setCity(location.city);
+    setState(location.region);
+  };
 
   const getAccessToken = async () => {
     const res = await fetch('/api/auth/course-form-token', {
@@ -35,7 +48,10 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
   useEffect(() => {
     const data = getUTMTrackingData();
     setUtm(data);
+    getLocation()
     sessionStorage.setItem('utmTracking', JSON.stringify(data));
+    const gaValue = getGaCookieValue();
+    setGaClientId(gaValue);
   }, []);
 
   const handleFormSubmit = async (data: any, reset: () => void) => {
@@ -49,10 +65,22 @@ const SecondaryForm: React.FC<SecondaryFormProps> = ({ isCoupon, isModal, button
       formData.append('Phone', data.phone);
       formData.append('Program', data.program);
       formData.append('Year of Graduation', data.year);
-      formData.append('Ga_client_id', '');
+      formData.append('Work Experience Level', data.experience);
+
+      // formData.append('College Year Of Graduation', data.year);
+      formData.append('Ga_client_id', GaClientId ? GaClientId : '');
       formData.append('Business Unit', 'Odinschool');
       formData.append('Source_Domain', sourceDomain ? sourceDomain : 'Course Form');
       isCoupon && formData.append('Coupon Code', 'EBO2025');
+
+
+      // user location open
+      formData.append('Other_City', city);
+      formData.append('Other_State', state);
+      // user location close
+
+
+
       formData.append('First Page Seen', utm['First Page Seen'] || '');
       formData.append('Original Traffic Source', utm['Original Traffic Source'] || '');
       formData.append(
