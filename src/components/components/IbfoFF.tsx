@@ -124,7 +124,7 @@ const IbfoFF = ({ sectionClass, cohortDates }: dsEliteProps) => {
 
        {/* Conditional rendering of either the skeleton or the actual form */}
               {formLoaded ? (
-                <PrimaryForm slug={'data-analyst-course'} isModal={false} buttonText={'Request a Callback'} sourceDomain='Course form' />
+                <PrimaryForm slug={'investment-banking-finance-ops'} isModal={false} buttonText={'Request a Callback'} sourceDomain='Course form' />
               ) : (
                 <FormSkeleton />
               )}
