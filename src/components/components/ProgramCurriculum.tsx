@@ -6,6 +6,7 @@ import BrochureButton from '@/components/components/custom-component/BrochureBut
 
 interface ProgramCurriculumProps {
   sectionClass?: string;
+  bg?: string;
   slug?: string;
   title?: string;
   subText?: string;
@@ -19,12 +20,18 @@ interface ProgramCurriculumProps {
   }[];
 }
 
-const ProgramCurriculum = ({ sectionClass, slug, data, title, subText }: ProgramCurriculumProps) => {
+const ProgramCurriculum = ({ sectionClass, slug, data, title, subText, bg }: ProgramCurriculumProps) => {
+
+  const isDarkBg = bg === "dark" || bg === "black" || bg?.includes("bg-dark");
+
   return (
     <section className={`${sectionClass ? sectionClass : 'py-16 md:py-24 bg-white'}`}>
       <div className="container">
         <div className='section-header text-center'>
-           <h2 className="mb-4 text-3xl md:text-5xl font-display leading-tight">
+           <h2
+            className={`mb-4 text-3xl md:text-5xl font-display leading-tight 
+              ${isDarkBg ? "text-white" : "text-black"}`}
+          >
             Program <span className="text-primary-600">Curriculum</span>
           </h2>
           <p className='text-md text-center text-balck'>{subText}</p>
@@ -67,14 +74,19 @@ const ProgramCurriculum = ({ sectionClass, slug, data, title, subText }: Program
           </div>
         ))}
 
-        <p className='text-black font-medium md:text-xl text-base text-center mt-10 mb-3'>
-          The curriculum includes both Mini Capstone and Capstone projects, providing students with practical application of their learning.
-        </p>
+       {slug !== "investment-banking-finance-ops" && (
+  <>
+    <p className="text-black font-medium md:text-xl text-base text-center mt-10 mb-3">
+      The curriculum includes both Mini Capstone and Capstone projects, providing students with practical application of their learning.
+    </p>
 
-        <p className='text-black md:text-sm text-xs text-center mb-5 italic'>
-          Note: AI tools are subject to changes based on the availability and other updates on the course pages.
-        </p>
+    <p className="text-black md:text-sm text-xs text-center mb-5 italic">
+      Note: AI tools are subject to changes based on the availability and other updates on the course pages.
+    </p>
+  </>
+)}
 
+<br/>
          <BrochureButton slug={slug} />
       </div>
     </section>

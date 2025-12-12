@@ -107,6 +107,14 @@ const MobileNav = () => {
                       AI Analyst  Program
                     </Link>
 
+                    <Link
+                      href="/investment-banking-finance-ops"
+                      className="py-2 text-sm"
+                      onClick={closeSheet}
+                    >
+                      Investment Banking & Finance Ops
+                    </Link>
+
                   </div>
                 </AccordionContent>
               </AccordionItem>
