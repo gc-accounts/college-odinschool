@@ -83,7 +83,13 @@ const getLocation= async()=>{
 
 
       // program
-      const programName= pathname.includes('ai-analyst-course') ? 'AI Analyst' : 'Data Analyst'
+      // const programName= pathname.includes('ai-analyst-course') ? 'AI Analyst' : 'Data Analyst'
+      const programName =
+  pathname.includes('data-analyst-course') ? 'Data Analyst' :
+  pathname.includes('ai-analyst-course') ? 'AI Analyst' :
+  pathname.includes('investment-banking-finance-ops') ? 'College Investment Banking' :
+  '';
+
       zohoFormData.append('Program', programName);
       zohoFormData.append('College Programs', programName); 
       
