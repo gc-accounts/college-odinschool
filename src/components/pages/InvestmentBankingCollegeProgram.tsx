@@ -144,7 +144,7 @@ const InvestmentBankingCollegeProgram = ({initialCourse}:Props) => {
           <OrganizationLogos sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]"  />    
           <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DsMentorsData} />
           <StudentsTicker sectionClass="bg-primary-50 px-0 py-[50px] md:px-0 md:py-[70px]" />
-          <IbFeeModule slug='investment-banking-finance-ops' cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          {/* <IbFeeModule slug='investment-banking-finance-ops' cohortDates={course.cohortDates} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> */}
           <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={IbCollegeProgramFaqsData} />
           
 

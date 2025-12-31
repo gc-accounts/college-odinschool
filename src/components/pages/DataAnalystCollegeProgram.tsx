@@ -158,7 +158,7 @@ const DataAnalystCollegeProgram = ({initialCourse}:Props) => {
           <InstructorProfileHome sectionClass="bg-[#021331] px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DsMentorsData} />
           <StudentsTicker sectionClass="bg-primary-50 px-0 py-[50px] md:px-0 md:py-[70px]" />
           <EnrollProgram sectionClass="bg-white px-0 py-[50px] md:px-0 md:py-[70px]" />
-          <DaFeeModule slug='data-analyst-course' cohortDates={course.cohortDates} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" />
+          {/* <DaFeeModule slug='data-analyst-course' cohortDates={course.cohortDates} sectionClass="bg-primary-50 px-[20px] py-[50px] md:px-[30px] md:py-[70px]" /> */}
           <FAQsection fontFamily={dmSerifDisplay.variable} sectionClass="bg-white px-[20px] py-[50px] md:px-[30px] md:py-[70px]" data={DaCollegeProgramFaqsData} />
         </main>
         <Footer />

@@ -80,7 +80,7 @@ export default function RootLayout({
         </noscript>
         <ProgramProvider>
           {children}
-          <WhatsAppChat />
+          {/* <WhatsAppChat /> */}
         </ProgramProvider>
         <Toaster />
       </body>
